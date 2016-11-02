@@ -1,0 +1,1 @@
+!function(){var a=document.getElementById("asideTrigger");a.onclick=function(){document.body.classList.contains("_full")?document.body.classList.remove("_full"):document.body.classList.add("_full")}}();
