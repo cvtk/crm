@@ -63,6 +63,62 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+	width: 100%;
+	border: 1px solid #e7ecf1;
+	background-color: #fbfcfd;
+	> thead {
+		> tr {
+			> td {
+				text-align: center;
+				max-width: 50px;
+				min-width: 40px;
+				padding: 8px 10px;
+				vertical-align: middle;
+    		border-top: 1px solid #e7ecf1;
+			}
+		}
+	}
+	> tbody {
+		> tr {
+			> td {
+				text-align: center;
+				max-width: 50px;
+				min-width: 40px;
+				padding: 8px 10px;
+				vertical-align: middle;
+    		border-top: 1px solid #e7ecf1;
+			}
+		}
+	}
+}
+
+button {
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding: 6px 12px;
+  line-height: 1.42857;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+	border-color: #32c5d2;
+	color: #32c5d2;
+	background: 0 0;
+	transition: all .3s;
+	outline: 0;
+	&:hover {
+		border-color: #32c5d2;
+    color: #FFF;
+    background-color: #32c5d2;
+	}
+	> i { font-size: 10px; padding-left: 5px; vertical-align: middle;}
 }
 
 html,body {
@@ -124,17 +180,19 @@ aside {
   margin-right: -100%;
   background-color: #364150;
   transition: .35s ease-in-out;
+  &:after {
+  	content: " ";
+  	display: table;
+  	clear: both;
+  }
 }
 
 main {
-	width: 100%;
 	min-height: 100%;
 	position: relative;
-	float: left;
 	margin-left: 235px;
-	margin-top: 50px;
 	background-color: #eef1f5;
-	padding: 25px 20px 10px;
+	padding: 50px 20px 10px;
 	transition: .35s ease-in-out;
 }
 
@@ -214,6 +272,55 @@ main {
     	font-weight: 300;
     	&:hover { background: #2C3542; }
     	> i { transition: .35s ease-in-out; }
+		}
+	}
+}
+
+.main-bar {
+	border-bottom: 1px solid #e7ecf1;
+	position: relative;
+	padding: 0 20px;
+	margin: 25px -20px;
+	height: 55px;
+	> .title {
+		font-size: 24px;
+		color: #666;
+		letter-spacing: -1px;
+		font-weight: 400;
+		float: left;
+		width: 60%;
+		> .subtitle {
+			font-size: 14px;
+    	letter-spacing: 0;
+    	font-weight: 300;
+		}
+	}
+	> .actions {
+		float: right;
+	}
+	&:after {
+		content: " ";
+		display: table;
+		clear: both;
+	}
+}
+
+.contacts-table {
+	> .content {
+		> tr {
+			> .phone {
+					cursor: pointer;
+					transition: color .35s ease-in-out;
+					&:hover {
+						color: #32c5d2;
+					}
+				}
+			> td {
+				> .actions {
+					border: 0;
+					> i { font-size: 24px; padding: 0;}
+				}
+			}
 		}
 	}
 }
