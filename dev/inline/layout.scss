@@ -129,6 +129,11 @@ html,body {
 	font-family: "Open Sans";
 	color: #65717b;
 	line-height: 1.4;
+	&._callerWidgetShow {
+		> .caller-widget { width: 0; }
+		> main { margin-right: 0; }
+	}
+
 	&._full {
 		> aside { width: 50px; } 
 		> main { margin-left: 50px; }
@@ -191,6 +196,7 @@ main {
 	min-height: 100%;
 	position: relative;
 	margin-left: 235px;
+	margin-right: 235px;
 	background-color: #eef1f5;
 	padding: 50px 20px 10px;
 	transition: .35s ease-in-out;
@@ -305,22 +311,8 @@ main {
 	}
 }
 
-.contacts-table {
-	> .content {
-		> tr {
-			> .phone {
-					cursor: pointer;
-					transition: color .35s ease-in-out;
-					&:hover {
-						color: #32c5d2;
-					}
-				}
-			> td {
-				> .actions {
-					border: 0;
-					> i { font-size: 24px; padding: 0;}
-				}
-			}
-		}
-	}
+.caller-widget {
+	float: right;
+	margin-right: 0;
+	margin-left: -100%;
 }

@@ -1,0 +1,3139 @@
+object(PAMI\Message\Event\NewchannelEvent)#5 (6) {
+  ["rawContent":protected]=>
+  string(309) "Event: Newchannel
+Privilege: call,all
+Channel: SIP/isp-0000000c
+ChannelState: 0
+ChannelStateDesc: Down
+CallerIDNum: 9605330101
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+AccountCode: 
+Context: office_mainmenu
+Exten: 770760
+Priority: 1
+Uniqueid: 1478596925.88"
+  ["channelVariables":protected]=>
+  array(1) {
+    ["sip/isp-0000000c"]=>
+    array(0) {
+    }
+  }
+  ["lines":protected]=>
+  array(0) {
+  }
+  ["variables":protected]=>
+  array(0) {
+  }
+  ["keys":protected]=>
+  array(14) {
+    ["event"]=>
+    string(10) "Newchannel"
+    ["privilege"]=>
+    string(8) "call,all"
+    ["channel"]=>
+    string(16) "SIP/isp-0000000c"
+    ["channelstate"]=>
+    string(1) "0"
+    ["channelstatedesc"]=>
+    string(4) "Down"
+    ["calleridnum"]=>
+    string(10) "9605330101"
+    ["calleridname"]=>
+    string(9) "<unknown>"
+    ["connectedlinenum"]=>
+    string(9) "<unknown>"
+    ["connectedlinename"]=>
+    string(9) "<unknown>"
+    ["accountcode"]=>
+    string(0) ""
+    ["context"]=>
+    string(15) "office_mainmenu"
+    ["exten"]=>
+    string(6) "770760"
+    ["priority"]=>
+    string(1) "1"
+    ["uniqueid"]=>
+    string(13) "1478596925.88"
+  }
+  ["createdDate":protected]=>
+  int(1478596925)
+}
+object(PAMI\Message\Event\VarSetEvent)#7 (6) {
+  ["rawContent":protected]=>
+  string(367) "Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/isp-0000000c
+ChannelState: 0
+ChannelStateDesc: Down
+CallerIDNum: 9605330101
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+AccountCode: 
+Context: office_mainmenu
+Exten: 770760
+Priority: 1
+Uniqueid: 1478596925.88
+Variable: SIPURI
+Value: sip:9605330101@10.13.254.9:5060"
+  ["channelVariables":protected]=>
+  array(1) {
+    ["sip/isp-0000000c"]=>
+    array(0) {
+    }
+  }
+  ["lines":protected]=>
+  array(0) {
+  }
+  ["variables":protected]=>
+  array(0) {
+  }
+  ["keys":protected]=>
+  array(16) {
+    ["event"]=>
+    string(6) "VarSet"
+    ["privilege"]=>
+    string(12) "dialplan,all"
+    ["channel"]=>
+    string(16) "SIP/isp-0000000c"
+    ["channelstate"]=>
+    string(1) "0"
+    ["channelstatedesc"]=>
+    string(4) "Down"
+    ["calleridnum"]=>
+    string(10) "9605330101"
+    ["calleridname"]=>
+    string(9) "<unknown>"
+    ["connectedlinenum"]=>
+    string(9) "<unknown>"
+    ["connectedlinename"]=>
+    string(9) "<unknown>"
+    ["accountcode"]=>
+    string(0) ""
+    ["context"]=>
+    string(15) "office_mainmenu"
+    ["exten"]=>
+    string(6) "770760"
+    ["priority"]=>
+    string(1) "1"
+    ["uniqueid"]=>
+    string(13) "1478596925.88"
+    ["variable"]=>
+    string(6) "SIPURI"
+    ["value"]=>
+    string(31) "sip:9605330101@10.13.254.9:5060"
+  }
+  ["createdDate":protected]=>
+  int(1478596925)
+}
+object(PAMI\Message\Event\VarSetEvent)#5 (6) {
+  ["rawContent":protected]=>
+  string(351) "Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/isp-0000000c
+ChannelState: 0
+ChannelStateDesc: Down
+CallerIDNum: 9605330101
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+AccountCode: 
+Context: office_mainmenu
+Exten: 770760
+Priority: 1
+Uniqueid: 1478596925.88
+Variable: SIPDOMAIN
+Value: 10.13.254.10"
+  ["channelVariables":protected]=>
+  array(1) {
+    ["sip/isp-0000000c"]=>
+    array(0) {
+    }
+  }
+  ["lines":protected]=>
+  array(0) {
+  }
+  ["variables":protected]=>
+  array(0) {
+  }
+  ["keys":protected]=>
+  array(16) {
+    ["event"]=>
+    string(6) "VarSet"
+    ["privilege"]=>
+    string(12) "dialplan,all"
+    ["channel"]=>
+    string(16) "SIP/isp-0000000c"
+    ["channelstate"]=>
+    string(1) "0"
+    ["channelstatedesc"]=>
+    string(4) "Down"
+    ["calleridnum"]=>
+    string(10) "9605330101"
+    ["calleridname"]=>
+    string(9) "<unknown>"
+    ["connectedlinenum"]=>
+    string(9) "<unknown>"
+    ["connectedlinename"]=>
+    string(9) "<unknown>"
+    ["accountcode"]=>
+    string(0) ""
+    ["context"]=>
+    string(15) "office_mainmenu"
+    ["exten"]=>
+    string(6) "770760"
+    ["priority"]=>
+    string(1) "1"
+    ["uniqueid"]=>
+    string(13) "1478596925.88"
+    ["variable"]=>
+    string(9) "SIPDOMAIN"
+    ["value"]=>
+    string(12) "10.13.254.10"
+  }
+  ["createdDate":protected]=>
+  int(1478596925)
+}
+object(PAMI\Message\Event\VarSetEvent)#7 (6) {
+  ["rawContent":protected]=>
+  string(384) "Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/isp-0000000c
+ChannelState: 0
+ChannelStateDesc: Down
+CallerIDNum: 9605330101
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+AccountCode: 
+Context: office_mainmenu
+Exten: 770760
+Priority: 1
+Uniqueid: 1478596925.88
+Variable: SIPCALLID
+Value: SBCimj9ojvu9ovpnvuvxjjiukxon0jnuavo@SoftX3000"
+  ["channelVariables":protected]=>
+  array(1) {
+    ["sip/isp-0000000c"]=>
+    array(0) {
+    }
+  }
+  ["lines":protected]=>
+  array(0) {
+  }
+  ["variables":protected]=>
+  array(0) {
+  }
+  ["keys":protected]=>
+  array(16) {
+    ["event"]=>
+    string(6) "VarSet"
+    ["privilege"]=>
+    string(12) "dialplan,all"
+    ["channel"]=>
+    string(16) "SIP/isp-0000000c"
+    ["channelstate"]=>
+    string(1) "0"
+    ["channelstatedesc"]=>
+    string(4) "Down"
+    ["calleridnum"]=>
+    string(10) "9605330101"
+    ["calleridname"]=>
+    string(9) "<unknown>"
+    ["connectedlinenum"]=>
+    string(9) "<unknown>"
+    ["connectedlinename"]=>
+    string(9) "<unknown>"
+    ["accountcode"]=>
+    string(0) ""
+    ["context"]=>
+    string(15) "office_mainmenu"
+    ["exten"]=>
+    string(6) "770760"
+    ["priority"]=>
+    string(1) "1"
+    ["uniqueid"]=>
+    string(13) "1478596925.88"
+    ["variable"]=>
+    string(9) "SIPCALLID"
+    ["value"]=>
+    string(45) "SBCimj9ojvu9ovpnvuvxjjiukxon0jnuavo@SoftX3000"
+  }
+  ["createdDate":protected]=>
+  int(1478596925)
+}
+object(PAMI\Message\Event\NewstateEvent)#5 (6) {
+  ["rawContent":protected]=>
+  string(307) "Event: Newstate
+Privilege: call,all
+Channel: SIP/isp-0000000c
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 9605330101
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+AccountCode: 
+Context: office_mainmenu
+Exten: 770760
+Priority: 1
+Uniqueid: 1478596925.88"
+  ["channelVariables":protected]=>
+  array(1) {
+    ["sip/isp-0000000c"]=>
+    array(0) {
+    }
+  }
+  ["lines":protected]=>
+  array(0) {
+  }
+  ["variables":protected]=>
+  array(0) {
+  }
+  ["keys":protected]=>
+  array(14) {
+    ["event"]=>
+    string(8) "Newstate"
+    ["privilege"]=>
+    string(8) "call,all"
+    ["channel"]=>
+    string(16) "SIP/isp-0000000c"
+    ["channelstate"]=>
+    string(1) "4"
+    ["channelstatedesc"]=>
+    string(4) "Ring"
+    ["calleridnum"]=>
+    string(10) "9605330101"
+    ["calleridname"]=>
+    string(9) "<unknown>"
+    ["connectedlinenum"]=>
+    string(9) "<unknown>"
+    ["connectedlinename"]=>
+    string(9) "<unknown>"
+    ["accountcode"]=>
+    string(0) ""
+    ["context"]=>
+    string(15) "office_mainmenu"
+    ["exten"]=>
+    string(6) "770760"
+    ["priority"]=>
+    string(1) "1"
+    ["uniqueid"]=>
+    string(13) "1478596925.88"
+  }
+  ["createdDate":protected]=>
+  int(1478596925)
+}
+object(PAMI\Message\Event\NewextenEvent)#5 (6) {
+  ["rawContent":protected]=>
+  string(408) "Event: Newexten
+Privilege: call,all
+Channel: SIP/isp-0000000c
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 9605330101
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+AccountCode: 
+Context: office_mainmenu
+Exten: 770760
+Priority: 1
+Uniqueid: 1478596925.88
+Extension: 770760
+Application: NoOp
+AppData: "[office_mainmenu]: начало контекста""
+  ["channelVariables":protected]=>
+  array(1) {
+    ["sip/isp-0000000c"]=>
+    array(0) {
+    }
+  }
+  ["lines":protected]=>
+  array(0) {
+  }
+  ["variables":protected]=>
+  array(0) {
+  }
+  ["keys":protected]=>
+  array(17) {
+    ["event"]=>
+    string(8) "Newexten"
+    ["privilege"]=>
+    string(8) "call,all"
+    ["channel"]=>
+    string(16) "SIP/isp-0000000c"
+    ["channelstate"]=>
+    string(1) "4"
+    ["channelstatedesc"]=>
+    string(4) "Ring"
+    ["calleridnum"]=>
+    string(10) "9605330101"
+    ["calleridname"]=>
+    string(9) "<unknown>"
+    ["connectedlinenum"]=>
+    string(9) "<unknown>"
+    ["connectedlinename"]=>
+    string(9) "<unknown>"
+    ["accountcode"]=>
+    string(0) ""
+    ["context"]=>
+    string(15) "office_mainmenu"
+    ["exten"]=>
+    string(6) "770760"
+    ["priority"]=>
+    string(1) "1"
+    ["uniqueid"]=>
+    string(13) "1478596925.88"
+    ["extension"]=>
+    string(6) "770760"
+    ["application"]=>
+    string(4) "NoOp"
+    ["appdata"]=>
+    string(52) ""[office_mainmenu]: начало контекста""
+  }
+  ["createdDate":protected]=>
+  int(1478596925)
+}
+object(PAMI\Message\Event\VarSetEvent)#7 (6) {
+  ["rawContent":protected]=>
+  string(339) "Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/isp-0000000c
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 9605330101
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+AccountCode: 
+Context: office_mainmenu
+Exten: 770760
+Priority: 1
+Uniqueid: 1478596925.88
+Variable: ODBCROWS
+Value: 1"
+  ["channelVariables":protected]=>
+  array(1) {
+    ["sip/isp-0000000c"]=>
+    array(0) {
+    }
+  }
+  ["lines":protected]=>
+  array(0) {
+  }
+  ["variables":protected]=>
+  array(0) {
+  }
+  ["keys":protected]=>
+  array(16) {
+    ["event"]=>
+    string(6) "VarSet"
+    ["privilege"]=>
+    string(12) "dialplan,all"
+    ["channel"]=>
+    string(16) "SIP/isp-0000000c"
+    ["channelstate"]=>
+    string(1) "4"
+    ["channelstatedesc"]=>
+    string(4) "Ring"
+    ["calleridnum"]=>
+    string(10) "9605330101"
+    ["calleridname"]=>
+    string(9) "<unknown>"
+    ["connectedlinenum"]=>
+    string(9) "<unknown>"
+    ["connectedlinename"]=>
+    string(9) "<unknown>"
+    ["accountcode"]=>
+    string(0) ""
+    ["context"]=>
+    string(15) "office_mainmenu"
+    ["exten"]=>
+    string(6) "770760"
+    ["priority"]=>
+    string(1) "1"
+    ["uniqueid"]=>
+    string(13) "1478596925.88"
+    ["variable"]=>
+    string(8) "ODBCROWS"
+    ["value"]=>
+    string(1) "1"
+  }
+  ["createdDate":protected]=>
+  int(1478596925)
+}
+object(PAMI\Message\Event\VarSetEvent)#5 (6) {
+  ["rawContent":protected]=>
+  string(347) "Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/isp-0000000c
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 9605330101
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+AccountCode: 
+Context: office_mainmenu
+Exten: 770760
+Priority: 1
+Uniqueid: 1478596925.88
+Variable: ODBCSTATUS
+Value: SUCCESS"
+  ["channelVariables":protected]=>
+  array(1) {
+    ["sip/isp-0000000c"]=>
+    array(0) {
+    }
+  }
+  ["lines":protected]=>
+  array(0) {
+  }
+  ["variables":protected]=>
+  array(0) {
+  }
+  ["keys":protected]=>
+  array(16) {
+    ["event"]=>
+    string(6) "VarSet"
+    ["privilege"]=>
+    string(12) "dialplan,all"
+    ["channel"]=>
+    string(16) "SIP/isp-0000000c"
+    ["channelstate"]=>
+    string(1) "4"
+    ["channelstatedesc"]=>
+    string(4) "Ring"
+    ["calleridnum"]=>
+    string(10) "9605330101"
+    ["calleridname"]=>
+    string(9) "<unknown>"
+    ["connectedlinenum"]=>
+    string(9) "<unknown>"
+    ["connectedlinename"]=>
+    string(9) "<unknown>"
+    ["accountcode"]=>
+    string(0) ""
+    ["context"]=>
+    string(15) "office_mainmenu"
+    ["exten"]=>
+    string(6) "770760"
+    ["priority"]=>
+    string(1) "1"
+    ["uniqueid"]=>
+    string(13) "1478596925.88"
+    ["variable"]=>
+    string(10) "ODBCSTATUS"
+    ["value"]=>
+    string(7) "SUCCESS"
+  }
+  ["createdDate":protected]=>
+  int(1478596925)
+}
+object(PAMI\Message\Event\VarSetEvent)#7 (6) {
+  ["rawContent":protected]=>
+  string(346) "Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/isp-0000000c
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 9605330101
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+AccountCode: 
+Context: office_mainmenu
+Exten: 770760
+Priority: 1
+Uniqueid: 1478596925.88
+Variable: ~ODBCFIELDS~
+Value: name"
+  ["channelVariables":protected]=>
+  array(1) {
+    ["sip/isp-0000000c"]=>
+    array(0) {
+    }
+  }
+  ["lines":protected]=>
+  array(0) {
+  }
+  ["variables":protected]=>
+  array(0) {
+  }
+  ["keys":protected]=>
+  array(16) {
+    ["event"]=>
+    string(6) "VarSet"
+    ["privilege"]=>
+    string(12) "dialplan,all"
+    ["channel"]=>
+    string(16) "SIP/isp-0000000c"
+    ["channelstate"]=>
+    string(1) "4"
+    ["channelstatedesc"]=>
+    string(4) "Ring"
+    ["calleridnum"]=>
+    string(10) "9605330101"
+    ["calleridname"]=>
+    string(9) "<unknown>"
+    ["connectedlinenum"]=>
+    string(9) "<unknown>"
+    ["connectedlinename"]=>
+    string(9) "<unknown>"
+    ["accountcode"]=>
+    string(0) ""
+    ["context"]=>
+    string(15) "office_mainmenu"
+    ["exten"]=>
+    string(6) "770760"
+    ["priority"]=>
+    string(1) "1"
+    ["uniqueid"]=>
+    string(13) "1478596925.88"
+    ["variable"]=>
+    string(12) "~ODBCFIELDS~"
+    ["value"]=>
+    string(4) "name"
+  }
+  ["createdDate":protected]=>
+  int(1478596925)
+}
+object(PAMI\Message\Event\NewextenEvent)#5 (6) {
+  ["rawContent":protected]=>
+  string(388) "Event: Newexten
+Privilege: call,all
+Channel: SIP/isp-0000000c
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 9605330101
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+AccountCode: 
+Context: office_mainmenu
+Exten: 770760
+Priority: 2
+Uniqueid: 1478596925.88
+Extension: 770760
+Application: NoOp
+AppData: Восток Сервис ЗАО"
+  ["channelVariables":protected]=>
+  array(1) {
+    ["sip/isp-0000000c"]=>
+    array(0) {
+    }
+  }
+  ["lines":protected]=>
+  array(0) {
+  }
+  ["variables":protected]=>
+  array(0) {
+  }
+  ["keys":protected]=>
+  array(17) {
+    ["event"]=>
+    string(8) "Newexten"
+    ["privilege"]=>
+    string(8) "call,all"
+    ["channel"]=>
+    string(16) "SIP/isp-0000000c"
+    ["channelstate"]=>
+    string(1) "4"
+    ["channelstatedesc"]=>
+    string(4) "Ring"
+    ["calleridnum"]=>
+    string(10) "9605330101"
+    ["calleridname"]=>
+    string(9) "<unknown>"
+    ["connectedlinenum"]=>
+    string(9) "<unknown>"
+    ["connectedlinename"]=>
+    string(9) "<unknown>"
+    ["accountcode"]=>
+    string(0) ""
+    ["context"]=>
+    string(15) "office_mainmenu"
+    ["exten"]=>
+    string(6) "770760"
+    ["priority"]=>
+    string(1) "2"
+    ["uniqueid"]=>
+    string(13) "1478596925.88"
+    ["extension"]=>
+    string(6) "770760"
+    ["application"]=>
+    string(4) "NoOp"
+    ["appdata"]=>
+    string(32) "Восток Сервис ЗАО"
+  }
+  ["createdDate":protected]=>
+  int(1478596925)
+}
+object(PAMI\Message\Event\VarSetEvent)#7 (6) {
+  ["rawContent":protected]=>
+  string(339) "Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/isp-0000000c
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 9605330101
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+AccountCode: 
+Context: office_mainmenu
+Exten: 770760
+Priority: 2
+Uniqueid: 1478596925.88
+Variable: ODBCROWS
+Value: 1"
+  ["channelVariables":protected]=>
+  array(1) {
+    ["sip/isp-0000000c"]=>
+    array(0) {
+    }
+  }
+  ["lines":protected]=>
+  array(0) {
+  }
+  ["variables":protected]=>
+  array(0) {
+  }
+  ["keys":protected]=>
+  array(16) {
+    ["event"]=>
+    string(6) "VarSet"
+    ["privilege"]=>
+    string(12) "dialplan,all"
+    ["channel"]=>
+    string(16) "SIP/isp-0000000c"
+    ["channelstate"]=>
+    string(1) "4"
+    ["channelstatedesc"]=>
+    string(4) "Ring"
+    ["calleridnum"]=>
+    string(10) "9605330101"
+    ["calleridname"]=>
+    string(9) "<unknown>"
+    ["connectedlinenum"]=>
+    string(9) "<unknown>"
+    ["connectedlinename"]=>
+    string(9) "<unknown>"
+    ["accountcode"]=>
+    string(0) ""
+    ["context"]=>
+    string(15) "office_mainmenu"
+    ["exten"]=>
+    string(6) "770760"
+    ["priority"]=>
+    string(1) "2"
+    ["uniqueid"]=>
+    string(13) "1478596925.88"
+    ["variable"]=>
+    string(8) "ODBCROWS"
+    ["value"]=>
+    string(1) "1"
+  }
+  ["createdDate":protected]=>
+  int(1478596925)
+}
+object(PAMI\Message\Event\VarSetEvent)#5 (6) {
+  ["rawContent":protected]=>
+  string(347) "Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/isp-0000000c
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 9605330101
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+AccountCode: 
+Context: office_mainmenu
+Exten: 770760
+Priority: 2
+Uniqueid: 1478596925.88
+Variable: ODBCSTATUS
+Value: SUCCESS"
+  ["channelVariables":protected]=>
+  array(1) {
+    ["sip/isp-0000000c"]=>
+    array(0) {
+    }
+  }
+  ["lines":protected]=>
+  array(0) {
+  }
+  ["variables":protected]=>
+  array(0) {
+  }
+  ["keys":protected]=>
+  array(16) {
+    ["event"]=>
+    string(6) "VarSet"
+    ["privilege"]=>
+    string(12) "dialplan,all"
+    ["channel"]=>
+    string(16) "SIP/isp-0000000c"
+    ["channelstate"]=>
+    string(1) "4"
+    ["channelstatedesc"]=>
+    string(4) "Ring"
+    ["calleridnum"]=>
+    string(10) "9605330101"
+    ["calleridname"]=>
+    string(9) "<unknown>"
+    ["connectedlinenum"]=>
+    string(9) "<unknown>"
+    ["connectedlinename"]=>
+    string(9) "<unknown>"
+    ["accountcode"]=>
+    string(0) ""
+    ["context"]=>
+    string(15) "office_mainmenu"
+    ["exten"]=>
+    string(6) "770760"
+    ["priority"]=>
+    string(1) "2"
+    ["uniqueid"]=>
+    string(13) "1478596925.88"
+    ["variable"]=>
+    string(10) "ODBCSTATUS"
+    ["value"]=>
+    string(7) "SUCCESS"
+  }
+  ["createdDate":protected]=>
+  int(1478596925)
+}
+object(PAMI\Message\Event\VarSetEvent)#7 (6) {
+  ["rawContent":protected]=>
+  string(346) "Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/isp-0000000c
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 9605330101
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+AccountCode: 
+Context: office_mainmenu
+Exten: 770760
+Priority: 2
+Uniqueid: 1478596925.88
+Variable: ~ODBCFIELDS~
+Value: name"
+  ["channelVariables":protected]=>
+  array(1) {
+    ["sip/isp-0000000c"]=>
+    array(0) {
+    }
+  }
+  ["lines":protected]=>
+  array(0) {
+  }
+  ["variables":protected]=>
+  array(0) {
+  }
+  ["keys":protected]=>
+  array(16) {
+    ["event"]=>
+    string(6) "VarSet"
+    ["privilege"]=>
+    string(12) "dialplan,all"
+    ["channel"]=>
+    string(16) "SIP/isp-0000000c"
+    ["channelstate"]=>
+    string(1) "4"
+    ["channelstatedesc"]=>
+    string(4) "Ring"
+    ["calleridnum"]=>
+    string(10) "9605330101"
+    ["calleridname"]=>
+    string(9) "<unknown>"
+    ["connectedlinenum"]=>
+    string(9) "<unknown>"
+    ["connectedlinename"]=>
+    string(9) "<unknown>"
+    ["accountcode"]=>
+    string(0) ""
+    ["context"]=>
+    string(15) "office_mainmenu"
+    ["exten"]=>
+    string(6) "770760"
+    ["priority"]=>
+    string(1) "2"
+    ["uniqueid"]=>
+    string(13) "1478596925.88"
+    ["variable"]=>
+    string(12) "~ODBCFIELDS~"
+    ["value"]=>
+    string(4) "name"
+  }
+  ["createdDate":protected]=>
+  int(1478596925)
+}
+object(PAMI\Message\Event\NewextenEvent)#5 (6) {
+  ["rawContent":protected]=>
+  string(402) "Event: Newexten
+Privilege: call,all
+Channel: SIP/isp-0000000c
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 9605330101
+CallerIDName: <unknown>
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+AccountCode: 
+Context: office_mainmenu
+Exten: 770760
+Priority: 3
+Uniqueid: 1478596925.88
+Extension: 770760
+Application: Set
+AppData: CALLERID(name)=Восток Сервис ЗАО"
+  ["channelVariables":protected]=>
+  array(1) {
+    ["sip/isp-0000000c"]=>
+    array(0) {
+    }
+  }
+  ["lines":protected]=>
+  array(0) {
+  }
+  ["variables":protected]=>
+  array(0) {
+  }
+  ["keys":protected]=>
+  array(17) {
+    ["event"]=>
+    string(8) "Newexten"
+    ["privilege"]=>
+    string(8) "call,all"
+    ["channel"]=>
+    string(16) "SIP/isp-0000000c"
+    ["channelstate"]=>
+    string(1) "4"
+    ["channelstatedesc"]=>
+    string(4) "Ring"
+    ["calleridnum"]=>
+    string(10) "9605330101"
+    ["calleridname"]=>
+    string(9) "<unknown>"
+    ["connectedlinenum"]=>
+    string(9) "<unknown>"
+    ["connectedlinename"]=>
+    string(9) "<unknown>"
+    ["accountcode"]=>
+    string(0) ""
+    ["context"]=>
+    string(15) "office_mainmenu"
+    ["exten"]=>
+    string(6) "770760"
+    ["priority"]=>
+    string(1) "3"
+    ["uniqueid"]=>
+    string(13) "1478596925.88"
+    ["extension"]=>
+    string(6) "770760"
+    ["application"]=>
+    string(3) "Set"
+    ["appdata"]=>
+    string(47) "CALLERID(name)=Восток Сервис ЗАО"
+  }
+  ["createdDate":protected]=>
+  int(1478596925)
+}
+object(PAMI\Message\Event\NewCalleridEvent)#7 (6) {
+  ["rawContent":protected]=>
+  string(390) "Event: NewCallerid
+Privilege: call,all
+Channel: SIP/isp-0000000c
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 9605330101
+CallerIDName: Восток Сервис ЗАО
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+AccountCode: 
+Context: office_mainmenu
+Exten: 770760
+Priority: 3
+Uniqueid: 1478596925.88
+CID-CallingPres: 0 (Presentation Allowed, Not Screened)"
+  ["channelVariables":protected]=>
+  array(1) {
+    ["sip/isp-0000000c"]=>
+    array(0) {
+    }
+  }
+  ["lines":protected]=>
+  array(0) {
+  }
+  ["variables":protected]=>
+  array(0) {
+  }
+  ["keys":protected]=>
+  array(15) {
+    ["event"]=>
+    string(11) "NewCallerid"
+    ["privilege"]=>
+    string(8) "call,all"
+    ["channel"]=>
+    string(16) "SIP/isp-0000000c"
+    ["channelstate"]=>
+    string(1) "4"
+    ["channelstatedesc"]=>
+    string(4) "Ring"
+    ["calleridnum"]=>
+    string(10) "9605330101"
+    ["calleridname"]=>
+    string(32) "Восток Сервис ЗАО"
+    ["connectedlinenum"]=>
+    string(9) "<unknown>"
+    ["connectedlinename"]=>
+    string(9) "<unknown>"
+    ["accountcode"]=>
+    string(0) ""
+    ["context"]=>
+    string(15) "office_mainmenu"
+    ["exten"]=>
+    string(6) "770760"
+    ["priority"]=>
+    string(1) "3"
+    ["uniqueid"]=>
+    string(13) "1478596925.88"
+    ["cid-callingpres"]=>
+    string(38) "0 (Presentation Allowed, Not Screened)"
+  }
+  ["createdDate":protected]=>
+  int(1478596925)
+}
+object(PAMI\Message\Event\NewextenEvent)#5 (6) {
+  ["rawContent":protected]=>
+  string(411) "Event: Newexten
+Privilege: call,all
+Channel: SIP/isp-0000000c
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 9605330101
+CallerIDName: Восток Сервис ЗАО
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+AccountCode: 
+Context: office_mainmenu
+Exten: 770760
+Priority: 4
+Uniqueid: 1478596925.88
+Extension: 770760
+Application: NoOp
+AppData: Восток Сервис ЗАО"
+  ["channelVariables":protected]=>
+  array(1) {
+    ["sip/isp-0000000c"]=>
+    array(0) {
+    }
+  }
+  ["lines":protected]=>
+  array(0) {
+  }
+  ["variables":protected]=>
+  array(0) {
+  }
+  ["keys":protected]=>
+  array(17) {
+    ["event"]=>
+    string(8) "Newexten"
+    ["privilege"]=>
+    string(8) "call,all"
+    ["channel"]=>
+    string(16) "SIP/isp-0000000c"
+    ["channelstate"]=>
+    string(1) "4"
+    ["channelstatedesc"]=>
+    string(4) "Ring"
+    ["calleridnum"]=>
+    string(10) "9605330101"
+    ["calleridname"]=>
+    string(32) "Восток Сервис ЗАО"
+    ["connectedlinenum"]=>
+    string(9) "<unknown>"
+    ["connectedlinename"]=>
+    string(9) "<unknown>"
+    ["accountcode"]=>
+    string(0) ""
+    ["context"]=>
+    string(15) "office_mainmenu"
+    ["exten"]=>
+    string(6) "770760"
+    ["priority"]=>
+    string(1) "4"
+    ["uniqueid"]=>
+    string(13) "1478596925.88"
+    ["extension"]=>
+    string(6) "770760"
+    ["application"]=>
+    string(4) "NoOp"
+    ["appdata"]=>
+    string(32) "Восток Сервис ЗАО"
+  }
+  ["createdDate":protected]=>
+  int(1478596925)
+}
+object(PAMI\Message\Event\VarSetEvent)#5 (6) {
+  ["rawContent":protected]=>
+  string(362) "Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/isp-0000000c
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 9605330101
+CallerIDName: Восток Сервис ЗАО
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+AccountCode: 
+Context: office_mainmenu
+Exten: 770760
+Priority: 4
+Uniqueid: 1478596925.88
+Variable: ODBCROWS
+Value: 1"
+  ["channelVariables":protected]=>
+  array(1) {
+    ["sip/isp-0000000c"]=>
+    array(0) {
+    }
+  }
+  ["lines":protected]=>
+  array(0) {
+  }
+  ["variables":protected]=>
+  array(0) {
+  }
+  ["keys":protected]=>
+  array(16) {
+    ["event"]=>
+    string(6) "VarSet"
+    ["privilege"]=>
+    string(12) "dialplan,all"
+    ["channel"]=>
+    string(16) "SIP/isp-0000000c"
+    ["channelstate"]=>
+    string(1) "4"
+    ["channelstatedesc"]=>
+    string(4) "Ring"
+    ["calleridnum"]=>
+    string(10) "9605330101"
+    ["calleridname"]=>
+    string(32) "Восток Сервис ЗАО"
+    ["connectedlinenum"]=>
+    string(9) "<unknown>"
+    ["connectedlinename"]=>
+    string(9) "<unknown>"
+    ["accountcode"]=>
+    string(0) ""
+    ["context"]=>
+    string(15) "office_mainmenu"
+    ["exten"]=>
+    string(6) "770760"
+    ["priority"]=>
+    string(1) "4"
+    ["uniqueid"]=>
+    string(13) "1478596925.88"
+    ["variable"]=>
+    string(8) "ODBCROWS"
+    ["value"]=>
+    string(1) "1"
+  }
+  ["createdDate":protected]=>
+  int(1478596925)
+}
+object(PAMI\Message\Event\VarSetEvent)#7 (6) {
+  ["rawContent":protected]=>
+  string(370) "Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/isp-0000000c
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 9605330101
+CallerIDName: Восток Сервис ЗАО
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+AccountCode: 
+Context: office_mainmenu
+Exten: 770760
+Priority: 4
+Uniqueid: 1478596925.88
+Variable: ODBCSTATUS
+Value: SUCCESS"
+  ["channelVariables":protected]=>
+  array(1) {
+    ["sip/isp-0000000c"]=>
+    array(0) {
+    }
+  }
+  ["lines":protected]=>
+  array(0) {
+  }
+  ["variables":protected]=>
+  array(0) {
+  }
+  ["keys":protected]=>
+  array(16) {
+    ["event"]=>
+    string(6) "VarSet"
+    ["privilege"]=>
+    string(12) "dialplan,all"
+    ["channel"]=>
+    string(16) "SIP/isp-0000000c"
+    ["channelstate"]=>
+    string(1) "4"
+    ["channelstatedesc"]=>
+    string(4) "Ring"
+    ["calleridnum"]=>
+    string(10) "9605330101"
+    ["calleridname"]=>
+    string(32) "Восток Сервис ЗАО"
+    ["connectedlinenum"]=>
+    string(9) "<unknown>"
+    ["connectedlinename"]=>
+    string(9) "<unknown>"
+    ["accountcode"]=>
+    string(0) ""
+    ["context"]=>
+    string(15) "office_mainmenu"
+    ["exten"]=>
+    string(6) "770760"
+    ["priority"]=>
+    string(1) "4"
+    ["uniqueid"]=>
+    string(13) "1478596925.88"
+    ["variable"]=>
+    string(10) "ODBCSTATUS"
+    ["value"]=>
+    string(7) "SUCCESS"
+  }
+  ["createdDate":protected]=>
+  int(1478596925)
+}
+object(PAMI\Message\Event\VarSetEvent)#5 (6) {
+  ["rawContent":protected]=>
+  string(367) "Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/isp-0000000c
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 9605330101
+CallerIDName: Восток Сервис ЗАО
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+AccountCode: 
+Context: office_mainmenu
+Exten: 770760
+Priority: 4
+Uniqueid: 1478596925.88
+Variable: ~ODBCFIELDS~
+Value: id"
+  ["channelVariables":protected]=>
+  array(1) {
+    ["sip/isp-0000000c"]=>
+    array(0) {
+    }
+  }
+  ["lines":protected]=>
+  array(0) {
+  }
+  ["variables":protected]=>
+  array(0) {
+  }
+  ["keys":protected]=>
+  array(16) {
+    ["event"]=>
+    string(6) "VarSet"
+    ["privilege"]=>
+    string(12) "dialplan,all"
+    ["channel"]=>
+    string(16) "SIP/isp-0000000c"
+    ["channelstate"]=>
+    string(1) "4"
+    ["channelstatedesc"]=>
+    string(4) "Ring"
+    ["calleridnum"]=>
+    string(10) "9605330101"
+    ["calleridname"]=>
+    string(32) "Восток Сервис ЗАО"
+    ["connectedlinenum"]=>
+    string(9) "<unknown>"
+    ["connectedlinename"]=>
+    string(9) "<unknown>"
+    ["accountcode"]=>
+    string(0) ""
+    ["context"]=>
+    string(15) "office_mainmenu"
+    ["exten"]=>
+    string(6) "770760"
+    ["priority"]=>
+    string(1) "4"
+    ["uniqueid"]=>
+    string(13) "1478596925.88"
+    ["variable"]=>
+    string(12) "~ODBCFIELDS~"
+    ["value"]=>
+    string(2) "id"
+  }
+  ["createdDate":protected]=>
+  int(1478596925)
+}
+object(PAMI\Message\Event\NewextenEvent)#7 (6) {
+  ["rawContent":protected]=>
+  string(425) "Event: Newexten
+Privilege: call,all
+Channel: SIP/isp-0000000c
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 9605330101
+CallerIDName: Восток Сервис ЗАО
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+AccountCode: 
+Context: office_mainmenu
+Exten: 770760
+Priority: 5
+Uniqueid: 1478596925.88
+Extension: 770760
+Application: Set
+AppData: ACCOUNT_ID=79326980-5ddf-1e22-a229-5344f447874d"
+  ["channelVariables":protected]=>
+  array(1) {
+    ["sip/isp-0000000c"]=>
+    array(0) {
+    }
+  }
+  ["lines":protected]=>
+  array(0) {
+  }
+  ["variables":protected]=>
+  array(0) {
+  }
+  ["keys":protected]=>
+  array(17) {
+    ["event"]=>
+    string(8) "Newexten"
+    ["privilege"]=>
+    string(8) "call,all"
+    ["channel"]=>
+    string(16) "SIP/isp-0000000c"
+    ["channelstate"]=>
+    string(1) "4"
+    ["channelstatedesc"]=>
+    string(4) "Ring"
+    ["calleridnum"]=>
+    string(10) "9605330101"
+    ["calleridname"]=>
+    string(32) "Восток Сервис ЗАО"
+    ["connectedlinenum"]=>
+    string(9) "<unknown>"
+    ["connectedlinename"]=>
+    string(9) "<unknown>"
+    ["accountcode"]=>
+    string(0) ""
+    ["context"]=>
+    string(15) "office_mainmenu"
+    ["exten"]=>
+    string(6) "770760"
+    ["priority"]=>
+    string(1) "5"
+    ["uniqueid"]=>
+    string(13) "1478596925.88"
+    ["extension"]=>
+    string(6) "770760"
+    ["application"]=>
+    string(3) "Set"
+    ["appdata"]=>
+    string(47) "ACCOUNT_ID=79326980-5ddf-1e22-a229-5344f447874d"
+  }
+  ["createdDate":protected]=>
+  int(1478596925)
+}
+object(PAMI\Message\Event\VarSetEvent)#5 (6) {
+  ["rawContent":protected]=>
+  string(399) "Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/isp-0000000c
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 9605330101
+CallerIDName: Восток Сервис ЗАО
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+AccountCode: 
+Context: office_mainmenu
+Exten: 770760
+Priority: 5
+Uniqueid: 1478596925.88
+Variable: ACCOUNT_ID
+Value: 79326980-5ddf-1e22-a229-5344f447874d"
+  ["channelVariables":protected]=>
+  array(1) {
+    ["sip/isp-0000000c"]=>
+    array(0) {
+    }
+  }
+  ["lines":protected]=>
+  array(0) {
+  }
+  ["variables":protected]=>
+  array(0) {
+  }
+  ["keys":protected]=>
+  array(16) {
+    ["event"]=>
+    string(6) "VarSet"
+    ["privilege"]=>
+    string(12) "dialplan,all"
+    ["channel"]=>
+    string(16) "SIP/isp-0000000c"
+    ["channelstate"]=>
+    string(1) "4"
+    ["channelstatedesc"]=>
+    string(4) "Ring"
+    ["calleridnum"]=>
+    string(10) "9605330101"
+    ["calleridname"]=>
+    string(32) "Восток Сервис ЗАО"
+    ["connectedlinenum"]=>
+    string(9) "<unknown>"
+    ["connectedlinename"]=>
+    string(9) "<unknown>"
+    ["accountcode"]=>
+    string(0) ""
+    ["context"]=>
+    string(15) "office_mainmenu"
+    ["exten"]=>
+    string(6) "770760"
+    ["priority"]=>
+    string(1) "5"
+    ["uniqueid"]=>
+    string(13) "1478596925.88"
+    ["variable"]=>
+    string(10) "ACCOUNT_ID"
+    ["value"]=>
+    string(36) "79326980-5ddf-1e22-a229-5344f447874d"
+  }
+  ["createdDate":protected]=>
+  int(1478596925)
+}
+object(PAMI\Message\Event\NewextenEvent)#7 (6) {
+  ["rawContent":protected]=>
+  string(415) "Event: Newexten
+Privilege: call,all
+Channel: SIP/isp-0000000c
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 9605330101
+CallerIDName: Восток Сервис ЗАО
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+AccountCode: 
+Context: office_mainmenu
+Exten: 770760
+Priority: 6
+Uniqueid: 1478596925.88
+Extension: 770760
+Application: NoOp
+AppData: 79326980-5ddf-1e22-a229-5344f447874d"
+  ["channelVariables":protected]=>
+  array(1) {
+    ["sip/isp-0000000c"]=>
+    array(0) {
+    }
+  }
+  ["lines":protected]=>
+  array(0) {
+  }
+  ["variables":protected]=>
+  array(0) {
+  }
+  ["keys":protected]=>
+  array(17) {
+    ["event"]=>
+    string(8) "Newexten"
+    ["privilege"]=>
+    string(8) "call,all"
+    ["channel"]=>
+    string(16) "SIP/isp-0000000c"
+    ["channelstate"]=>
+    string(1) "4"
+    ["channelstatedesc"]=>
+    string(4) "Ring"
+    ["calleridnum"]=>
+    string(10) "9605330101"
+    ["calleridname"]=>
+    string(32) "Восток Сервис ЗАО"
+    ["connectedlinenum"]=>
+    string(9) "<unknown>"
+    ["connectedlinename"]=>
+    string(9) "<unknown>"
+    ["accountcode"]=>
+    string(0) ""
+    ["context"]=>
+    string(15) "office_mainmenu"
+    ["exten"]=>
+    string(6) "770760"
+    ["priority"]=>
+    string(1) "6"
+    ["uniqueid"]=>
+    string(13) "1478596925.88"
+    ["extension"]=>
+    string(6) "770760"
+    ["application"]=>
+    string(4) "NoOp"
+    ["appdata"]=>
+    string(36) "79326980-5ddf-1e22-a229-5344f447874d"
+  }
+  ["createdDate":protected]=>
+  int(1478596925)
+}
+object(PAMI\Message\Event\VarSetEvent)#5 (6) {
+  ["rawContent":protected]=>
+  string(362) "Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/isp-0000000c
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 9605330101
+CallerIDName: Восток Сервис ЗАО
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+AccountCode: 
+Context: office_mainmenu
+Exten: 770760
+Priority: 6
+Uniqueid: 1478596925.88
+Variable: ODBCROWS
+Value: 1"
+  ["channelVariables":protected]=>
+  array(1) {
+    ["sip/isp-0000000c"]=>
+    array(0) {
+    }
+  }
+  ["lines":protected]=>
+  array(0) {
+  }
+  ["variables":protected]=>
+  array(0) {
+  }
+  ["keys":protected]=>
+  array(16) {
+    ["event"]=>
+    string(6) "VarSet"
+    ["privilege"]=>
+    string(12) "dialplan,all"
+    ["channel"]=>
+    string(16) "SIP/isp-0000000c"
+    ["channelstate"]=>
+    string(1) "4"
+    ["channelstatedesc"]=>
+    string(4) "Ring"
+    ["calleridnum"]=>
+    string(10) "9605330101"
+    ["calleridname"]=>
+    string(32) "Восток Сервис ЗАО"
+    ["connectedlinenum"]=>
+    string(9) "<unknown>"
+    ["connectedlinename"]=>
+    string(9) "<unknown>"
+    ["accountcode"]=>
+    string(0) ""
+    ["context"]=>
+    string(15) "office_mainmenu"
+    ["exten"]=>
+    string(6) "770760"
+    ["priority"]=>
+    string(1) "6"
+    ["uniqueid"]=>
+    string(13) "1478596925.88"
+    ["variable"]=>
+    string(8) "ODBCROWS"
+    ["value"]=>
+    string(1) "1"
+  }
+  ["createdDate":protected]=>
+  int(1478596925)
+}
+object(PAMI\Message\Event\VarSetEvent)#7 (6) {
+  ["rawContent":protected]=>
+  string(370) "Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/isp-0000000c
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 9605330101
+CallerIDName: Восток Сервис ЗАО
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+AccountCode: 
+Context: office_mainmenu
+Exten: 770760
+Priority: 6
+Uniqueid: 1478596925.88
+Variable: ODBCSTATUS
+Value: SUCCESS"
+  ["channelVariables":protected]=>
+  array(1) {
+    ["sip/isp-0000000c"]=>
+    array(0) {
+    }
+  }
+  ["lines":protected]=>
+  array(0) {
+  }
+  ["variables":protected]=>
+  array(0) {
+  }
+  ["keys":protected]=>
+  array(16) {
+    ["event"]=>
+    string(6) "VarSet"
+    ["privilege"]=>
+    string(12) "dialplan,all"
+    ["channel"]=>
+    string(16) "SIP/isp-0000000c"
+    ["channelstate"]=>
+    string(1) "4"
+    ["channelstatedesc"]=>
+    string(4) "Ring"
+    ["calleridnum"]=>
+    string(10) "9605330101"
+    ["calleridname"]=>
+    string(32) "Восток Сервис ЗАО"
+    ["connectedlinenum"]=>
+    string(9) "<unknown>"
+    ["connectedlinename"]=>
+    string(9) "<unknown>"
+    ["accountcode"]=>
+    string(0) ""
+    ["context"]=>
+    string(15) "office_mainmenu"
+    ["exten"]=>
+    string(6) "770760"
+    ["priority"]=>
+    string(1) "6"
+    ["uniqueid"]=>
+    string(13) "1478596925.88"
+    ["variable"]=>
+    string(10) "ODBCSTATUS"
+    ["value"]=>
+    string(7) "SUCCESS"
+  }
+  ["createdDate":protected]=>
+  int(1478596925)
+}
+object(PAMI\Message\Event\VarSetEvent)#5 (6) {
+  ["rawContent":protected]=>
+  string(369) "Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/isp-0000000c
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 9605330101
+CallerIDName: Восток Сервис ЗАО
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+AccountCode: 
+Context: office_mainmenu
+Exten: 770760
+Priority: 6
+Uniqueid: 1478596925.88
+Variable: ~ODBCFIELDS~
+Value: name"
+  ["channelVariables":protected]=>
+  array(1) {
+    ["sip/isp-0000000c"]=>
+    array(0) {
+    }
+  }
+  ["lines":protected]=>
+  array(0) {
+  }
+  ["variables":protected]=>
+  array(0) {
+  }
+  ["keys":protected]=>
+  array(16) {
+    ["event"]=>
+    string(6) "VarSet"
+    ["privilege"]=>
+    string(12) "dialplan,all"
+    ["channel"]=>
+    string(16) "SIP/isp-0000000c"
+    ["channelstate"]=>
+    string(1) "4"
+    ["channelstatedesc"]=>
+    string(4) "Ring"
+    ["calleridnum"]=>
+    string(10) "9605330101"
+    ["calleridname"]=>
+    string(32) "Восток Сервис ЗАО"
+    ["connectedlinenum"]=>
+    string(9) "<unknown>"
+    ["connectedlinename"]=>
+    string(9) "<unknown>"
+    ["accountcode"]=>
+    string(0) ""
+    ["context"]=>
+    string(15) "office_mainmenu"
+    ["exten"]=>
+    string(6) "770760"
+    ["priority"]=>
+    string(1) "6"
+    ["uniqueid"]=>
+    string(13) "1478596925.88"
+    ["variable"]=>
+    string(12) "~ODBCFIELDS~"
+    ["value"]=>
+    string(4) "name"
+  }
+  ["createdDate":protected]=>
+  int(1478596925)
+}
+object(PAMI\Message\Event\NewextenEvent)#7 (6) {
+  ["rawContent":protected]=>
+  string(425) "Event: Newexten
+Privilege: call,all
+Channel: SIP/isp-0000000c
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 9605330101
+CallerIDName: Восток Сервис ЗАО
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+AccountCode: 
+Context: office_mainmenu
+Exten: 770760
+Priority: 7
+Uniqueid: 1478596925.88
+Extension: 770760
+Application: Set
+AppData: CALLERID(name)=Восток Сервис ЗАО"
+  ["channelVariables":protected]=>
+  array(1) {
+    ["sip/isp-0000000c"]=>
+    array(0) {
+    }
+  }
+  ["lines":protected]=>
+  array(0) {
+  }
+  ["variables":protected]=>
+  array(0) {
+  }
+  ["keys":protected]=>
+  array(17) {
+    ["event"]=>
+    string(8) "Newexten"
+    ["privilege"]=>
+    string(8) "call,all"
+    ["channel"]=>
+    string(16) "SIP/isp-0000000c"
+    ["channelstate"]=>
+    string(1) "4"
+    ["channelstatedesc"]=>
+    string(4) "Ring"
+    ["calleridnum"]=>
+    string(10) "9605330101"
+    ["calleridname"]=>
+    string(32) "Восток Сервис ЗАО"
+    ["connectedlinenum"]=>
+    string(9) "<unknown>"
+    ["connectedlinename"]=>
+    string(9) "<unknown>"
+    ["accountcode"]=>
+    string(0) ""
+    ["context"]=>
+    string(15) "office_mainmenu"
+    ["exten"]=>
+    string(6) "770760"
+    ["priority"]=>
+    string(1) "7"
+    ["uniqueid"]=>
+    string(13) "1478596925.88"
+    ["extension"]=>
+    string(6) "770760"
+    ["application"]=>
+    string(3) "Set"
+    ["appdata"]=>
+    string(47) "CALLERID(name)=Восток Сервис ЗАО"
+  }
+  ["createdDate":protected]=>
+  int(1478596925)
+}
+object(PAMI\Message\Event\NewextenEvent)#5 (6) {
+  ["rawContent":protected]=>
+  string(411) "Event: Newexten
+Privilege: call,all
+Channel: SIP/isp-0000000c
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 9605330101
+CallerIDName: Восток Сервис ЗАО
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+AccountCode: 
+Context: office_mainmenu
+Exten: 770760
+Priority: 8
+Uniqueid: 1478596925.88
+Extension: 770760
+Application: NoOp
+AppData: Восток Сервис ЗАО"
+  ["channelVariables":protected]=>
+  array(1) {
+    ["sip/isp-0000000c"]=>
+    array(0) {
+    }
+  }
+  ["lines":protected]=>
+  array(0) {
+  }
+  ["variables":protected]=>
+  array(0) {
+  }
+  ["keys":protected]=>
+  array(17) {
+    ["event"]=>
+    string(8) "Newexten"
+    ["privilege"]=>
+    string(8) "call,all"
+    ["channel"]=>
+    string(16) "SIP/isp-0000000c"
+    ["channelstate"]=>
+    string(1) "4"
+    ["channelstatedesc"]=>
+    string(4) "Ring"
+    ["calleridnum"]=>
+    string(10) "9605330101"
+    ["calleridname"]=>
+    string(32) "Восток Сервис ЗАО"
+    ["connectedlinenum"]=>
+    string(9) "<unknown>"
+    ["connectedlinename"]=>
+    string(9) "<unknown>"
+    ["accountcode"]=>
+    string(0) ""
+    ["context"]=>
+    string(15) "office_mainmenu"
+    ["exten"]=>
+    string(6) "770760"
+    ["priority"]=>
+    string(1) "8"
+    ["uniqueid"]=>
+    string(13) "1478596925.88"
+    ["extension"]=>
+    string(6) "770760"
+    ["application"]=>
+    string(4) "NoOp"
+    ["appdata"]=>
+    string(32) "Восток Сервис ЗАО"
+  }
+  ["createdDate":protected]=>
+  int(1478596925)
+}
+object(PAMI\Message\Event\NewextenEvent)#7 (6) {
+  ["rawContent":protected]=>
+  string(380) "Event: Newexten
+Privilege: call,all
+Channel: SIP/isp-0000000c
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 9605330101
+CallerIDName: Восток Сервис ЗАО
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+AccountCode: 
+Context: office_mainmenu
+Exten: 770760
+Priority: 9
+Uniqueid: 1478596925.88
+Extension: 770760
+Application: Wait
+AppData: 1"
+  ["channelVariables":protected]=>
+  array(1) {
+    ["sip/isp-0000000c"]=>
+    array(0) {
+    }
+  }
+  ["lines":protected]=>
+  array(0) {
+  }
+  ["variables":protected]=>
+  array(0) {
+  }
+  ["keys":protected]=>
+  array(17) {
+    ["event"]=>
+    string(8) "Newexten"
+    ["privilege"]=>
+    string(8) "call,all"
+    ["channel"]=>
+    string(16) "SIP/isp-0000000c"
+    ["channelstate"]=>
+    string(1) "4"
+    ["channelstatedesc"]=>
+    string(4) "Ring"
+    ["calleridnum"]=>
+    string(10) "9605330101"
+    ["calleridname"]=>
+    string(32) "Восток Сервис ЗАО"
+    ["connectedlinenum"]=>
+    string(9) "<unknown>"
+    ["connectedlinename"]=>
+    string(9) "<unknown>"
+    ["accountcode"]=>
+    string(0) ""
+    ["context"]=>
+    string(15) "office_mainmenu"
+    ["exten"]=>
+    string(6) "770760"
+    ["priority"]=>
+    string(1) "9"
+    ["uniqueid"]=>
+    string(13) "1478596925.88"
+    ["extension"]=>
+    string(6) "770760"
+    ["application"]=>
+    string(4) "Wait"
+    ["appdata"]=>
+    string(1) "1"
+  }
+  ["createdDate":protected]=>
+  int(1478596925)
+}
+object(PAMI\Message\Event\NewextenEvent)#7 (6) {
+  ["rawContent":protected]=>
+  string(382) "Event: Newexten
+Privilege: call,all
+Channel: SIP/isp-0000000c
+ChannelState: 4
+ChannelStateDesc: Ring
+CallerIDNum: 9605330101
+CallerIDName: Восток Сервис ЗАО
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+AccountCode: 
+Context: office_mainmenu
+Exten: 770760
+Priority: 10
+Uniqueid: 1478596925.88
+Extension: 770760
+Application: Answer
+AppData: "
+  ["channelVariables":protected]=>
+  array(1) {
+    ["sip/isp-0000000c"]=>
+    array(0) {
+    }
+  }
+  ["lines":protected]=>
+  array(0) {
+  }
+  ["variables":protected]=>
+  array(0) {
+  }
+  ["keys":protected]=>
+  array(17) {
+    ["event"]=>
+    string(8) "Newexten"
+    ["privilege"]=>
+    string(8) "call,all"
+    ["channel"]=>
+    string(16) "SIP/isp-0000000c"
+    ["channelstate"]=>
+    string(1) "4"
+    ["channelstatedesc"]=>
+    string(4) "Ring"
+    ["calleridnum"]=>
+    string(10) "9605330101"
+    ["calleridname"]=>
+    string(32) "Восток Сервис ЗАО"
+    ["connectedlinenum"]=>
+    string(9) "<unknown>"
+    ["connectedlinename"]=>
+    string(9) "<unknown>"
+    ["accountcode"]=>
+    string(0) ""
+    ["context"]=>
+    string(15) "office_mainmenu"
+    ["exten"]=>
+    string(6) "770760"
+    ["priority"]=>
+    string(2) "10"
+    ["uniqueid"]=>
+    string(13) "1478596925.88"
+    ["extension"]=>
+    string(6) "770760"
+    ["application"]=>
+    string(6) "Answer"
+    ["appdata"]=>
+    string(0) ""
+  }
+  ["createdDate":protected]=>
+  int(1478596926)
+}
+object(PAMI\Message\Event\NewstateEvent)#5 (6) {
+  ["rawContent":protected]=>
+  string(329) "Event: Newstate
+Privilege: call,all
+Channel: SIP/isp-0000000c
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 9605330101
+CallerIDName: Восток Сервис ЗАО
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+AccountCode: 
+Context: office_mainmenu
+Exten: 770760
+Priority: 10
+Uniqueid: 1478596925.88"
+  ["channelVariables":protected]=>
+  array(1) {
+    ["sip/isp-0000000c"]=>
+    array(0) {
+    }
+  }
+  ["lines":protected]=>
+  array(0) {
+  }
+  ["variables":protected]=>
+  array(0) {
+  }
+  ["keys":protected]=>
+  array(14) {
+    ["event"]=>
+    string(8) "Newstate"
+    ["privilege"]=>
+    string(8) "call,all"
+    ["channel"]=>
+    string(16) "SIP/isp-0000000c"
+    ["channelstate"]=>
+    string(1) "6"
+    ["channelstatedesc"]=>
+    string(2) "Up"
+    ["calleridnum"]=>
+    string(10) "9605330101"
+    ["calleridname"]=>
+    string(32) "Восток Сервис ЗАО"
+    ["connectedlinenum"]=>
+    string(9) "<unknown>"
+    ["connectedlinename"]=>
+    string(9) "<unknown>"
+    ["accountcode"]=>
+    string(0) ""
+    ["context"]=>
+    string(15) "office_mainmenu"
+    ["exten"]=>
+    string(6) "770760"
+    ["priority"]=>
+    string(2) "10"
+    ["uniqueid"]=>
+    string(13) "1478596925.88"
+  }
+  ["createdDate":protected]=>
+  int(1478596926)
+}
+object(PAMI\Message\Event\NewextenEvent)#5 (6) {
+  ["rawContent":protected]=>
+  string(636) "Event: Newexten
+Privilege: call,all
+Channel: SIP/isp-0000000c
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 9605330101
+CallerIDName: Восток Сервис ЗАО
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+AccountCode: 
+Context: office_mainmenu
+Exten: 770760
+Priority: 11
+Uniqueid: 1478596925.88
+Extension: 770760
+Application: System
+AppData: /var/lib/asterisk/agi-bin/vk.php '"Восток Сервис ЗАО" <9605330101>' 'http://c.digit-it.ru/index.php?module=Accounts&return_module=Accounts&action=DetailView&record=79326980-5ddf-1e22-a229-5344f447874d' 'слушает приветствие'"
+  ["channelVariables":protected]=>
+  array(1) {
+    ["sip/isp-0000000c"]=>
+    array(0) {
+    }
+  }
+  ["lines":protected]=>
+  array(0) {
+  }
+  ["variables":protected]=>
+  array(0) {
+  }
+  ["keys":protected]=>
+  array(17) {
+    ["event"]=>
+    string(8) "Newexten"
+    ["privilege"]=>
+    string(8) "call,all"
+    ["channel"]=>
+    string(16) "SIP/isp-0000000c"
+    ["channelstate"]=>
+    string(1) "6"
+    ["channelstatedesc"]=>
+    string(2) "Up"
+    ["calleridnum"]=>
+    string(10) "9605330101"
+    ["calleridname"]=>
+    string(32) "Восток Сервис ЗАО"
+    ["connectedlinenum"]=>
+    string(9) "<unknown>"
+    ["connectedlinename"]=>
+    string(9) "<unknown>"
+    ["accountcode"]=>
+    string(0) ""
+    ["context"]=>
+    string(15) "office_mainmenu"
+    ["exten"]=>
+    string(6) "770760"
+    ["priority"]=>
+    string(2) "11"
+    ["uniqueid"]=>
+    string(13) "1478596925.88"
+    ["extension"]=>
+    string(6) "770760"
+    ["application"]=>
+    string(6) "System"
+    ["appdata"]=>
+    string(256) "/var/lib/asterisk/agi-bin/vk.php '"Восток Сервис ЗАО" <9605330101>' 'http://c.digit-it.ru/index.php?module=Accounts&return_module=Accounts&action=DetailView&record=79326980-5ddf-1e22-a229-5344f447874d' 'слушает приветствие'"
+  }
+  ["createdDate":protected]=>
+  int(1478596926)
+}
+object(PAMI\Message\Event\VarSetEvent)#5 (6) {
+  ["rawContent":protected]=>
+  string(371) "Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/isp-0000000c
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 9605330101
+CallerIDName: Восток Сервис ЗАО
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+AccountCode: 
+Context: office_mainmenu
+Exten: 770760
+Priority: 11
+Uniqueid: 1478596925.88
+Variable: SYSTEMSTATUS
+Value: SUCCESS"
+  ["channelVariables":protected]=>
+  array(1) {
+    ["sip/isp-0000000c"]=>
+    array(0) {
+    }
+  }
+  ["lines":protected]=>
+  array(0) {
+  }
+  ["variables":protected]=>
+  array(0) {
+  }
+  ["keys":protected]=>
+  array(16) {
+    ["event"]=>
+    string(6) "VarSet"
+    ["privilege"]=>
+    string(12) "dialplan,all"
+    ["channel"]=>
+    string(16) "SIP/isp-0000000c"
+    ["channelstate"]=>
+    string(1) "6"
+    ["channelstatedesc"]=>
+    string(2) "Up"
+    ["calleridnum"]=>
+    string(10) "9605330101"
+    ["calleridname"]=>
+    string(32) "Восток Сервис ЗАО"
+    ["connectedlinenum"]=>
+    string(9) "<unknown>"
+    ["connectedlinename"]=>
+    string(9) "<unknown>"
+    ["accountcode"]=>
+    string(0) ""
+    ["context"]=>
+    string(15) "office_mainmenu"
+    ["exten"]=>
+    string(6) "770760"
+    ["priority"]=>
+    string(2) "11"
+    ["uniqueid"]=>
+    string(13) "1478596925.88"
+    ["variable"]=>
+    string(12) "SYSTEMSTATUS"
+    ["value"]=>
+    string(7) "SUCCESS"
+  }
+  ["createdDate":protected]=>
+  int(1478596927)
+}
+object(PAMI\Message\Event\NewextenEvent)#5 (6) {
+  ["rawContent":protected]=>
+  string(403) "Event: Newexten
+Privilege: call,all
+Channel: SIP/isp-0000000c
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 9605330101
+CallerIDName: Восток Сервис ЗАО
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+AccountCode: 
+Context: office_mainmenu
+Exten: 770760
+Priority: 12
+Uniqueid: 1478596925.88
+Extension: 770760
+Application: BackGround
+AppData: digit/main_greeting"
+  ["channelVariables":protected]=>
+  array(1) {
+    ["sip/isp-0000000c"]=>
+    array(0) {
+    }
+  }
+  ["lines":protected]=>
+  array(0) {
+  }
+  ["variables":protected]=>
+  array(0) {
+  }
+  ["keys":protected]=>
+  array(17) {
+    ["event"]=>
+    string(8) "Newexten"
+    ["privilege"]=>
+    string(8) "call,all"
+    ["channel"]=>
+    string(16) "SIP/isp-0000000c"
+    ["channelstate"]=>
+    string(1) "6"
+    ["channelstatedesc"]=>
+    string(2) "Up"
+    ["calleridnum"]=>
+    string(10) "9605330101"
+    ["calleridname"]=>
+    string(32) "Восток Сервис ЗАО"
+    ["connectedlinenum"]=>
+    string(9) "<unknown>"
+    ["connectedlinename"]=>
+    string(9) "<unknown>"
+    ["accountcode"]=>
+    string(0) ""
+    ["context"]=>
+    string(15) "office_mainmenu"
+    ["exten"]=>
+    string(6) "770760"
+    ["priority"]=>
+    string(2) "12"
+    ["uniqueid"]=>
+    string(13) "1478596925.88"
+    ["extension"]=>
+    string(6) "770760"
+    ["application"]=>
+    string(10) "BackGround"
+    ["appdata"]=>
+    string(19) "digit/main_greeting"
+  }
+  ["createdDate":protected]=>
+  int(1478596927)
+}
+object(PAMI\Message\Event\RTCPReceivedEvent)#5 (6) {
+  ["rawContent":protected]=>
+  string(734) "Event: RTCPReceived
+Privilege: reporting,all
+Channel: SIP/isp-0000000c
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 9605330101
+CallerIDName: Восток Сервис ЗАО
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+AccountCode: 
+Context: office_mainmenu
+Exten: 770760
+Priority: 12
+Uniqueid: 1478596925.88
+To: 127.0.0.1:0
+From: 10.13.254.9:25843
+RTT: 0.0000
+SSRC: 0x6c2430ac
+PT: 200(SR)
+ReportCount: 1
+SentNTP: 2085978499.17566090182656
+SentRTP: 1863006392
+SentPackets: 168
+SentOctets: 26880
+Report0SourceSSRC: 0x2ad411d3
+Report0FractionLost: 2
+Report0CumulativeLost: 1
+Report0HighestSequence: 37625
+Report0SequenceNumberCycles: 0
+Report0IAJitter: 0
+Report0LSR: 0
+Report0DLSR: 0.0000"
+  ["channelVariables":protected]=>
+  array(1) {
+    ["sip/isp-0000000c"]=>
+    array(0) {
+    }
+  }
+  ["lines":protected]=>
+  array(0) {
+  }
+  ["variables":protected]=>
+  array(0) {
+  }
+  ["keys":protected]=>
+  array(32) {
+    ["event"]=>
+    string(12) "RTCPReceived"
+    ["privilege"]=>
+    string(13) "reporting,all"
+    ["channel"]=>
+    string(16) "SIP/isp-0000000c"
+    ["channelstate"]=>
+    string(1) "6"
+    ["channelstatedesc"]=>
+    string(2) "Up"
+    ["calleridnum"]=>
+    string(10) "9605330101"
+    ["calleridname"]=>
+    string(32) "Восток Сервис ЗАО"
+    ["connectedlinenum"]=>
+    string(9) "<unknown>"
+    ["connectedlinename"]=>
+    string(9) "<unknown>"
+    ["accountcode"]=>
+    string(0) ""
+    ["context"]=>
+    string(15) "office_mainmenu"
+    ["exten"]=>
+    string(6) "770760"
+    ["priority"]=>
+    string(2) "12"
+    ["uniqueid"]=>
+    string(13) "1478596925.88"
+    ["to"]=>
+    string(11) "127.0.0.1:0"
+    ["from"]=>
+    string(17) "10.13.254.9:25843"
+    ["rtt"]=>
+    string(6) "0.0000"
+    ["ssrc"]=>
+    string(10) "0x6c2430ac"
+    ["pt"]=>
+    string(7) "200(SR)"
+    ["reportcount"]=>
+    string(1) "1"
+    ["sentntp"]=>
+    string(25) "2085978499.17566090182656"
+    ["sentrtp"]=>
+    string(10) "1863006392"
+    ["sentpackets"]=>
+    string(3) "168"
+    ["sentoctets"]=>
+    string(5) "26880"
+    ["report0sourcessrc"]=>
+    string(10) "0x2ad411d3"
+    ["report0fractionlost"]=>
+    string(1) "2"
+    ["report0cumulativelost"]=>
+    string(1) "1"
+    ["report0highestsequence"]=>
+    string(5) "37625"
+    ["report0sequencenumbercycles"]=>
+    string(1) "0"
+    ["report0iajitter"]=>
+    string(1) "0"
+    ["report0lsr"]=>
+    string(1) "0"
+    ["report0dlsr"]=>
+    string(6) "0.0000"
+  }
+  ["createdDate":protected]=>
+  int(1478596929)
+}
+object(PAMI\Message\Event\RTCPSentEvent)#5 (6) {
+  ["rawContent":protected]=>
+  string(713) "Event: RTCPSent
+Privilege: reporting,all
+Channel: SIP/isp-0000000c
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 9605330101
+CallerIDName: Восток Сервис ЗАО
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+AccountCode: 
+Context: office_mainmenu
+Exten: 770760
+Priority: 12
+Uniqueid: 1478596925.88
+To: 10.13.254.9:25843
+From: 127.0.0.1:0
+SSRC: 0x2ad411d3
+PT: 200(SR)
+ReportCount: 1
+SentNTP: 1478596931.2300428288
+SentRTP: 35896
+SentPackets: 220
+SentOctets: 35200
+Report0SourceSSRC: 0x6c2430ac
+Report0FractionLost: 0
+Report0CumulativeLost: 0
+Report0HighestSequence: 12710
+Report0SequenceNumberCycles: 0
+Report0IAJitter: 0
+Report0LSR: 220200
+Report0DLSR: 1.6530"
+  ["channelVariables":protected]=>
+  array(1) {
+    ["sip/isp-0000000c"]=>
+    array(0) {
+    }
+  }
+  ["lines":protected]=>
+  array(0) {
+  }
+  ["variables":protected]=>
+  array(0) {
+  }
+  ["keys":protected]=>
+  array(31) {
+    ["event"]=>
+    string(8) "RTCPSent"
+    ["privilege"]=>
+    string(13) "reporting,all"
+    ["channel"]=>
+    string(16) "SIP/isp-0000000c"
+    ["channelstate"]=>
+    string(1) "6"
+    ["channelstatedesc"]=>
+    string(2) "Up"
+    ["calleridnum"]=>
+    string(10) "9605330101"
+    ["calleridname"]=>
+    string(32) "Восток Сервис ЗАО"
+    ["connectedlinenum"]=>
+    string(9) "<unknown>"
+    ["connectedlinename"]=>
+    string(9) "<unknown>"
+    ["accountcode"]=>
+    string(0) ""
+    ["context"]=>
+    string(15) "office_mainmenu"
+    ["exten"]=>
+    string(6) "770760"
+    ["priority"]=>
+    string(2) "12"
+    ["uniqueid"]=>
+    string(13) "1478596925.88"
+    ["to"]=>
+    string(17) "10.13.254.9:25843"
+    ["from"]=>
+    string(11) "127.0.0.1:0"
+    ["ssrc"]=>
+    string(10) "0x2ad411d3"
+    ["pt"]=>
+    string(7) "200(SR)"
+    ["reportcount"]=>
+    string(1) "1"
+    ["sentntp"]=>
+    string(21) "1478596931.2300428288"
+    ["sentrtp"]=>
+    string(5) "35896"
+    ["sentpackets"]=>
+    string(3) "220"
+    ["sentoctets"]=>
+    string(5) "35200"
+    ["report0sourcessrc"]=>
+    string(10) "0x6c2430ac"
+    ["report0fractionlost"]=>
+    string(1) "0"
+    ["report0cumulativelost"]=>
+    string(1) "0"
+    ["report0highestsequence"]=>
+    string(5) "12710"
+    ["report0sequencenumbercycles"]=>
+    string(1) "0"
+    ["report0iajitter"]=>
+    string(1) "0"
+    ["report0lsr"]=>
+    string(6) "220200"
+    ["report0dlsr"]=>
+    string(6) "1.6530"
+  }
+  ["createdDate":protected]=>
+  int(1478596931)
+}
+object(PAMI\Message\Event\RTCPReceivedEvent)#5 (6) {
+  ["rawContent":protected]=>
+  string(746) "Event: RTCPReceived
+Privilege: reporting,all
+Channel: SIP/isp-0000000c
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 9605330101
+CallerIDName: Восток Сервис ЗАО
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+AccountCode: 
+Context: office_mainmenu
+Exten: 770760
+Priority: 12
+Uniqueid: 1478596925.88
+To: 127.0.0.1:0
+From: 10.13.254.9:25843
+RTT: 69813.1156
+SSRC: 0x6c2430ac
+PT: 200(SR)
+ReportCount: 1
+SentNTP: 2085978504.17581657747456
+SentRTP: 1863044792
+SentPackets: 408
+SentOctets: 65280
+Report0SourceSSRC: 0x2ad411d3
+Report0FractionLost: 0
+Report0CumulativeLost: 1
+Report0HighestSequence: 37856
+Report0SequenceNumberCycles: 0
+Report0IAJitter: 8
+Report0LSR: 398692294
+Report0DLSR: 3.1500"
+  ["channelVariables":protected]=>
+  array(1) {
+    ["sip/isp-0000000c"]=>
+    array(0) {
+    }
+  }
+  ["lines":protected]=>
+  array(0) {
+  }
+  ["variables":protected]=>
+  array(0) {
+  }
+  ["keys":protected]=>
+  array(32) {
+    ["event"]=>
+    string(12) "RTCPReceived"
+    ["privilege"]=>
+    string(13) "reporting,all"
+    ["channel"]=>
+    string(16) "SIP/isp-0000000c"
+    ["channelstate"]=>
+    string(1) "6"
+    ["channelstatedesc"]=>
+    string(2) "Up"
+    ["calleridnum"]=>
+    string(10) "9605330101"
+    ["calleridname"]=>
+    string(32) "Восток Сервис ЗАО"
+    ["connectedlinenum"]=>
+    string(9) "<unknown>"
+    ["connectedlinename"]=>
+    string(9) "<unknown>"
+    ["accountcode"]=>
+    string(0) ""
+    ["context"]=>
+    string(15) "office_mainmenu"
+    ["exten"]=>
+    string(6) "770760"
+    ["priority"]=>
+    string(2) "12"
+    ["uniqueid"]=>
+    string(13) "1478596925.88"
+    ["to"]=>
+    string(11) "127.0.0.1:0"
+    ["from"]=>
+    string(17) "10.13.254.9:25843"
+    ["rtt"]=>
+    string(10) "69813.1156"
+    ["ssrc"]=>
+    string(10) "0x6c2430ac"
+    ["pt"]=>
+    string(7) "200(SR)"
+    ["reportcount"]=>
+    string(1) "1"
+    ["sentntp"]=>
+    string(25) "2085978504.17581657747456"
+    ["sentrtp"]=>
+    string(10) "1863044792"
+    ["sentpackets"]=>
+    string(3) "408"
+    ["sentoctets"]=>
+    string(5) "65280"
+    ["report0sourcessrc"]=>
+    string(10) "0x2ad411d3"
+    ["report0fractionlost"]=>
+    string(1) "0"
+    ["report0cumulativelost"]=>
+    string(1) "1"
+    ["report0highestsequence"]=>
+    string(5) "37856"
+    ["report0sequencenumbercycles"]=>
+    string(1) "0"
+    ["report0iajitter"]=>
+    string(1) "8"
+    ["report0lsr"]=>
+    string(9) "398692294"
+    ["report0dlsr"]=>
+    string(6) "3.1500"
+  }
+  ["createdDate":protected]=>
+  int(1478596934)
+}
+object(PAMI\Message\Event\VarSetEvent)#5 (6) {
+  ["rawContent":protected]=>
+  string(485) "Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/isp-0000000c
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 9605330101
+CallerIDName: Восток Сервис ЗАО
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+AccountCode: 
+Context: office_mainmenu
+Exten: 770760
+Priority: 12
+Uniqueid: 1478596925.88
+Variable: RTPAUDIOQOS
+Value: ssrc=718541267;themssrc=1814311084;lp=0;rxjitter=0.000000;rxcount=416;txjitter=0.004597;txcount=376;rlp=1;rtt=69813.115591"
+  ["channelVariables":protected]=>
+  array(1) {
+    ["sip/isp-0000000c"]=>
+    array(0) {
+    }
+  }
+  ["lines":protected]=>
+  array(0) {
+  }
+  ["variables":protected]=>
+  array(0) {
+  }
+  ["keys":protected]=>
+  array(16) {
+    ["event"]=>
+    string(6) "VarSet"
+    ["privilege"]=>
+    string(12) "dialplan,all"
+    ["channel"]=>
+    string(16) "SIP/isp-0000000c"
+    ["channelstate"]=>
+    string(1) "6"
+    ["channelstatedesc"]=>
+    string(2) "Up"
+    ["calleridnum"]=>
+    string(10) "9605330101"
+    ["calleridname"]=>
+    string(32) "Восток Сервис ЗАО"
+    ["connectedlinenum"]=>
+    string(9) "<unknown>"
+    ["connectedlinename"]=>
+    string(9) "<unknown>"
+    ["accountcode"]=>
+    string(0) ""
+    ["context"]=>
+    string(15) "office_mainmenu"
+    ["exten"]=>
+    string(6) "770760"
+    ["priority"]=>
+    string(2) "12"
+    ["uniqueid"]=>
+    string(13) "1478596925.88"
+    ["variable"]=>
+    string(11) "RTPAUDIOQOS"
+    ["value"]=>
+    string(122) "ssrc=718541267;themssrc=1814311084;lp=0;rxjitter=0.000000;rxcount=416;txjitter=0.004597;txcount=376;rlp=1;rtt=69813.115591"
+  }
+  ["createdDate":protected]=>
+  int(1478596934)
+}
+object(PAMI\Message\Event\VarSetEvent)#7 (6) {
+  ["rawContent":protected]=>
+  string(569) "Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/isp-0000000c
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 9605330101
+CallerIDName: Восток Сервис ЗАО
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+AccountCode: 
+Context: office_mainmenu
+Exten: 770760
+Priority: 12
+Uniqueid: 1478596925.88
+Variable: RTPAUDIOQOSJITTER
+Value: minrxjitter=0.000000;maxrxjitter=0.000000;avgrxjitter=0.000000;stdevrxjitter=0.000000;reported_minjitter=0.000000;reported_maxjitter=0.000000;reported_avgjitter=0.000000;reported_stdevjitter=0.000000;"
+  ["channelVariables":protected]=>
+  array(1) {
+    ["sip/isp-0000000c"]=>
+    array(0) {
+    }
+  }
+  ["lines":protected]=>
+  array(0) {
+  }
+  ["variables":protected]=>
+  array(0) {
+  }
+  ["keys":protected]=>
+  array(16) {
+    ["event"]=>
+    string(6) "VarSet"
+    ["privilege"]=>
+    string(12) "dialplan,all"
+    ["channel"]=>
+    string(16) "SIP/isp-0000000c"
+    ["channelstate"]=>
+    string(1) "6"
+    ["channelstatedesc"]=>
+    string(2) "Up"
+    ["calleridnum"]=>
+    string(10) "9605330101"
+    ["calleridname"]=>
+    string(32) "Восток Сервис ЗАО"
+    ["connectedlinenum"]=>
+    string(9) "<unknown>"
+    ["connectedlinename"]=>
+    string(9) "<unknown>"
+    ["accountcode"]=>
+    string(0) ""
+    ["context"]=>
+    string(15) "office_mainmenu"
+    ["exten"]=>
+    string(6) "770760"
+    ["priority"]=>
+    string(2) "12"
+    ["uniqueid"]=>
+    string(13) "1478596925.88"
+    ["variable"]=>
+    string(17) "RTPAUDIOQOSJITTER"
+    ["value"]=>
+    string(200) "minrxjitter=0.000000;maxrxjitter=0.000000;avgrxjitter=0.000000;stdevrxjitter=0.000000;reported_minjitter=0.000000;reported_maxjitter=0.000000;reported_avgjitter=0.000000;reported_stdevjitter=0.000000;"
+  }
+  ["createdDate":protected]=>
+  int(1478596934)
+}
+object(PAMI\Message\Event\VarSetEvent)#5 (6) {
+  ["rawContent":protected]=>
+  string(551) "Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/isp-0000000c
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 9605330101
+CallerIDName: Восток Сервис ЗАО
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+AccountCode: 
+Context: office_mainmenu
+Exten: 770760
+Priority: 12
+Uniqueid: 1478596925.88
+Variable: RTPAUDIOQOSLOSS
+Value: minrxlost=0.000000;maxrxlost=0.000000;avgrxlost=0.000000;stdevrxlost=0.000000;reported_minlost=0.000000;reported_maxlost=0.000000;reported_avglost=0.000000;reported_stdevlost=0.000000;"
+  ["channelVariables":protected]=>
+  array(1) {
+    ["sip/isp-0000000c"]=>
+    array(0) {
+    }
+  }
+  ["lines":protected]=>
+  array(0) {
+  }
+  ["variables":protected]=>
+  array(0) {
+  }
+  ["keys":protected]=>
+  array(16) {
+    ["event"]=>
+    string(6) "VarSet"
+    ["privilege"]=>
+    string(12) "dialplan,all"
+    ["channel"]=>
+    string(16) "SIP/isp-0000000c"
+    ["channelstate"]=>
+    string(1) "6"
+    ["channelstatedesc"]=>
+    string(2) "Up"
+    ["calleridnum"]=>
+    string(10) "9605330101"
+    ["calleridname"]=>
+    string(32) "Восток Сервис ЗАО"
+    ["connectedlinenum"]=>
+    string(9) "<unknown>"
+    ["connectedlinename"]=>
+    string(9) "<unknown>"
+    ["accountcode"]=>
+    string(0) ""
+    ["context"]=>
+    string(15) "office_mainmenu"
+    ["exten"]=>
+    string(6) "770760"
+    ["priority"]=>
+    string(2) "12"
+    ["uniqueid"]=>
+    string(13) "1478596925.88"
+    ["variable"]=>
+    string(15) "RTPAUDIOQOSLOSS"
+    ["value"]=>
+    string(184) "minrxlost=0.000000;maxrxlost=0.000000;avgrxlost=0.000000;stdevrxlost=0.000000;reported_minlost=0.000000;reported_maxlost=0.000000;reported_avglost=0.000000;reported_stdevlost=0.000000;"
+  }
+  ["createdDate":protected]=>
+  int(1478596934)
+}
+object(PAMI\Message\Event\VarSetEvent)#7 (6) {
+  ["rawContent":protected]=>
+  string(432) "Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/isp-0000000c
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 9605330101
+CallerIDName: Восток Сервис ЗАО
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+AccountCode: 
+Context: office_mainmenu
+Exten: 770760
+Priority: 12
+Uniqueid: 1478596925.88
+Variable: RTPAUDIOQOSRTT
+Value: minrtt=0.000000;maxrtt=0.000000;avgrtt=0.000000;stdevrtt=0.000000;"
+  ["channelVariables":protected]=>
+  array(1) {
+    ["sip/isp-0000000c"]=>
+    array(0) {
+    }
+  }
+  ["lines":protected]=>
+  array(0) {
+  }
+  ["variables":protected]=>
+  array(0) {
+  }
+  ["keys":protected]=>
+  array(16) {
+    ["event"]=>
+    string(6) "VarSet"
+    ["privilege"]=>
+    string(12) "dialplan,all"
+    ["channel"]=>
+    string(16) "SIP/isp-0000000c"
+    ["channelstate"]=>
+    string(1) "6"
+    ["channelstatedesc"]=>
+    string(2) "Up"
+    ["calleridnum"]=>
+    string(10) "9605330101"
+    ["calleridname"]=>
+    string(32) "Восток Сервис ЗАО"
+    ["connectedlinenum"]=>
+    string(9) "<unknown>"
+    ["connectedlinename"]=>
+    string(9) "<unknown>"
+    ["accountcode"]=>
+    string(0) ""
+    ["context"]=>
+    string(15) "office_mainmenu"
+    ["exten"]=>
+    string(6) "770760"
+    ["priority"]=>
+    string(2) "12"
+    ["uniqueid"]=>
+    string(13) "1478596925.88"
+    ["variable"]=>
+    string(14) "RTPAUDIOQOSRTT"
+    ["value"]=>
+    string(66) "minrtt=0.000000;maxrtt=0.000000;avgrtt=0.000000;stdevrtt=0.000000;"
+  }
+  ["createdDate":protected]=>
+  int(1478596934)
+}
+object(PAMI\Message\Event\UnknownEvent)#5 (6) {
+  ["rawContent":protected]=>
+  string(334) "Event: HangupRequest
+Privilege: call,all
+Channel: SIP/isp-0000000c
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 9605330101
+CallerIDName: Восток Сервис ЗАО
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+AccountCode: 
+Context: office_mainmenu
+Exten: 770760
+Priority: 12
+Uniqueid: 1478596925.88"
+  ["channelVariables":protected]=>
+  array(1) {
+    ["sip/isp-0000000c"]=>
+    array(0) {
+    }
+  }
+  ["lines":protected]=>
+  array(0) {
+  }
+  ["variables":protected]=>
+  array(0) {
+  }
+  ["keys":protected]=>
+  array(14) {
+    ["event"]=>
+    string(13) "HangupRequest"
+    ["privilege"]=>
+    string(8) "call,all"
+    ["channel"]=>
+    string(16) "SIP/isp-0000000c"
+    ["channelstate"]=>
+    string(1) "6"
+    ["channelstatedesc"]=>
+    string(2) "Up"
+    ["calleridnum"]=>
+    string(10) "9605330101"
+    ["calleridname"]=>
+    string(32) "Восток Сервис ЗАО"
+    ["connectedlinenum"]=>
+    string(9) "<unknown>"
+    ["connectedlinename"]=>
+    string(9) "<unknown>"
+    ["accountcode"]=>
+    string(0) ""
+    ["context"]=>
+    string(15) "office_mainmenu"
+    ["exten"]=>
+    string(6) "770760"
+    ["priority"]=>
+    string(2) "12"
+    ["uniqueid"]=>
+    string(13) "1478596925.88"
+  }
+  ["createdDate":protected]=>
+  int(1478596934)
+}
+object(PAMI\Message\Event\VarSetEvent)#5 (6) {
+  ["rawContent":protected]=>
+  string(375) "Event: VarSet
+Privilege: dialplan,all
+Channel: SIP/isp-0000000c
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 9605330101
+CallerIDName: Восток Сервис ЗАО
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+AccountCode: 
+Context: office_mainmenu
+Exten: 770760
+Priority: 12
+Uniqueid: 1478596925.88
+Variable: BACKGROUNDSTATUS
+Value: SUCCESS"
+  ["channelVariables":protected]=>
+  array(1) {
+    ["sip/isp-0000000c"]=>
+    array(0) {
+    }
+  }
+  ["lines":protected]=>
+  array(0) {
+  }
+  ["variables":protected]=>
+  array(0) {
+  }
+  ["keys":protected]=>
+  array(16) {
+    ["event"]=>
+    string(6) "VarSet"
+    ["privilege"]=>
+    string(12) "dialplan,all"
+    ["channel"]=>
+    string(16) "SIP/isp-0000000c"
+    ["channelstate"]=>
+    string(1) "6"
+    ["channelstatedesc"]=>
+    string(2) "Up"
+    ["calleridnum"]=>
+    string(10) "9605330101"
+    ["calleridname"]=>
+    string(32) "Восток Сервис ЗАО"
+    ["connectedlinenum"]=>
+    string(9) "<unknown>"
+    ["connectedlinename"]=>
+    string(9) "<unknown>"
+    ["accountcode"]=>
+    string(0) ""
+    ["context"]=>
+    string(15) "office_mainmenu"
+    ["exten"]=>
+    string(6) "770760"
+    ["priority"]=>
+    string(2) "12"
+    ["uniqueid"]=>
+    string(13) "1478596925.88"
+    ["variable"]=>
+    string(16) "BACKGROUNDSTATUS"
+    ["value"]=>
+    string(7) "SUCCESS"
+  }
+  ["createdDate":protected]=>
+  int(1478596934)
+}
+object(PAMI\Message\Event\UnknownEvent)#7 (6) {
+  ["rawContent":protected]=>
+  string(349) "Event: SoftHangupRequest
+Privilege: call,all
+Channel: SIP/isp-0000000c
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 9605330101
+CallerIDName: Восток Сервис ЗАО
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+AccountCode: 
+Context: office_mainmenu
+Exten: 770760
+Priority: 12
+Uniqueid: 1478596925.88
+Cause: 16"
+  ["channelVariables":protected]=>
+  array(1) {
+    ["sip/isp-0000000c"]=>
+    array(0) {
+    }
+  }
+  ["lines":protected]=>
+  array(0) {
+  }
+  ["variables":protected]=>
+  array(0) {
+  }
+  ["keys":protected]=>
+  array(15) {
+    ["event"]=>
+    string(17) "SoftHangupRequest"
+    ["privilege"]=>
+    string(8) "call,all"
+    ["channel"]=>
+    string(16) "SIP/isp-0000000c"
+    ["channelstate"]=>
+    string(1) "6"
+    ["channelstatedesc"]=>
+    string(2) "Up"
+    ["calleridnum"]=>
+    string(10) "9605330101"
+    ["calleridname"]=>
+    string(32) "Восток Сервис ЗАО"
+    ["connectedlinenum"]=>
+    string(9) "<unknown>"
+    ["connectedlinename"]=>
+    string(9) "<unknown>"
+    ["accountcode"]=>
+    string(0) ""
+    ["context"]=>
+    string(15) "office_mainmenu"
+    ["exten"]=>
+    string(6) "770760"
+    ["priority"]=>
+    string(2) "12"
+    ["uniqueid"]=>
+    string(13) "1478596925.88"
+    ["cause"]=>
+    string(2) "16"
+  }
+  ["createdDate":protected]=>
+  int(1478596934)
+}
+object(PAMI\Message\Event\HangupEvent)#7 (6) {
+  ["rawContent":protected]=>
+  string(357) "Event: Hangup
+Privilege: call,all
+Channel: SIP/isp-0000000c
+ChannelState: 6
+ChannelStateDesc: Up
+CallerIDNum: 9605330101
+CallerIDName: Восток Сервис ЗАО
+ConnectedLineNum: <unknown>
+ConnectedLineName: <unknown>
+AccountCode: 
+Context: office_mainmenu
+Exten: 770760
+Priority: 12
+Uniqueid: 1478596925.88
+Cause: 0
+Cause-txt: Unknown"
+  ["channelVariables":protected]=>
+  array(1) {
+    ["sip/isp-0000000c"]=>
+    array(0) {
+    }
+  }
+  ["lines":protected]=>
+  array(0) {
+  }
+  ["variables":protected]=>
+  array(0) {
+  }
+  ["keys":protected]=>
+  array(16) {
+    ["event"]=>
+    string(6) "Hangup"
+    ["privilege"]=>
+    string(8) "call,all"
+    ["channel"]=>
+    string(16) "SIP/isp-0000000c"
+    ["channelstate"]=>
+    string(1) "6"
+    ["channelstatedesc"]=>
+    string(2) "Up"
+    ["calleridnum"]=>
+    string(10) "9605330101"
+    ["calleridname"]=>
+    string(32) "Восток Сервис ЗАО"
+    ["connectedlinenum"]=>
+    string(9) "<unknown>"
+    ["connectedlinename"]=>
+    string(9) "<unknown>"
+    ["accountcode"]=>
+    string(0) ""
+    ["context"]=>
+    string(15) "office_mainmenu"
+    ["exten"]=>
+    string(6) "770760"
+    ["priority"]=>
+    string(2) "12"
+    ["uniqueid"]=>
+    string(13) "1478596925.88"
+    ["cause"]=>
+    string(1) "0"
+    ["cause-txt"]=>
+    string(7) "Unknown"
+  }
+  ["createdDate":protected]=>
+  int(1478596934)
+}

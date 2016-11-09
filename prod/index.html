@@ -3,6 +3,7 @@
 <head>
 	<title>aCrm</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
 	<!-- todo local copy --> 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css">
 	<style type="text/css">
@@ -83,8 +84,7 @@ button {
   font-weight: 400;
   text-align: center;
   vertical-align: middle;
-  -ms-touch-action: manipulation;
-      touch-action: manipulation;
+  touch-action: manipulation;
   cursor: pointer;
   border: 1px solid transparent;
   white-space: nowrap;
@@ -97,8 +97,7 @@ button {
   border-color: #32c5d2;
   color: #32c5d2;
   background: 0 0;
-  -webkit-transition: all .3s;
-          transition: all .3s;
+  transition: all .3s;
   outline: 0; }
   button:hover {
     border-color: #32c5d2;
@@ -117,6 +116,10 @@ html, body {
   font-family: "Open Sans";
   color: #65717b;
   line-height: 1.4; }
+  html._callerWidgetShow > .caller-widget, body._callerWidgetShow > .caller-widget {
+    width: 0; }
+  html._callerWidgetShow > main, body._callerWidgetShow > main {
+    margin-right: 0; }
   html._full > aside, body._full > aside {
     width: 50px; }
   html._full > main, body._full > main {
@@ -164,8 +167,7 @@ aside {
   position: relative;
   margin-right: -100%;
   background-color: #364150;
-  -webkit-transition: .35s ease-in-out;
-          transition: .35s ease-in-out; }
+  transition: .35s ease-in-out; }
   aside:after {
     content: " ";
     display: table;
@@ -175,18 +177,17 @@ main {
   min-height: 100%;
   position: relative;
   margin-left: 235px;
+  margin-right: 235px;
   background-color: #eef1f5;
   padding: 50px 20px 10px;
-  -webkit-transition: .35s ease-in-out;
-          transition: .35s ease-in-out; }
+  transition: .35s ease-in-out; }
 
 .logo {
   display: inline-block;
   color: #fff;
   text-decoration: none;
   text-align: center;
-  -webkit-transition: .35s ease-in-out;
-          transition: .35s ease-in-out;
+  transition: .35s ease-in-out;
   overflow: hidden; }
   .logo > ._h {
     color: #ff3f3f; }
@@ -194,8 +195,7 @@ main {
 .aside-trigger {
   position: relative;
   cursor: pointer;
-  -webkit-transition: opacity .35s ease-in-out;
-          transition: opacity .35s ease-in-out; }
+  transition: opacity .35s ease-in-out; }
   .aside-trigger:hover {
     opacity: .7; }
   .aside-trigger > .item, .aside-trigger .item:before, .aside-trigger .item:after {
@@ -220,8 +220,7 @@ main {
 .user-login {
   text-align: center;
   cursor: pointer;
-  -webkit-transition: background .35s ease-in-out;
-          transition: background .35s ease-in-out; }
+  transition: background .35s ease-in-out; }
   .user-login:hover {
     background: #3f4f62; }
   .user-login > .thumb {
@@ -239,8 +238,7 @@ main {
 
 .telephone-trigger {
   font-size: 18px;
-  -webkit-transition: background .35s ease-in-out;
-          transition: background .35s ease-in-out;
+  transition: background .35s ease-in-out;
   color: #79869a;
   cursor: pointer;
   text-align: center;
@@ -266,8 +264,7 @@ main {
     .main-menu > .item > .link:hover {
       background: #2C3542; }
     .main-menu > .item > .link > i {
-      -webkit-transition: .35s ease-in-out;
-              transition: .35s ease-in-out; }
+      transition: .35s ease-in-out; }
 
 .main-bar {
   border-bottom: 1px solid #e7ecf1;
@@ -293,17 +290,12 @@ main {
     display: table;
     clear: both; }
 
-.contacts-table > .content > tr > .phone {
-  cursor: pointer;
-  -webkit-transition: color .35s ease-in-out;
-          transition: color .35s ease-in-out; }
-  .contacts-table > .content > tr > .phone:hover {
-    color: #32c5d2; }
-.contacts-table > .content > tr > td > .actions {
-  border: 0; }
-  .contacts-table > .content > tr > td > .actions > i {
-    font-size: 24px;
-    padding: 0; }
+.caller-widget {
+  float: right;
+  margin-right: 0;
+  margin-left: -100%; }
+
+/*# sourceMappingURL=inline.css.map */
 
 	</style>
 	<!--[if lt IE 9]>
@@ -316,7 +308,7 @@ main {
 		<nav class="aside-trigger" id="asideTrigger">
 			<span class="item"></span>
 		</nav>
-		<span class="telephone-trigger"><i class="icon-call-in isons"></i></span>
+		<span class="telephone-trigger" id="callerTrigger"><i class="icon-call-in isons"></i></span>
 		<div class="user-login">
 			<img class="thumb" src="img/user-thumb.jpg" />
 			<span class="login">Андрей</span>
@@ -333,6 +325,11 @@ main {
 			</li>
 		</ul>
 	</aside>
+
+	<aside class="caller-widget" id="callerWidget">
+		
+	</aside>
+
 	<main>
 		<div class="main-bar">
 			<h1 class="title">
@@ -341,24 +338,19 @@ main {
 			</h1>
 			<button class="actions">Действия<i class="icon-arrow-down"></i></button>
 		</div>
-		<table class="contacts-table">
+		<table class="contacts-table" id="contactsTable">
 			<thead class="header">
 				<tr>
 					<td>ФИО</td><td>Телефон</td><td>Действия</td>
 				</tr>
 			</thead>
 			<tbody class="content">
-				<tr>
-					<td>Иванов Петр Сергеевич</td>
-					<td class="phone">+7 (123) 456-78-90</td>
-					<td><button class="actions"><i class="icon-settings"></i></button></td>
-				</tr>
-
 			</tbody>
 		</table>
 	</main>
 	<footer></footer>
 	<link rel="stylesheet" type="text/css" href="a.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script type="text/javascript" src="a.js"></script>
 </body>
 </html>
