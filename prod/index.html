@@ -7,7 +7,52 @@
 	<!-- todo local copy --> 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css">
 	<style type="text/css">
-		@font-face {
+		.caller-widget {
+  position: relative;
+  width: 235px;
+  float: right;
+  margin-left: -100%;
+  overflow: hidden; }
+  .caller-widget > .phonenumber {
+    border: none;
+    border-bottom: 1px solid #79869a;
+    background: transparent;
+    width: 100%;
+    font-size: 22px;
+    font-weight: 300;
+    color: #79869a; }
+    .caller-widget > .phonenumber:focus {
+      color: #fff;
+      background-color: #79869a; }
+  .caller-widget > .contact-list {
+    display: none;
+    border-bottom: 2px solid #3d4957; }
+    .caller-widget > .contact-list > .item {
+      border-top: 1px solid #3d4957; }
+      .caller-widget > .contact-list > .item:hover {
+        background: #2C3542; }
+      .caller-widget > .contact-list > .item > .link {
+        display: block;
+        white-space: pre;
+        width: 80%;
+        overflow: hidden;
+        color: #b4bcc8;
+        padding: 10px 15px;
+        text-decoration: none;
+        font-weight: 300; }
+
+.contacts-table > .content > tr > .phone {
+  cursor: pointer;
+  transition: color .35s ease-in-out; }
+  .contacts-table > .content > tr > .phone:hover {
+    color: #32c5d2; }
+.contacts-table > .content > tr > td > .actions {
+  border: 0; }
+  .contacts-table > .content > tr > td > .actions > i {
+    font-size: 24px;
+    padding: 0; }
+
+@font-face {
   font-family: 'Open Sans';
   src: url("fonts/OpenSans-Regular.eot");
   src: url("fonts/OpenSans-Regular.eot?#iefix") format("embedded-opentype"), url("fonts/OpenSans-Regular.woff2") format("woff2"), url("fonts/OpenSans-Regular.woff") format("woff"), url("fonts/OpenSans-Regular.ttf") format("truetype"), url("fonts/OpenSans-Regular.svg}##Regular") format("svg");
@@ -86,7 +131,7 @@ button {
   vertical-align: middle;
   touch-action: manipulation;
   cursor: pointer;
-  border: 1px solid transparent;
+  border: 1px solid #32c5d2;
   white-space: nowrap;
   padding: 6px 12px;
   line-height: 1.42857;
@@ -94,10 +139,9 @@ button {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  border-color: #32c5d2;
   color: #32c5d2;
   background: 0 0;
-  transition: all .3s;
+  transition: all .35s ease;
   outline: 0; }
   button:hover {
     border-color: #32c5d2;
@@ -108,6 +152,38 @@ button {
     padding-left: 5px;
     vertical-align: middle; }
 
+input {
+  display: inline-block;
+  font-family: "Open Sans";
+  font-weight: 400;
+  text-align: right;
+  line-height: 1.42857;
+  padding: 6px;
+  color: #32c5d2;
+  border: 1px solid #32c5d2;
+  outline: none;
+  transition: all .35s ease; }
+  input::-webkit-input-placeholder {
+    color: #32c5d2; }
+  input::-moz-placeholder {
+    color: #32c5d2; }
+  input:-moz-placeholder {
+    color: #32c5d2; }
+  input:-ms-input-placeholder {
+    color: #32c5d2; }
+  input:focus {
+    border-color: #32c5d2;
+    color: #fff;
+    background-color: #32c5d2; }
+    input:focus::-webkit-input-placeholder {
+      color: #fff; }
+    input:focus::-moz-placeholder {
+      color: #fff; }
+    input:focus:-moz-placeholder {
+      color: #fff; }
+    input:focus:-ms-input-placeholder {
+      color: #fff; }
+
 html, body {
   box-sizing: border-box;
   position: relative;
@@ -116,33 +192,33 @@ html, body {
   font-family: "Open Sans";
   color: #65717b;
   line-height: 1.4; }
-  html._callerWidgetShow > .caller-widget, body._callerWidgetShow > .caller-widget {
+  html._hideCaller > .caller-widget, body._hideCaller > .caller-widget {
     width: 0; }
-  html._callerWidgetShow > main, body._callerWidgetShow > main {
+  html._hideCaller > main, body._hideCaller > main {
     margin-right: 0; }
-  html._full > aside, body._full > aside {
+  html._hideMenu > .menu-widget, body._hideMenu > .menu-widget {
     width: 50px; }
-  html._full > main, body._full > main {
+  html._hideMenu > main, body._hideMenu > main {
     margin-left: 50px; }
-  html._full > header > .logo, body._full > header > .logo {
+  html._hideMenu > header > .logo, body._hideMenu > header > .logo {
     width: 0;
     opacity: 0; }
-  html._full > aside > .main-menu > .item > .link, body._full > aside > .main-menu > .item > .link {
+  html._hideMenu > .menu-widget > .main-menu > .item > .link, body._hideMenu > .menu-widget > .main-menu > .item > .link {
     font-size: 20px; }
-    html._full > aside > .main-menu > .item > .link > i, body._full > aside > .main-menu > .item > .link > i {
+    html._hideMenu > .menu-widget > .main-menu > .item > .link > i, body._hideMenu > .menu-widget > .main-menu > .item > .link > i {
       padding-right: 950px; }
-  html._full > aside > .main-menu > .item > .heading, body._full > aside > .main-menu > .item > .heading {
+  html._hideMenu > .menu-widget > .main-menu > .item > .heading, body._hideMenu > .menu-widget > .main-menu > .item > .heading {
     display: none; }
 
 header {
   position: fixed;
   width: 100%;
-  z-index: 1;
+  z-index: 2;
   background-color: #2b3643;
   height: 50px;
   min-height: 50px;
   line-height: 50px; }
-  header > .aside-trigger {
+  header > .menu-trigger {
     float: left;
     width: 50px;
     height: 50px; }
@@ -160,14 +236,12 @@ header {
     height: 50px; }
 
 aside {
-  width: 235px;
   min-height: 100%;
   margin-top: 50px;
-  float: left;
   position: relative;
-  margin-right: -100%;
   background-color: #364150;
-  transition: .35s ease-in-out; }
+  transition: .35s ease-in-out;
+  z-index: 1; }
   aside:after {
     content: " ";
     display: table;
@@ -182,6 +256,15 @@ main {
   padding: 50px 20px 10px;
   transition: .35s ease-in-out; }
 
+.ajax-loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 64px;
+  height: 64px;
+  background-image: url("img/ajax-loader.gif");
+  background-repeat: no-repeat; }
+
 .logo {
   display: inline-block;
   color: #fff;
@@ -191,31 +274,6 @@ main {
   overflow: hidden; }
   .logo > ._h {
     color: #ff3f3f; }
-
-.aside-trigger {
-  position: relative;
-  cursor: pointer;
-  transition: opacity .35s ease-in-out; }
-  .aside-trigger:hover {
-    opacity: .7; }
-  .aside-trigger > .item, .aside-trigger .item:before, .aside-trigger .item:after {
-    position: relative;
-    display: block;
-    margin: 0 auto;
-    width: 19px;
-    height: 1px;
-    background-color: #a7b5c6;
-    top: 50%; }
-  .aside-trigger > .item:before {
-    position: absolute;
-    top: 6px;
-    left: 0;
-    content: ''; }
-  .aside-trigger > .item:after {
-    position: absolute;
-    top: -6px;
-    left: 0;
-    content: ''; }
 
 .user-login {
   text-align: center;
@@ -247,24 +305,28 @@ main {
     background: #3f4f62;
     color: #a4aebb; }
 
-.main-menu {
-  overflow: hidden; }
-  .main-menu > .item .heading {
-    color: #708096;
-    text-transform: uppercase;
-    padding: 15px; }
-  .main-menu > .item > .link {
-    display: block;
-    white-space: pre;
-    border-top: 1px solid #3d4957;
-    color: #b4bcc8;
-    padding: 10px 15px;
-    text-decoration: none;
-    font-weight: 300; }
-    .main-menu > .item > .link:hover {
-      background: #2C3542; }
-    .main-menu > .item > .link > i {
-      transition: .35s ease-in-out; }
+.menu-widget {
+  float: left;
+  margin-right: -100%;
+  width: 235px; }
+  .menu-widget > .main-menu {
+    overflow: hidden; }
+    .menu-widget > .main-menu > .item > .heading {
+      color: #708096;
+      text-transform: uppercase;
+      padding: 15px; }
+    .menu-widget > .main-menu > .item > .link {
+      display: block;
+      white-space: pre;
+      border-top: 1px solid #3d4957;
+      color: #b4bcc8;
+      padding: 10px 15px;
+      text-decoration: none;
+      font-weight: 300; }
+      .menu-widget > .main-menu > .item > .link:hover {
+        background: #2C3542; }
+      .menu-widget > .main-menu > .item > .link > i {
+        transition: .35s ease-in-out; }
 
 .main-bar {
   border-bottom: 1px solid #e7ecf1;
@@ -283,6 +345,9 @@ main {
       font-size: 14px;
       letter-spacing: 0;
       font-weight: 300; }
+  .main-bar > .search {
+    float: right;
+    margin-right: 20px; }
   .main-bar > .actions {
     float: right; }
   .main-bar:after {
@@ -290,10 +355,30 @@ main {
     display: table;
     clear: both; }
 
-.caller-widget {
-  float: right;
-  margin-right: 0;
-  margin-left: -100%; }
+.menu-trigger {
+  position: relative;
+  cursor: pointer;
+  transition: opacity .35s ease-in-out; }
+  .menu-trigger:hover {
+    opacity: .7; }
+  .menu-trigger > .item, .menu-trigger .item:before, .menu-trigger .item:after {
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    width: 19px;
+    height: 1px;
+    background-color: #a7b5c6;
+    top: 50%; }
+  .menu-trigger > .item:before {
+    position: absolute;
+    top: 6px;
+    left: 0;
+    content: ''; }
+  .menu-trigger > .item:after {
+    position: absolute;
+    top: -6px;
+    left: 0;
+    content: ''; }
 
 /*# sourceMappingURL=inline.css.map */
 
@@ -302,10 +387,10 @@ main {
   	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 	<![endif]-->
 </head>
-<body>
+<body class="_hideCaller">
 	<header>
 		<a class="logo" href="/">alpha<span class="_h">CRM</span></a>
-		<nav class="aside-trigger" id="asideTrigger">
+		<nav class="menu-trigger" id="menuTrigger">
 			<span class="item"></span>
 		</nav>
 		<span class="telephone-trigger" id="callerTrigger"><i class="icon-call-in isons"></i></span>
@@ -314,7 +399,7 @@ main {
 			<span class="login">Андрей</span>
 		</div>
 	</header>
-	<aside>
+	<aside class="menu-widget">
 		<ul class="main-menu">
 		<li class="item"><h3 class="heading">Меню</h3></li>
 			<li class="item">
@@ -327,7 +412,24 @@ main {
 	</aside>
 
 	<aside class="caller-widget" id="callerWidget">
-		
+		<input class="phonenumber" />
+		<ul class="contact-list">
+			<li class="item">
+				<a class="link" href="#">Евгений Николаевич Бородин</a>
+			</li>
+			<li class="item">
+				<a class="link" href="#">Евгений Николаевич Бородин</a>
+			</li>
+			<li class="item">
+				<a class="link" href="#">Евгений Николаевич Бородин</a>
+			</li>
+			<li class="item">
+				<a class="link" href="#">Евгений Николаевич Бородин</a>
+			</li>
+			<li class="item">
+				<a class="link" href="#">Евгений Николаевич Бородин</a>
+			</li>
+		</ul>
 	</aside>
 
 	<main>
@@ -337,6 +439,7 @@ main {
 			<span class="subtitle">база с которой мы работаем</span>
 			</h1>
 			<button class="actions">Действия<i class="icon-arrow-down"></i></button>
+			<input class="search" placeholder="Поиск" />
 		</div>
 		<table class="contacts-table" id="contactsTable">
 			<thead class="header">
@@ -348,7 +451,6 @@ main {
 			</tbody>
 		</table>
 	</main>
-	<footer></footer>
 	<link rel="stylesheet" type="text/css" href="a.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script type="text/javascript" src="a.js"></script>

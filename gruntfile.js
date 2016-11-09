@@ -40,6 +40,7 @@ module.exports = function(grunt) {
             css_inline: {
                 src: [
                 	'dev/vars.scss',
+                    'dev/layout.scss',
                     'dev/inline/**/*.{scss,css}'
                 ],
                 dest: 'dev/tmp/inline.scss',

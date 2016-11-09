@@ -1,0 +1,17 @@
+.menu-trigger {
+	position: relative;
+	cursor: pointer;
+	transition: opacity .35s ease-in-out;
+	&:hover { opacity: .7; }
+	> .item, .item:before, .item:after {
+		position: relative;
+		display: block;
+		margin: 0 auto;
+		width: 19px;
+		height: 1px;
+		background-color: #a7b5c6;
+    top: 50%;
+	}
+	> .item:before { position: absolute; top: 6px; left: 0; content: ''; }
+  > .item:after { position: absolute; top: -6px; left: 0; content: ''; }
+}

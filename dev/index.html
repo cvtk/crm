@@ -13,10 +13,10 @@
   	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 	<![endif]-->
 </head>
-<body>
+<body class="_hideCaller">
 	<header>
 		<a class="logo" href="/">alpha<span class="_h">CRM</span></a>
-		<nav class="aside-trigger" id="asideTrigger">
+		<nav class="menu-trigger" id="menuTrigger">
 			<span class="item"></span>
 		</nav>
 		<span class="telephone-trigger" id="callerTrigger"><i class="icon-call-in isons"></i></span>
@@ -25,7 +25,7 @@
 			<span class="login">Андрей</span>
 		</div>
 	</header>
-	<aside>
+	<aside class="menu-widget">
 		<ul class="main-menu">
 		<li class="item"><h3 class="heading">Меню</h3></li>
 			<li class="item">
@@ -38,7 +38,24 @@
 	</aside>
 
 	<aside class="caller-widget" id="callerWidget">
-		
+		<input class="phonenumber" />
+		<ul class="contact-list">
+			<li class="item">
+				<a class="link" href="#">Евгений Николаевич Бородин</a>
+			</li>
+			<li class="item">
+				<a class="link" href="#">Евгений Николаевич Бородин</a>
+			</li>
+			<li class="item">
+				<a class="link" href="#">Евгений Николаевич Бородин</a>
+			</li>
+			<li class="item">
+				<a class="link" href="#">Евгений Николаевич Бородин</a>
+			</li>
+			<li class="item">
+				<a class="link" href="#">Евгений Николаевич Бородин</a>
+			</li>
+		</ul>
 	</aside>
 
 	<main>
@@ -48,6 +65,7 @@
 			<span class="subtitle">база с которой мы работаем</span>
 			</h1>
 			<button class="actions">Действия<i class="icon-arrow-down"></i></button>
+			<input class="search" placeholder="Поиск" />
 		</div>
 		<table class="contacts-table" id="contactsTable">
 			<thead class="header">
@@ -59,7 +77,6 @@
 			</tbody>
 		</table>
 	</main>
-	<footer></footer>
 	<link rel="stylesheet" type="text/css" href="a.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script type="text/javascript" src="a.js"></script>

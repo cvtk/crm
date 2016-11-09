@@ -1,0 +1,38 @@
+.caller-widget {
+	position: relative;
+	width: 235px;
+	float: right;
+	margin-left: -100%;
+	overflow: hidden;
+	> .phonenumber {
+		border: none;
+		border-bottom: 1px solid #79869a;
+		background: transparent;
+		width: 100%;
+		font-size: 22px;
+		font-weight: 300;
+		color: #79869a;
+		&:focus {
+			color: #fff;
+			background-color: #79869a;
+		}
+	}
+	> .contact-list {
+		display: none;
+		border-bottom: 2px solid #3d4957;
+		> .item {
+			border-top: 1px solid #3d4957;
+			&:hover { background: #2C3542; }
+				> .link {
+					display: block;
+					white-space: pre;
+					width: 80%;
+					overflow: hidden;
+		    	color: #b4bcc8;
+					padding: 10px 15px;
+					text-decoration: none;
+		    	font-weight: 300;
+				}
+			}
+	}
+}

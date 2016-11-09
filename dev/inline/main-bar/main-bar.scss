@@ -1,0 +1,32 @@
+.main-bar {
+	border-bottom: 1px solid #e7ecf1;
+	position: relative;
+	padding: 0 20px;
+	margin: 25px -20px;
+	height: 55px;
+	> .title {
+		font-size: 24px;
+		color: #666;
+		letter-spacing: -1px;
+		font-weight: 400;
+		float: left;
+		width: 60%;
+		> .subtitle {
+			font-size: 14px;
+    	letter-spacing: 0;
+    	font-weight: 300;
+		}
+	}
+	> .search {
+		float: right;
+		margin-right: 20px;
+	}
+	> .actions {
+		float: right;
+	}
+	&:after {
+		content: " ";
+		display: table;
+		clear: both;
+	}
+}
