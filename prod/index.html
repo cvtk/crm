@@ -444,15 +444,20 @@ main {
 		<table class="contacts-table" id="contactsTable">
 			<thead class="header">
 				<tr>
-					<td>ФИО</td><td>Телефон</td><td>Действия</td>
+					<td>Должник</td><td>Телефон</td><td>Дополнительный контакт</td><td>Комментарий</td>
 				</tr>
 			</thead>
-			<tbody class="content">
-			</tbody>
+			<tbody class="content" id="contactsViewList"></tbody>
 		</table>
 	</main>
+	<script id="tpl-contact-list" type="text/template">
+		<td class="name"><%= name %></td>
+		<td class="phone"><%= phone %></td>
+		<td class="family"><%= family %></td>
+		<td class="comment"><%= comment %></td>
+	</script>
 	<link rel="stylesheet" type="text/css" href="a.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script type="text/javascript" src="a.js"></script>
+	
 </body>
 </html>

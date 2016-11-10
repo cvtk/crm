@@ -20,10 +20,11 @@ module.exports = function(grunt) {
         concat: {
             jsa: {
                 src: [
-                    'dev/assets/**/*.js',
+                    'dev/assets/vendor/underscore.js',
+                    'dev/assets/vendor/jquery.js',
+                    'dev/assets/vendor/backbone.js',
                     'dev/inline/**/*.js',
-                    'dev/init.js',
-                    'dev/components/*.js',
+                    'dev/app.js',
                     'dev/components/**/*.js'
                 ],
                 dest: 'prod/a.js',
