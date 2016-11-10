@@ -4,6 +4,21 @@
 	padding: 0 20px;
 	margin: 25px -20px;
 	height: 55px;
+	> .action-menu {
+		position: absolute;
+		z-index: 2;
+		background-color: #fff;
+		border: 1px solid #32c5d2;
+		> .item {
+			color: #32c5d2;
+			transition: .35s ease;
+			cursor: pointer;
+			padding: 10px 20px;
+			&:hover {
+				background-color: #e7ecf1;
+			}
+		}
+	}
 	> .title {
 		font-size: 24px;
 		color: #666;

@@ -40,8 +40,14 @@ time, mark, audio, video {
 	border: 0;
 	font-size: 100%;
 	font: inherit;
+	font-family: 'Open Sans';
 	vertical-align: baseline;
 }
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
 	display: block;
@@ -94,8 +100,9 @@ table {
 
 button {
   display: inline-block;
+  font-family: 'Open Sans';
   margin-bottom: 0;
-  font-weight: 400;
+  font-weight: 300;
   text-align: center;
   vertical-align: middle;
   touch-action: manipulation;
