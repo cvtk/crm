@@ -119,20 +119,20 @@ showResult = function(message) {
 		
 	})
 })
-$(function() {
-	$.ajax({
-		dataType: "json",
-		url: 'http://127.0.0.1:8000/api/contacts',
-		success: function(response) {
-			$.each(response, function(key, data){
-				$('#contactsTable > .content').append(
-					'<tr><td>' + data.firstname +' ' + data.lastname + '</td><td class="phone">' 
-					+ data.mobilephone + '</td><td><button data-id=' + data.id + ' class="actions"><i class="icon-settings"></i></button></td></tr>')
-				console.log(data)
-			})
-		}
-	});
-})
+// $(function() {
+// 	$.ajax({
+// 		dataType: "json",
+// 		url: 'http://127.0.0.1:8000/api/contacts',
+// 		success: function(response) {
+// 			$.each(response, function(key, data){
+// 				$('#contactsTable > .content').append(
+// 					'<tr><td>' + data.firstname +' ' + data.lastname + '</td><td class="phone">' 
+// 					+ data.mobilephone + '</td><td><button data-id=' + data.id + ' class="actions"><i class="icon-settings"></i></button></td></tr>')
+// 				console.log(data)
+// 			})
+// 		}
+// 	});
+// })
 $(function() {
 	$('#importUpload').click(function() {
 		$('#fileInput').click();
@@ -220,8 +220,15 @@ $(function() {
         { id: 12, datetime: '10.11.2016', src: 'Цветков Олег Владиславович', dst: '+79605330101', result: 'Ответ', audio: '/root/auto.mp3' }
     ];
 
+
+var App = {};
 var Contact = Backbone.Model.extend();
-var Contacts = Backbone.Collection.extend({ model: Contact });
+
+var Contacts = Backbone.Collection.extend({
+    model: Contact,
+    url: 'http://localhost/api/contacts'
+});
+
 var ContactViewList = Backbone.View.extend({
     tagName: 'tr',
     className: 'contact-line',
@@ -233,28 +240,41 @@ var ContactViewList = Backbone.View.extend({
     }
 });
 var ContactsViewList = Backbone.View.extend({
-    el: '#contactsViewList',
+    tagName: 'table',
+    tagClass: 'contacts-table',
+    template: $('#tpl-contacts-list').html(),
+
     initialize: function() {
-        this.collection = new Contacts(contacts);
+        $('#pageContent').html(this.el);
+        this.collection = new Contacts();
+        this.collection.fetch({ update: true })
+        this.listenTo( this.collection, 'reset add change remove', this.render, this );
         this.render();
     },
+
     render: function() {
+        var tpl = _.template( this.template );
         var that = this;
+        this.$el.html( tpl() );
         _.each(this.collection.models, function(item) {
             that.renderContactList( item );
         }, this );
     },
+
     renderContactList: function( item ) {
         var contactViewList = new ContactViewList({
             model: item
         });
-        this.$el.append( contactViewList.render().el )
+        $('#contactsViewList').append( contactViewList.render().el )
     }
 });
-var contactsViewList = new ContactsViewList();
+
 
 var Call = Backbone.Model.extend();
-var Calls = Backbone.Collection.extend({ model: Call });
+var Calls = Backbone.Collection.extend({
+    model: Call,
+    url: 'http://localhost/api/calls'
+});
 var CallViewList = Backbone.View.extend({
     tagName: 'tr',
     className: 'call-line',
@@ -263,27 +283,76 @@ var CallViewList = Backbone.View.extend({
         var tpl = _.template( this.template );
         this.$el.html( tpl( this.model.toJSON() ) );
         return this;
+    },
+    events: { 'click #playPause' : 'playPause'},
+
+    playPause: function(that) {
+        var audio = document.getElementById('player-'+this.model.id);
+        audio.onended = function() {
+            $(that.target).toggleClass('icon-control-pause');
+        }
+        $(that.target).toggleClass('icon-control-pause');
+        return audio.paused ? audio.play() : audio.pause();
     }
 });
 var CallsViewList = Backbone.View.extend({
-    el: '#callsViewList',
+    tagName: 'table',
+    tagClass: 'calls-table',
+    template: $('#tpl-calls-list').html(),
     initialize: function() {
-        this.collection = new Calls(calls);
+        $('#pageContent').html(this.el);
+        this.collection = new Calls();
+        this.collection.fetch();
+        var self = this;
+        this.timer = setInterval(function() {
+              self.collection.fetch();
+         }, 10000);
+        this.listenTo( this.collection, 'reset add change remove', this.render, this );
         this.render();
+        
+    },
+    close: function() {
+        clearInterval(this.timer);
     },
     render: function() {
+        var tpl = _.template( this.template );
         var that = this;
+        this.$el.html( tpl() );
         _.each(this.collection.models, function( item ) {
             that.renderCallList( item );
         }, this );
+        return this;
     },
     renderCallList: function( item ) {
         var callViewList = new CallViewList({
             model: item
         });
-        this.$el.append( callViewList.render().el )
+        $('#callsViewList').append( callViewList.render().el );
+    }
+}); 
+
+
+
+var Router = Backbone.Router.extend({
+    routes: {
+        '' : 'index',
+        'calls' : 'calls'
+    },
+
+    index: function() {
+        this.loadView( new ContactsViewList() );
+    },
+
+    calls: function() {
+        this.loadView( new CallsViewList() );
+    },
+
+    loadView : function( view ) {
+        this.view && this.view.remove();
+        this.view = view;
     }
 });
-var callsViewList = new CallsViewList();
 
+Backbone.history.start();
+App.router = new Router();
 } (jQuery));

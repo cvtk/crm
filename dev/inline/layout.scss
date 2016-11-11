@@ -308,3 +308,13 @@ main {
 		}
 	}
 }
+
+.audio-player {
+	> .control {
+		padding: 5px;
+		> i { 
+			font-size: 15px;
+    	padding-left: 3px;
+		}
+	}
+}

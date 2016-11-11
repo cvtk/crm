@@ -404,6 +404,12 @@ main {
       .menu-widget > .main-menu > .item > .link > i {
         transition: .35s ease-in-out; }
 
+.audio-player > .control {
+  padding: 5px; }
+  .audio-player > .control > i {
+    font-size: 15px;
+    padding-left: 3px; }
+
 .main-bar {
   border-bottom: 1px solid #e7ecf1;
   position: relative;
@@ -491,10 +497,10 @@ main {
 		<ul class="main-menu">
 		<li class="item"><h3 class="heading">Меню</h3></li>
 			<li class="item">
-				<a class="link" href="#"><i class="icon-people"> </i>Контакты</a>
+				<a class="link" href="/#"><i class="icon-people"> </i>Контакты</a>
 			</li>
 			<li class="item">
-				<a class="link" href="#"><i class="icon-phone"> </i>Звонки</a>
+				<a class="link" href="/#calls"><i class="icon-phone"> </i>Звонки</a>
 			</li>
 		</ul>
 	</aside>
@@ -528,39 +534,50 @@ main {
 			</ul>
 			<input class="search" placeholder="Поиск" />
 		</div>
+		<div class="content" id=pageContent>
+			
+		</div>
 
-		<table class="contacts-table" id="contactsTable">
+	</main>
+
+	<script id="tpl-contacts-list" type="text/template">
 			<thead class="header">
 				<tr>
 					<td>Должник</td><td>Телефон</td><td>Дополнительный контакт</td><td>Комментарий</td>
 				</tr>
 			</thead>
 			<tbody class="content" id="contactsViewList"></tbody>
-		</table>
+	</script>
 
-		<table class="calls-table" id="callsTable">
-			<thead class="header">
-				<tr>
-					<td>Дата и время</td><td>Инициатор</td><td>Куда</td><td>Результат</td><td>Запись звонка</td>
-				</tr>
-			</thead>
-			<tbody class="content" id="callsViewList"></tbody>
-		</table>
+	<script id="tpl-calls-list" type="text/template">
+		<thead class="header">
+			<tr>
+				<td>Дата и время</td><td>Инициатор</td><td>Куда</td><td>Результат</td><td>Запись звонка</td>
+			</tr>
+		</thead>
+		<tbody class="content" id="callsViewList"></tbody>
+	</script>
 
-	</main>
 	<script id="tpl-call-line" type="text/template">
-		<td class="datetime"><%= datetime %></td>
+		<td class="created"><%= created %></td>
 		<td class="src"><%= src %></td>
 		<td class="dst"><%= dst %></td>
-		<td class="result"><%= result %></td>
-		<td class="audio"><%= audio %></td>
+		<td class="state"><%= state %></td>
+		<td class="audio-player">
+		<% if (monitor.length) { %>
+			<audio src="http://localhost/storage/calls/<%= monitor %>.wav" id="player-<%= id %>" preload="auto" />
+			<button class="control" id="playPause"><i class="icon-control-play"></i></button>
+		<% } %>	
+		</td>
 	</script>
+
 	<script id="tpl-contact-line" type="text/template">
 		<td class="name"><%= name %></td>
 		<td class="phone"><%= phone %></td>
 		<td class="family"><%= family %></td>
 		<td class="comment"><%= comment %></td>
 	</script>
+
 	<link rel="stylesheet" type="text/css" href="a.css">
 	<script type="text/javascript" src="a.js"></script>
 </body>
