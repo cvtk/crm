@@ -27,7 +27,7 @@ showResult = function(message) {
 		$.ajax({
 		dataType: 'json',
 		type: 'post',
-		url: 'http://127.0.0.1:8000/api/sms/templates',
+		url: 'http://127.0.0.1/api/sms/templates',
 		success: function(response) {
 			if (response.length) {
 				$('#callerWidget .sms-list').html('');
@@ -43,7 +43,7 @@ showResult = function(message) {
 								$.ajax({
 								dataType: 'json',
 								type: 'post',
-								url: 'http://127.0.0.1:8000/api/sms/send',
+								url: 'http://127.0.0.1/api/sms/send',
 								data: {
 									'template': $('#callerWidget .sms-list input:checked').val(),
 									'phone': $('#callerWidget .phonenumber').val()},
@@ -61,7 +61,7 @@ showResult = function(message) {
 						}
 						});
 			} else {
-				$('#callerWidget .sms-list').html('Шаблонов не найдено');
+				$('#callerWidget .sms-list').html('Шаблоны не найдены');
 			}
 		}
 	})
@@ -71,7 +71,7 @@ showResult = function(message) {
 		if ($(this).val().length > 1)  {
 			$.ajax({
 				dataType: "json",
-				url: 'http://127.0.0.1:8000/api/contacts',
+				url: 'http://127.0.0.1/api/contacts',
 				data: { 'search': $(this).val() },
 				success: function(response) {
 					if (response.length) {

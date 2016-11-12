@@ -14,7 +14,6 @@
   margin-left: -100%; }
   .caller-widget > .widget-layer {
     position: relative;
-    padding: 10px 15px;
     width: 100%;
     height: 100%;
     text-align: center;
@@ -23,6 +22,7 @@
       color: #fff; }
     .caller-widget > .widget-layer > .send {
       display: none;
+      padding: 10px 15px;
       margin-top: 25px;
       width: 100%;
       font-size: 16px;
@@ -32,7 +32,8 @@
         font-size: 16px; }
     .caller-widget > .widget-layer > .sms-list {
       display: none;
-      margin-top: 25px; }
+      margin-top: 25px;
+      padding: 10px 15px; }
       .caller-widget > .widget-layer > .sms-list > .item {
         cursor: pointer;
         display: block;
@@ -97,7 +98,8 @@
         background-color: #79869a; }
     .caller-widget > .widget-layer > .contact-list {
       display: none;
-      border-bottom: 2px solid #3d4957; }
+      border-bottom: 2px solid #3d4957;
+      padding: 10px 15px; }
       .caller-widget > .widget-layer > .contact-list > .item {
         border-top: 1px solid #3d4957; }
         .caller-widget > .widget-layer > .contact-list > .item:hover {
@@ -418,6 +420,10 @@ main {
   bottom: 0;
   z-index: 3;
   background-color: #364150; }
+  .login-screen > .logo {
+    display: block;
+    font-size: 22px;
+    margin-top: 60px; }
   .login-screen > .login-form {
     z-index: 4;
     background-color: #fff;
@@ -426,7 +432,7 @@ main {
     padding: 10px 30px 30px;
     overflow: hidden;
     position: relative; }
-    .login-screen > .login-form > .h1 {
+    .login-screen > .login-form > .title {
       color: #32c5d2;
       text-align: center;
       font-size: 28px;
@@ -439,10 +445,33 @@ main {
       height: 43px;
       color: #8290a3;
       border: 1px solid #dde3ec;
+      margin-bottom: 15px;
+      text-align: left;
       padding: 6px 12px;
       transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
       font-size: 14px;
       line-height: 1.42857; }
+    .login-screen > .login-form > .submit {
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.42857;
+      padding: 10px 20px;
+      margin: 20px 0 60px;
+      text-transform: uppercase; }
+    .login-screen > .login-form > .create {
+      display: block;
+      font-weight: 600;
+      font-size: 14px;
+      color: #c3cedd;
+      margin: 0 -40px -30px;
+      padding: 15px 0 17px;
+      text-align: center;
+      background-color: #6c7a8d;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: .35s ease; }
+      .login-screen > .login-form > .create:hover {
+        color: #fff; }
 
 .main-bar {
   border-bottom: 1px solid #e7ecf1;
@@ -516,8 +545,11 @@ main {
 	<![endif]-->
 </head>
 <body class="_hideCaller">
+<div class="login-wrapper" id="loginWrapper">
+
+</div>
 	<header>
-		<a class="logo" href="/">alpha<span class="_h">CRM</span></a>
+		<a class="logo" href="#login">partner<span class="_h">CRM</span></a>
 		<nav class="menu-trigger" id="menuTrigger">
 			<span class="item"></span>
 		</nav>
@@ -531,10 +563,10 @@ main {
 		<ul class="main-menu">
 		<li class="item"><h3 class="heading">Меню</h3></li>
 			<li class="item">
-				<a class="link" href="/#"><i class="icon-people"> </i>Контакты</a>
+				<a class="link" href="#"><i class="icon-people"> </i>Контакты</a>
 			</li>
 			<li class="item">
-				<a class="link" href="/#calls"><i class="icon-phone"> </i>Звонки</a>
+				<a class="link" href="#calls"><i class="icon-phone"> </i>Звонки</a>
 			</li>
 		</ul>
 	</aside>
@@ -555,16 +587,6 @@ main {
 	</aside>
 
 	<main>
-
-	<div class="login-screen">
-		<div class="login-form">
-			<h2 class="title">Вход</h2>
-			<input class="login" type="text" placeholder="Логин">
-			<input class="password" type="password" placeholder="Пароль">
-			<button>Войти</button>
-		</div>
-	</div>
-
 		<div class="main-bar">
 			<h1 class="title">
 			Контакты
@@ -622,8 +644,17 @@ main {
 		<td class="comment"><%= comment %></td>
 	</script>
 
-	<script id="tpl-login-form" type="text/template">
-		
+	<script id="tpl-login-screen" type="text/template">
+		<div class="login-screen" id="loginScreen">
+			<a class="logo" href="#">partner<span class="_h">CRM</span></a>
+			<div class="login-form">
+				<h2 class="title">Вход</h2>
+				<input class="login" type="text" placeholder="Логин">
+				<input class="password" type="password" placeholder="Пароль">
+				<button class="submit">Войти</button>
+				<a class="create" href="#">Регистрация</a>
+			</div>
+		</div>
 	</script>
 
 	<link rel="stylesheet" type="text/css" href="a.css">

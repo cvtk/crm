@@ -1,33 +1,49 @@
-(function ($) {
-    var contacts = [
-        { name: 'Цветков Олег Владиславович', phone: '+79605330101', family: 'Цветкова Ольга Борисовна', comment: 'Добропорядочный гражданин' },
-        { name: 'Цветков Олег Владиславович', phone: '+79605330101', family: 'Цветкова Ольга Борисовна', comment: 'Добропорядочный гражданин' },
-        { name: 'Цветков Олег Владиславович', phone: '+79605330101', family: 'Цветкова Ольга Борисовна', comment: 'Добропорядочный гражданин' },
-        { name: 'Цветков Олег Владиславович', phone: '+79605330101', family: 'Цветкова Ольга Борисовна', comment: 'Добропорядочный гражданин' },
-        { name: 'Цветков Олег Владиславович', phone: '+79605330101', family: 'Цветкова Ольга Борисовна', comment: 'Добропорядочный гражданин' },
-        { name: 'Цветков Олег Владиславович', phone: '+79605330101', family: 'Цветкова Ольга Борисовна', comment: 'Добропорядочный гражданин' },
-        { name: 'Цветков Олег Владиславович', phone: '+79605330101', family: 'Цветкова Ольга Борисовна', comment: 'Добропорядочный гражданин' },
-        { name: 'Цветков Олег Владиславович', phone: '+79605330101', family: 'Цветкова Ольга Борисовна', comment: 'Добропорядочный гражданин' },
-        { name: 'Цветков Олег Владиславович', phone: '+79605330101', family: 'Цветкова Ольга Борисовна', comment: 'Добропорядочный гражданин' },
-        { name: 'Цветков Олег Владиславович', phone: '+79605330101', family: 'Цветкова Ольга Борисовна', comment: 'Добропорядочный гражданин' }
-    ];
-    var calls = [
-        { id: 1, datetime: '10.11.2016', src: 'Цветков Олег Владиславович', dst: '+79605330101', result: 'Ответ', audio: '/root/auto.mp3' },
-        { id: 2, datetime: '10.11.2016', src: 'Цветков Олег Владиславович', dst: '+79605330101', result: 'Ответ', audio: '/root/auto.mp3' },
-        { id: 3, datetime: '10.11.2016', src: 'Цветков Олег Владиславович', dst: '+79605330101', result: 'Ответ', audio: '/root/auto.mp3' },
-        { id: 4, datetime: '10.11.2016', src: 'Цветков Олег Владиславович', dst: '+79605330101', result: 'Ответ', audio: '/root/auto.mp3' },
-        { id: 5, datetime: '10.11.2016', src: 'Цветков Олег Владиславович', dst: '+79605330101', result: 'Ответ', audio: '/root/auto.mp3' },
-        { id: 6, datetime: '10.11.2016', src: 'Цветков Олег Владиславович', dst: '+79605330101', result: 'Ответ', audio: '/root/auto.mp3' },
-        { id: 7, datetime: '10.11.2016', src: 'Цветков Олег Владиславович', dst: '+79605330101', result: 'Ответ', audio: '/root/auto.mp3' },
-        { id: 8, datetime: '10.11.2016', src: 'Цветков Олег Владиславович', dst: '+79605330101', result: 'Ответ', audio: '/root/auto.mp3' },
-        { id: 9, datetime: '10.11.2016', src: 'Цветков Олег Владиславович', dst: '+79605330101', result: 'Ответ', audio: '/root/auto.mp3' },
-        { id: 10, datetime: '10.11.2016', src: 'Цветков Олег Владиславович', dst: '+79605330101', result: 'Ответ', audio: '/root/auto.mp3' },
-        { id: 11, datetime: '10.11.2016', src: 'Цветков Олег Владиславович', dst: '+79605330101', result: 'Ответ', audio: '/root/auto.mp3' },
-        { id: 12, datetime: '10.11.2016', src: 'Цветков Олег Владиславович', dst: '+79605330101', result: 'Ответ', audio: '/root/auto.mp3' }
-    ];
+// (function ($) {
+$(function() {
 
 
 var App = {};
+App.Login = Backbone.Model.extend({
+    urlRoot : 'http://localhost/api/auth',
+    isAuth: 0,
+    initialize: function() {}
+});
+
+App.LoginView = Backbone.View.extend({
+    tagName: 'div',
+    id: 'loginScreen',
+    className: 'login-screen',
+    template: $('#tpl-login-screen').html(),
+
+    initialize: function() {
+        $('#loginWrapper').html(this.el);
+        this.render();
+        var self = this;
+        $('#loginScreen .submit').click(function() {
+            var username, password;
+            username = $('#loginScreen .login').val() || $('#loginScreen .login').css({'border-color': 'red'});
+            password = $('#loginScreen .password').val() || $('#loginScreen .password').css({'border-color': 'red'});
+            self.model.fetch({
+                data: {username: username, password: password},
+                type: 'post',
+                url: 'http://localhost/api/login',
+                success: function() {
+                    $.cookie('api_login', self.model.get('login'), { experes: 365 });
+                    $.cookie('api_key', self.model.get('password'), { experes: 365 });
+                    $.cookie('username', self.model.get('username'), { experes: 365 });
+                    $.cookie('exten', self.model.get('exten'), { experes: 365 });
+                    self.remove();
+                    App.router.navigate('', true);
+                }
+            })
+        });
+    },
+    render: function() {
+        var tpl = _.template( this.template );
+        this.$el.html( tpl() );
+        return this;
+    },
+});
 var Contact = Backbone.Model.extend();
 
 var Contacts = Backbone.Collection.extend({
@@ -53,9 +69,21 @@ var ContactsViewList = Backbone.View.extend({
     initialize: function() {
         $('#pageContent').html(this.el);
         this.collection = new Contacts();
-        this.collection.fetch({ update: true })
         this.listenTo( this.collection, 'reset add change remove', this.render, this );
-        this.render();
+        var self = this;
+        this.collection.fetch({
+            data: {
+                token: App.user.get('password')
+            },
+            type: 'post',
+            error: function(model, xhr, options) {
+                App.user.isAuth = false;
+                App.router.navigate('login', {trigger: true});
+            
+            },
+        }).done(function() {
+            self.render(); 
+        });
     },
 
     render: function() {
@@ -108,19 +136,42 @@ var CallsViewList = Backbone.View.extend({
     initialize: function() {
         $('#pageContent').html(this.el);
         this.collection = new Calls();
-        this.collection.fetch();
         var self = this;
         this.timer = setInterval(function() {
-              self.collection.fetch();
+            self.collection.fetch({
+                data: {
+                    token: App.user.get('password')
+                },
+                type: 'post',
+                error: function(model, xhr, options) {
+                    App.user.isAuth = false;
+                    App.router.navigate('login', {trigger: true});
+
+                },
+            }).done(function() {
+                self.render(); 
+            });
          }, 10000);
         this.listenTo( this.collection, 'reset add change remove', this.render, this );
-        this.render();
-        
+        this.collection.fetch({
+            data: {
+                token: App.user.get('password')
+            },
+            type: 'post',
+            error: function(model, xhr, options) {
+                App.user.isAuth = false;
+                App.router.navigate('login', {trigger: true});
+            
+            },
+        }).done(function() {
+            self.render(); 
+        });
     },
     close: function() {
         clearInterval(this.timer);
     },
     render: function() {
+        this.$el.html('');
         var tpl = _.template( this.template );
         var that = this;
         this.$el.html( tpl() );
@@ -141,12 +192,21 @@ var CallsViewList = Backbone.View.extend({
 
 var Router = Backbone.Router.extend({
     routes: {
-        '' : 'index',
-        'calls' : 'calls'
+        ''      : 'index',
+        'calls' : 'calls',
+        'login' : 'login'
     },
 
     index: function() {
         this.loadView( new ContactsViewList() );
+
+    },
+
+    login: function() {
+        this.loadView( new App.LoginView( { model: App.user } ) );
+        if (this.view.model.isAuth) {
+            this.navigate('', {trigger: true});
+        }
     },
 
     calls: function() {
@@ -159,6 +219,41 @@ var Router = Backbone.Router.extend({
     }
 });
 
-Backbone.history.start();
+Backbone.history.start()
 App.router = new Router();
-} (jQuery));
+App.user = new App.Login();
+
+App.router.navigate('', {trigger: true});
+
+if ( $.cookie('api_login') || $.cookie('api_key') || $.cookie('exten') || $.cookie('username') ) {
+    App.user.fetch({
+        type: 'post',
+        data: { 
+            api_login: $.cookie('api_login'),
+            api_key: $.cookie('api_key')
+        },
+        error: function(model, xhr, options) {
+            App.user.isAuth = false;
+            App.router.navigate('login', {trigger: true});
+            
+        },
+        success: function() {
+            App.user.isAuth = true;
+        }
+    }).done(function() {
+        if (App.user.isAuth) {
+            App.router.view = new ContactsViewList();
+            App.router.navigate('#', {trigger: true});
+            } else {
+                App.router.navigate('login', {trigger: true});
+            }
+        })
+} else {
+    App.router.navigate('login', {trigger: true});
+}
+
+
+})
+
+
+// } (jQuery));

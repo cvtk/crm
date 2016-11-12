@@ -14,17 +14,11 @@
 	<![endif]-->
 </head>
 <body class="_hideCaller">
-<div class="login-screen">
-		<div class="login-form">
-			<h2 class="title">Вход</h2>
-			<input class="login" type="text" placeholder="Логин">
-			<input class="password" type="password" placeholder="Пароль">
-			<button>Войти</button>
-		</div>
-	</div>
-	
+<div class="login-wrapper" id="loginWrapper">
+
+</div>
 	<header>
-		<a class="logo" href="/">alpha<span class="_h">CRM</span></a>
+		<a class="logo" href="#login">partner<span class="_h">CRM</span></a>
 		<nav class="menu-trigger" id="menuTrigger">
 			<span class="item"></span>
 		</nav>
@@ -38,10 +32,10 @@
 		<ul class="main-menu">
 		<li class="item"><h3 class="heading">Меню</h3></li>
 			<li class="item">
-				<a class="link" href="/#"><i class="icon-people"> </i>Контакты</a>
+				<a class="link" href="#"><i class="icon-people"> </i>Контакты</a>
 			</li>
 			<li class="item">
-				<a class="link" href="/#calls"><i class="icon-phone"> </i>Звонки</a>
+				<a class="link" href="#calls"><i class="icon-phone"> </i>Звонки</a>
 			</li>
 		</ul>
 	</aside>
@@ -119,8 +113,17 @@
 		<td class="comment"><%= comment %></td>
 	</script>
 
-	<script id="tpl-login-form" type="text/template">
-		
+	<script id="tpl-login-screen" type="text/template">
+		<div class="login-screen" id="loginScreen">
+			<a class="logo" href="#">partner<span class="_h">CRM</span></a>
+			<div class="login-form">
+				<h2 class="title">Вход</h2>
+				<input class="login" type="text" placeholder="Логин">
+				<input class="password" type="password" placeholder="Пароль">
+				<button class="submit">Войти</button>
+				<a class="create" href="#">Регистрация</a>
+			</div>
+		</div>
 	</script>
 
 	<link rel="stylesheet" type="text/css" href="a.css">

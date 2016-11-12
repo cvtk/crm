@@ -319,6 +319,10 @@ main {
 	}
 }
 
+.login-wrapper {
+
+}
+
 .login-screen { 
 	position: absolute;
 	top: 0;
@@ -328,6 +332,12 @@ main {
 	z-index: 3;
 	background-color: #364150;
 
+	> .logo {
+		display: block;
+		font-size: 22px;
+		margin-top: 60px;
+	}
+
 	> .login-form {
 		z-index: 4;
 		background-color: #fff;
@@ -336,7 +346,7 @@ main {
 		padding: 10px 30px 30px;
 		overflow: hidden;
 		position: relative;
-		> .h1 {
+		> .title {
 		color: #32c5d2;
 		text-align: center;
 		font-size: 28px;
@@ -350,10 +360,37 @@ main {
     height: 43px;
     color: #8290a3;
     border: 1px solid #dde3ec;
+    margin-bottom: 15px;
+    text-align: left;
     padding: 6px 12px;
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
     font-size: 14px;
     line-height: 1.42857;
+		}
+
+		> .submit {
+			font-size: 14px;
+			font-weight: 600;
+			line-height: 1.42857;
+			padding: 10px 20px;
+			margin: 20px 0 60px;
+			text-transform: uppercase;
+		}
+			> .create {
+		display: block;
+		font-weight: 600;
+    font-size: 14px;
+    color: #c3cedd;
+     margin: 0 -40px -30px;
+    padding: 15px 0 17px;
+    text-align: center;
+    background-color: #6c7a8d;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: .35s ease;
+    &:hover {
+    	color: #fff;
+    }
 		}
 	}
 }
