@@ -7,6 +7,10 @@ App.Login = Backbone.Model.extend({
     initialize: function() {}
 });
 
+App.AccountView = Backbone.View.extend({
+
+})
+
 App.RegisterView = Backbone.View.extend({
     tagName: 'div',
     id: 'registerScreen',
@@ -117,10 +121,17 @@ var ContactsViewList = Backbone.View.extend({
     tagName: 'table',
     tagClass: 'contacts-table',
     template: $('#tpl-contacts-list').html(),
+    events: {'click thead td[data-sortby]': 'sortby'},
+
+    sortby: function(self) {
+        sortby = $(self).data();
+        console.log(sortby);
+    },
 
     initialize: function() {
+        $('.main-bar > .title').html( 'Контакты <span class="subtitle">база с которой мы работаем</span>' );
         var self = this;
-        $('.main-bar > .search').keyup(function() {
+        $('.main-bar > .search').unbind().keyup(function() {
             if ($(this).val().length > 1)  {
                 self.search($(this).val());
             } else {
@@ -198,7 +209,21 @@ var CallViewList = Backbone.View.extend({
     className: 'call-line',
     template: $('#tpl-call-line').html(),
     render: function() {
-        var tpl = _.template( this.template );
+    state = this.model.get('state');
+    switch(state) {
+        case '7': state = 'Занятость';
+            break;
+        case '6': state = 'Ответ';
+            break;
+        case '5': state = 'Абонент не ответил';
+            break;
+        case '4': state = 'Вызов';
+            break;
+        default: state = 'Вызов';
+            break;
+    }
+    this.model.set({'state': state })
+    var tpl = _.template( this.template );
         this.$el.html( tpl( this.model.toJSON() ) );
         return this;
     },
@@ -217,26 +242,63 @@ var CallsViewList = Backbone.View.extend({
     tagName: 'table',
     tagClass: 'calls-table',
     template: $('#tpl-calls-list').html(),
+    events: {'click thead td[data-sortby]': 'sortby'},
+
+    sortby: function(self) {
+        sortby = $(self.target).data('sortby');
+        var that = this;
+        this.collection.fetch({
+            data: {
+                token: App.user.get('password'),
+                sortby: sortby
+            },
+            type: 'post',
+            error: function(model, xhr, options) {
+                App.user.isAuth = false;
+                App.router.navigate('login', {trigger: true});
+            
+            },
+        }).done(function() {
+            that.render(); 
+        });
+    },
+    search: function(search) {
+        var self = this;
+        this.collection.fetch({
+            url: 'http://localhost/api/calls/search',
+            data: {
+                token: App.user.get('password'),
+                search: search,
+            },
+            type: 'post',
+            error: function(model, xhr, options) {
+                App.user.isAuth = false;
+                App.router.navigate('login', {trigger: true});
+            
+            },
+        }).done(function(obj) {
+            self.render();
+        });
+    },
     initialize: function() {
+        var self = this;
+        $('.main-bar > .title').html( 'Мои звонки <span class="subtitle">входящие и исходящие звонки сотрудника</span>' );
+        $('.main-bar > .search').unbind().keyup(function() {
+            if ($(this).val().length > 1)  {
+                self.search($(this).val());
+            } else {
+                if ($(this).val().length == 0) {
+                    $(this).unbind();
+                    self.remove();
+                    self.initialize();
+            }
+        }
+        }).focus(function() { $(this).select() });
+
         $('#pageContent').html(this.el);
         this.collection = new Calls();
-        var self = this;
-        this.timer = setInterval(function() {
-            self.collection.fetch({
-                data: {
-                    token: App.user.get('password')
-                },
-                type: 'post',
-                error: function(model, xhr, options) {
-                    App.user.isAuth = false;
-                    // App.router.navigate('login', {trigger: true});
-
-                },
-            }).done(function() {
-                self.render(); 
-            });
-         }, 10000);
         this.listenTo( this.collection, 'reset add change remove', this.render, this );
+        var self = this;
         this.collection.fetch({
             data: {
                 token: App.user.get('password')
@@ -256,6 +318,7 @@ var CallsViewList = Backbone.View.extend({
     },
 
     search: function(search) {
+        var self = this;
         this.collection.fetch({
             data: {
                 token: App.user.get('password'),

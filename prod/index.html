@@ -191,7 +191,11 @@ table {
     min-width: 40px;
     padding: 8px 10px;
     vertical-align: middle;
-    border-top: 1px solid #e7ecf1; }
+    border-top: 1px solid #e7ecf1;
+    cursor: pointer;
+    transition: .35s ease; }
+    table > thead > tr > td:hover {
+      background-color: #e7ecf1; }
   table > tbody > tr > td {
     text-align: center;
     max-width: 50px;
@@ -638,7 +642,7 @@ main {
 	<script id="tpl-calls-list" type="text/template">
 		<thead class="header">
 			<tr>
-				<td>Дата и время</td><td>Инициатор</td><td>Куда</td><td>Результат</td><td>Запись звонка</td>
+				<td data-sortby="created">Дата и время</td><td data-sortby="exten">Инициатор</td><td data-sortby="number">Адресат</td><td data-sortby="state">Результат</td><td data-sortby="created">Запись звонка</td>
 			</tr>
 		</thead>
 		<tbody class="content" id="callsViewList"></tbody>

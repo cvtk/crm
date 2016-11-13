@@ -81,6 +81,11 @@ table {
 				padding: 8px 10px;
 				vertical-align: middle;
     		border-top: 1px solid #e7ecf1;
+    		cursor: pointer;
+    		transition: .35s ease;
+    		&:hover {
+    			background-color: #e7ecf1; 
+    		}
 			}
 		}
 	}

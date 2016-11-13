@@ -23,6 +23,7 @@ module.exports = function(grunt) {
                     'dev/assets/vendor/underscore.js',
                     'dev/assets/vendor/jquery.js',
                     'dev/assets/vendor/jquery.cookie.js',
+                    'dev/assets/vendor/moment.js',
                     'dev/assets/vendor/backbone.js',
                     'dev/inline/**/*.js',
                     'dev/app.js',
