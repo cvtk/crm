@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>aCrm</title>
+	<title>partnerCrm</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
 	<!-- todo local copy --> 
@@ -18,14 +18,14 @@
 
 </div>
 	<header>
-		<a class="logo" href="#login">partner<span class="_h">CRM</span></a>
+		<a class="logo" href="#">partner<span class="_h">CRM</span></a>
 		<nav class="menu-trigger" id="menuTrigger">
 			<span class="item"></span>
 		</nav>
 		<span class="telephone-trigger" id="callerTrigger"><i class="icon-call-in isons"></i></span>
 		<div class="user-login">
-			<img class="thumb" src="img/user-thumb.jpg" />
-			<span class="login">Андрей</span>
+			<img class="thumb" src="img/user.png" />
+			<span class="login"></span>
 		</div>
 	</header>
 	<aside class="menu-widget">
@@ -35,7 +35,7 @@
 				<a class="link" href="#"><i class="icon-people"> </i>Контакты</a>
 			</li>
 			<li class="item">
-				<a class="link" href="#calls"><i class="icon-phone"> </i>Звонки</a>
+				<a class="link" href="#calls"><i class="icon-phone"> </i>Мои звонки</a>
 			</li>
 		</ul>
 	</aside>
@@ -61,11 +61,11 @@
 			Контакты
 			<span class="subtitle">база с которой мы работаем</span>
 			</h1>
-			<button class="actions">Действия<i class="icon-arrow-down"></i></button>
-			<ul class="action-menu">
+			<button class="actions" id="actionButton">Действия<i class="icon-arrow-down"></i></button>
+			<ul class="action-menu" id="actionMenu">
 				<input type="file" id="fileInput" style="display: none;" />
-				<li class="item" id="importUpload">Импорт базы</li>
-				<li class="item" id="importUpload">Экспорт базы</li>
+				<li class="item" id="importUpload">Импорт базы csv</li>
+				<li class="item" id="removeContacts">Удалить все контакты</li>
 			</ul>
 			<input class="search" placeholder="Поиск" />
 		</div>
@@ -121,10 +121,28 @@
 				<input class="login" type="text" placeholder="Логин">
 				<input class="password" type="password" placeholder="Пароль">
 				<button class="submit">Войти</button>
-				<a class="create" href="#">Регистрация</a>
+				<span class="result"></span>
+				<a class="create" href="#register">Регистрация</a>
 			</div>
 		</div>
 	</script>
+
+	<script id="tpl-register-screen" type="text/template">
+	<div class="login-screen" id="registerScreen">
+		<a class="logo" href="#">partner<span class="_h">CRM</span></a>
+		<div class="login-form">
+			<h2 class="title">Регистрация</h2>
+			<input class="login" type="text" placeholder="Логин для входа в систему">
+			<input class="password" type="password" placeholder="Пароль">
+			<input class="name" type="text" placeholder="Ваше имя">
+			<input class="mobile" type="tel" placeholder="Номер мобильного телефона">
+			<input class="exten" type="tel" placeholder="Внутренний номер"><input class="phone" type="tel" placeholder="Городской номер">
+			<button class="submit">Регистрация</button>
+			<a class="create" href="#login">Вход</a>
+			<span class="result"></span>
+		</div>
+	</div>
+</script>
 
 	<link rel="stylesheet" type="text/css" href="a.css">
 	<script type="text/javascript" src="a.js"></script>

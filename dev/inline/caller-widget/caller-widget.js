@@ -1,5 +1,4 @@
-$(function() {
-	var checkPhone = function() {
+var checkPhone = function() {
 		var phone = $('#callerWidget .phonenumber').val();
 		return (!isNaN(phone.substr(phone.length - 10)) && (phone.length > 5));
 	}
@@ -11,6 +10,33 @@ showResult = function(message) {
 			.fadeOut(5000);
 	}
 	
+	$('#callerWidget .icon-phone').bind('click', function() {
+		if (checkPhone()) {
+			$.ajax({
+					type: 'post',
+					url: 'http://127.0.0.1/api/call',
+          data: {
+              token: App.user.get('password'),
+              number: $('#callerWidget .phonenumber').val(),
+              action: 'originate'
+          },
+          beforeSend: function() {
+          	showResult('Набор внутреннего номера...');
+          },
+          error: function(model, xhr, options) {
+              App.user.isAuth = false;
+              App.router.navigate('login', {trigger: true});
+            
+          },
+          success: function() {
+          	showResult('Набор внутреннего номера...');
+          }
+      }).done(function() {
+        showResult('Соединение...');
+      });
+		}
+	})
+
 
 	$('#callerWidget .icon-bubble').bind('toggleMenu', function() {
 		if ($(this).attr('data-checked')) {
@@ -48,7 +74,7 @@ showResult = function(message) {
 									'template': $('#callerWidget .sms-list input:checked').val(),
 									'phone': $('#callerWidget .phonenumber').val()},
 								success: function(response) {
-									if(response.substring(0,3 == 100)) {
+									if(response.substring(0,3) == '100') {
 										$('#callerWidget .icon-bubble').trigger('toggleMenu');
 										showResult('Сообщение успешно отправлено');
 									} else {
@@ -70,14 +96,18 @@ showResult = function(message) {
 	.keyup(function() {
 		if ($(this).val().length > 1)  {
 			$.ajax({
+				type: 'post',
 				dataType: "json",
-				url: 'http://127.0.0.1/api/contacts',
-				data: { 'search': $(this).val() },
+				url: 'http://127.0.0.1/api/contacts/search',
+				data: { 
+					'search': $(this).val(),
+					'token' : App.user.get('password')
+				},
 				success: function(response) {
 					if (response.length) {
 						$('#callerWidget .contact-list').html('');
 						$.each(response, function(key, data) {
-							var html = '<li class="item"><a class="link" href="#" data-phone="' + data.mobilephone + '">' + data.name + '</a></li>';
+							var html = '<li class="item"><a class="link" href="#" data-phone="' + data.phone + '">' + data.name + '</a></li>';
 						$('#callerWidget .contact-list').append(html).slideDown(550);
 							$('#callerWidget .contact-list .link').click(function() {
 								$('#callerWidget .phonenumber').val($(this).data('phone'));
@@ -100,4 +130,3 @@ showResult = function(message) {
 		$(this).trigger('toggleMenu');
 		
 	})
-})

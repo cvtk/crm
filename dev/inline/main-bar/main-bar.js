@@ -1,53 +1,54 @@
-$(function() {
-	$('#importUpload').click(function() {
-		$('#fileInput').click();
-	});
-	$('#fileInput').change(function() {
-		var fileData = $('#fileInput').prop("files")[0];
-    var formData = new FormData();
-    formData.append('file', fileData);
-    console.log(formData); 
-    $.ajax({
-      url: 'http://127.0.0.1/api/upload',
-      cache: false,
-      contentType: false,
-      processData: false,
-      data: formData,
-      type: 'post',
-      success: function(){
-        console.log("works"); 
-      },
-      error: function (request, error) {
-        console.log(request);
-        alert(" Can't do because: " + error);
-    	}
-     });
-	})
 
+$('#importUpload').click(function() {
+	$('#fileInput').click();
+});
 
-	$('.main-bar > .search')
-	.keyup(function() {
-		if ($(this).val().length > 1)  {
-			$('#contactsTable > .content').html('<span class="ajax-loader"></span>');
-			$.ajax({
-				dataType: "json",
-				url: 'http://127.0.0.1:8000/api/contacts',
-				data: { 'search': $(this).val() },
-				success: function(response) {
-					if (response.length) {
-						$.each(response, function(key, data){
-						$('#contactsTable > .content').html(
-							'<tr><td>' + data.name + '</td><td class="phone">' 
-							+ data.mobilephone + '</td><td><button data-id=' + data.id + ' class="actions"><i class="icon-settings"></i></button></td></tr>');
-					});
-					} else $('#contactsTable > .content').html('');
-					
-				}
-			})
-		}
-	})
-	.focus(function() {
-		$(this).select();
-	})
+$('#fileInput').change(function() {
+    var fileData = $('#fileInput').prop("files")[0];
+var formData = new FormData();
+formData.append('file', fileData);
+console.log(formData); 
+$.ajax({
+  url: 'http://127.0.0.1/api/upload',
+  cache: false,
+  contentType: false,
+  processData: false,
+  data: formData,
+  type: 'post',
+  success: function(){
+  },
+  error: function (request, error) {
+    console.log(request);
+    alert(" Can't do because: " + error);
+    }
+ });
 })
 
+$('#removeContacts').click(function() {
+	res = confirm('Вся база контактов будет удалена. Вы уверены, что хотите продолжить?');
+	if (res) {
+		$.ajax({
+		type: 'post',
+		url: 'http://localhost/api/contacts/remove',
+		data: {
+			token: App.user.get('password')
+		},
+		success: function(){
+
+		},
+		error: function() {
+
+		}
+	})
+	}
+	
+})
+
+$('#actionButton').mouseenter(function() {
+var pos = $(this).offset();
+	$('#actionMenu').css({top : pos.top-43, left: pos.left-340}).slideDown(350);
+});
+
+$('#actionMenu').mouseleave(function() {
+	$(this).fadeOut(350);
+});

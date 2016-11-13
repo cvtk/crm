@@ -199,7 +199,7 @@ header {
 	}
 	> .user-login {
 		float: right;
-		width: 105px;
+		padding: 0 10px;
 		height: 50px;
 	}
 	> .telephone-trigger {
@@ -354,7 +354,13 @@ main {
 		margin-bottom: 25px;
 		margin-top: 20px;
 		}
-		> .login, .password {
+		> .result {
+			display: block;
+			font-size: 15px;
+			color: #ff3f3f;
+			padding: 10px 0;
+		}
+		> .login, .password, .name, .mobile {
 		background-color: #dde3ec;
 		width: 100%;
     height: 43px;
@@ -368,6 +374,22 @@ main {
     line-height: 1.42857;
 		}
 
+		> .phone, .exten {
+		background-color: #dde3ec;
+		width: 48%;
+    height: 43px;
+    color: #8290a3;
+    border: 1px solid #dde3ec;
+    margin-bottom: 15px;
+    text-align: left;
+    padding: 6px 12px;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    font-size: 14px;
+    line-height: 1.42857;
+		}
+		> .exten {
+			margin-right: 4%; 
+		}
 		> .submit {
 			font-size: 14px;
 			font-weight: 600;

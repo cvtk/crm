@@ -1,12 +1,58 @@
 // (function ($) {
-$(function() {
-
 
 var App = {};
 App.Login = Backbone.Model.extend({
     urlRoot : 'http://localhost/api/auth',
     isAuth: 0,
     initialize: function() {}
+});
+
+App.RegisterView = Backbone.View.extend({
+    tagName: 'div',
+    id: 'registerScreen',
+    className: 'register-screen',
+    template: $('#tpl-register-screen').html(),
+
+    initialize: function() {
+        $('#loginWrapper').html(this.el);
+        this.render();
+        var self = this;
+        $('#registerScreen .submit').click(function() {
+            var login, password, name, exten, mobile, phone;
+            login = $('#registerScreen .login').val() || $('#registerScreen .login').css({'border-color': 'red'});
+            password = $('#registerScreen .password').val() || $('#registerScreen .password').css({'border-color': 'red'});
+            name = $('#registerScreen .name').val() || $('#registerScreen .name').css({'border-color': 'red'});
+            mobile = $('#registerScreen .mobile').val() || $('#registerScreen .mobile').css({'border-color': 'red'});
+            $.ajax({
+                type: 'post',
+                url: 'http://127.0.0.1/api/register',
+                data: {
+                    login: login,
+                    username: name,
+                    password: password,
+                    exten: $('#registerScreen .exten').val(),
+                    phone: $('#registerScreen .phone').val(),
+                    mobilephone: $('#callerWidget .mobile').val()
+                },
+                error: function(response) {
+                    $('#registerScreen .result').html(response);
+
+                },
+                success: function(response) {
+                    $('#loginScreen .result').html('Регистрация прошла успешно');
+                    App.router.navigate('login', true);
+                }
+                }).done(function() {
+
+                });
+
+        });
+    },
+    render: function() {
+        var tpl = _.template( this.template );
+        this.$el.html( tpl() );
+        return this;
+    },
 });
 
 App.LoginView = Backbone.View.extend({
@@ -33,7 +79,13 @@ App.LoginView = Backbone.View.extend({
                     $.cookie('username', self.model.get('username'), { experes: 365 });
                     $.cookie('exten', self.model.get('exten'), { experes: 365 });
                     self.remove();
+                    console.log(App.user.get('username') || App.user.get('login'));
+                    $('.user-login > .login').html(App.user.get('username') || App.user.get('login'));
                     App.router.navigate('', true);
+                },
+                error: function(model, xhr) {
+                    console.log(xhr.responseText);
+                    $('#loginScreen .result').html(xhr.responseText);
                 }
             })
         });
@@ -67,10 +119,23 @@ var ContactsViewList = Backbone.View.extend({
     template: $('#tpl-contacts-list').html(),
 
     initialize: function() {
+        var self = this;
+        $('.main-bar > .search').keyup(function() {
+            if ($(this).val().length > 1)  {
+                self.search($(this).val());
+            } else {
+                if ($(this).val().length == 0) {
+                    $(this).unbind();
+                    self.remove();
+                    self.initialize();
+            }
+        }
+        }).focus(function() { $(this).select() });
+
         $('#pageContent').html(this.el);
         this.collection = new Contacts();
         this.listenTo( this.collection, 'reset add change remove', this.render, this );
-        var self = this;
+        
         this.collection.fetch({
             data: {
                 token: App.user.get('password')
@@ -100,7 +165,26 @@ var ContactsViewList = Backbone.View.extend({
             model: item
         });
         $('#contactsViewList').append( contactViewList.render().el )
-    }
+    },
+
+    search: function(search) {
+        var self = this;
+        this.collection.fetch({
+            url: 'http://localhost/api/contacts/search',
+            data: {
+                token: App.user.get('password'),
+                search: search,
+            },
+            type: 'post',
+            error: function(model, xhr, options) {
+                App.user.isAuth = false;
+                App.router.navigate('login', {trigger: true});
+            
+            },
+        }).done(function(obj) {
+            self.render();
+        });
+    },
 });
 
 
@@ -145,7 +229,7 @@ var CallsViewList = Backbone.View.extend({
                 type: 'post',
                 error: function(model, xhr, options) {
                     App.user.isAuth = false;
-                    App.router.navigate('login', {trigger: true});
+                    // App.router.navigate('login', {trigger: true});
 
                 },
             }).done(function() {
@@ -170,6 +254,24 @@ var CallsViewList = Backbone.View.extend({
     close: function() {
         clearInterval(this.timer);
     },
+
+    search: function(search) {
+        this.collection.fetch({
+            data: {
+                token: App.user.get('password'),
+                search: search,
+            },
+            type: 'post',
+            error: function(model, xhr, options) {
+                App.user.isAuth = false;
+                App.router.navigate('login', {trigger: true});
+            
+            },
+        }).done(function() {
+            self.render(); 
+        });
+    },
+
     render: function() {
         this.$el.html('');
         var tpl = _.template( this.template );
@@ -194,12 +296,20 @@ var Router = Backbone.Router.extend({
     routes: {
         ''      : 'index',
         'calls' : 'calls',
-        'login' : 'login'
+        'login' : 'login',
+        'register':'register'
     },
 
     index: function() {
         this.loadView( new ContactsViewList() );
 
+    },
+
+    register: function() {
+        this.loadView( new App.RegisterView( { model: App.user } ) );
+        if (this.view.model.isAuth) {
+            this.navigate('', {trigger: true});
+        }
     },
 
     login: function() {
@@ -238,6 +348,7 @@ if ( $.cookie('api_login') || $.cookie('api_key') || $.cookie('exten') || $.cook
             
         },
         success: function() {
+            $('.user-login > .login').html(App.user.get('username') || App.user.get('login'));
             App.user.isAuth = true;
         }
     }).done(function() {
@@ -253,7 +364,7 @@ if ( $.cookie('api_login') || $.cookie('api_key') || $.cookie('exten') || $.cook
 }
 
 
-})
+// })
 
 
 // } (jQuery));
