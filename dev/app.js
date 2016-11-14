@@ -121,14 +121,88 @@ var ContactsViewList = Backbone.View.extend({
     tagName: 'table',
     tagClass: 'contacts-table',
     template: $('#tpl-contacts-list').html(),
-    events: {'click thead td[data-sortby]': 'sortby'},
+    events: {'click thead td[data-sortby]': 'sortby',
+             'click tbody td[data-phone]': 'addphone'
+    },
+
+    addphone: function(self) {
+        var addphone = $(self.target).data('addphone');
+        console.log(addphone);
+        $('body').addClass('_hideCaller');
+        $('#callerWidget .phonenumber').val(addphone);
+    },
 
     sortby: function(self) {
-        sortby = $(self).data();
-        console.log(sortby);
+        var sortby = $(self.target).data('sortby');
+        var that = this;
+        this.collection.fetch({
+            data: {
+                token: App.user.get('password'),
+                sortby: sortby
+            },
+            type: 'post',
+            error: function(model, xhr, options) {
+                App.user.isAuth = false;
+                App.router.navigate('login', {trigger: true});
+            
+            },
+        }).done(function( obj ) {
+            console.log(obj);
+            that.render(); 
+        });
     },
 
     initialize: function() {
+        var self = this;
+        $('#nextButton').unbind();
+        $('#prevButton').unbind();
+        $('#nextButton').click(function() {
+
+            offset = $(this).data()['offset'] += 15;
+            
+            self.collection.fetch({
+            data: {
+                token: App.user.get('password'),
+                offset: offset
+            },
+            type: 'post',
+            error: function(model, xhr, options) {
+                App.user.isAuth = false;
+                App.router.navigate('login', {trigger: true});
+            
+            },
+        }).done(function() {
+            if ( $('tbody > tr').length < 15 ) {
+                $('#nextButton').fadeOut(350);
+            }
+            self.render();
+        });
+
+        });
+        $('#prevButton').click(function() {
+            if ( $(this).data('offset') > 0 ) {
+                this.fadeIn(350);
+                offset = $(this).data()['offset'] += 15;
+            
+            self.collection.fetch({
+            data: {
+                token: App.user.get('password'),
+                offset: offset
+            },
+            type: 'post',
+            error: function(model, xhr, options) {
+                App.user.isAuth = false;
+                App.router.navigate('login', {trigger: true});
+            
+            },
+        }).done(function() {
+
+            self.render();
+        });
+            } else $(this).fadeOut(350);
+            
+
+        });
         $('.main-bar > .title').html( 'Контакты <span class="subtitle">база с которой мы работаем</span>' );
         var self = this;
         $('.main-bar > .search').unbind().keyup(function() {
@@ -158,6 +232,9 @@ var ContactsViewList = Backbone.View.extend({
             
             },
         }).done(function() {
+            if ( $('tbody > tr').length < 15 ) {
+                $('#nextButton').fadeOut(350);
+            }
             self.render(); 
         });
     },
@@ -209,6 +286,7 @@ var CallViewList = Backbone.View.extend({
     className: 'call-line',
     template: $('#tpl-call-line').html(),
     render: function() {
+
     state = this.model.get('state');
     switch(state) {
         case '7': state = 'Занятость';
@@ -227,7 +305,16 @@ var CallViewList = Backbone.View.extend({
         this.$el.html( tpl( this.model.toJSON() ) );
         return this;
     },
-    events: { 'click #playPause' : 'playPause'},
+    events: { 'click #playPause' : 'playPause',
+              'click td[data-phone]': 'addphone'
+    },
+    
+    addphone: function(that) {
+        var phone = $(that.target).data('phone');
+        console.log(phone)
+        $('body').addClass('_hideCaller');
+        $('#callerWidget .phonenumber').val(phone);
+    },
 
     playPause: function(that) {
         var audio = document.getElementById('player-'+this.model.id);
@@ -242,10 +329,13 @@ var CallsViewList = Backbone.View.extend({
     tagName: 'table',
     tagClass: 'calls-table',
     template: $('#tpl-calls-list').html(),
-    events: {'click thead td[data-sortby]': 'sortby'},
+    events: {
+        'click thead td[data-sortby]': 'sortby',
+        
+    },
 
     sortby: function(self) {
-        sortby = $(self.target).data('sortby');
+        var sortby = $(self.target).data('sortby');
         var that = this;
         this.collection.fetch({
             data: {
@@ -282,6 +372,60 @@ var CallsViewList = Backbone.View.extend({
     },
     initialize: function() {
         var self = this;
+        $('#nextButton').unbind();
+         $('#prevButton').unbind();
+        $('#nextButton').click(function() {
+
+            offset = $(this).data()['offset'] += 15;
+            if ( offset > 15 ) {
+                $('#prevButton').fadeIn(350);
+                $('#prevButton').data()['offset'] += 15;
+            } else {
+                $('#prevButton').fadeOut(350);
+                $('#prevButton').data()['offset'] = 0;
+            }
+            self.collection.fetch({
+            data: {
+                token: App.user.get('password'),
+                offset: offset
+            },
+            type: 'post',
+            error: function(model, xhr, options) {
+                App.user.isAuth = false;
+                App.router.navigate('login', {trigger: true});
+            
+            },
+        }).done(function() {
+            if ( $('tbody > tr').length < 15 ) {
+                $('#nextButton').fadeOut(350);
+            }
+            self.render();
+        });
+
+        });
+        $('#prevButton').click(function() {
+            if ( $(this).data('offset') > 0 ) {
+                offset = $(this).data()['offset'] -= 15;
+            
+            self.collection.fetch({
+            data: {
+                token: App.user.get('password'),
+                offset: offset
+            },
+            type: 'post',
+            error: function(model, xhr, options) {
+                App.user.isAuth = false;
+                App.router.navigate('login', {trigger: true});
+            
+            },
+        }).done(function() {
+
+            self.render();
+        });
+            } else $(this).fadeOut(350);
+            
+
+        });
         $('.main-bar > .title').html( 'Мои звонки <span class="subtitle">входящие и исходящие звонки сотрудника</span>' );
         $('.main-bar > .search').unbind().keyup(function() {
             if ($(this).val().length > 1)  {
@@ -310,6 +454,10 @@ var CallsViewList = Backbone.View.extend({
             
             },
         }).done(function() {
+            if ( $('tbody > tr').length < 15 ) {
+                $('#nextButton').fadeOut(350);
+            } else $('#nextButton').fadeIn(350);
+
             self.render(); 
         });
     },

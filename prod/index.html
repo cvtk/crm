@@ -216,6 +216,7 @@ button {
   border: 1px solid #32c5d2;
   white-space: nowrap;
   padding: 6px 12px;
+  margin: 0 5px;
   line-height: 1.42857;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -521,7 +522,7 @@ main {
     letter-spacing: -1px;
     font-weight: 400;
     float: left;
-    width: 60%; }
+    width: 45%; }
     .main-bar > .title > .subtitle {
       font-size: 14px;
       letter-spacing: 0;
@@ -617,6 +618,9 @@ main {
 			<span class="subtitle">база с которой мы работаем</span>
 			</h1>
 			<button class="actions" id="actionButton">Действия<i class="icon-arrow-down"></i></button>
+			<button class="actions" id="nextButton" data-offset=0><i class="icon-arrow-right" ></i></button>
+			<button class="actions" style=" display: none; " id="prevButton" data-offset=0><i class="icon-arrow-left"></i></button>
+			
 			<ul class="action-menu" id="actionMenu">
 				<input type="file" id="fileInput" style="display: none;" />
 				<li class="item" id="importUpload">Импорт базы csv</li>
@@ -650,8 +654,8 @@ main {
 
 	<script id="tpl-call-line" type="text/template">
 		<td class="created"><%= created %></td>
-		<td class="src"><%= src %></td>
-		<td class="dst"><%= dst %></td>
+		<td class="src" date-phone="<%= src %>" id="phoneId-<%= id %>"><%= src %></td>
+		<td class="dst" date-phone="<%= dst %>"><%= dst %></td>
 		<td class="state"><%= state %></td>
 		<td class="audio-player">
 		<% if (monitor.length) { %>
@@ -663,7 +667,7 @@ main {
 
 	<script id="tpl-contact-line" type="text/template">
 		<td class="name"><%= name %></td>
-		<td class="phone"><%= phone %></td>
+		<td class="phone"date-phone="<%= phone %>"><%= phone %></td>
 		<td class="family"><%= family %></td>
 		<td class="comment"><%= comment %></td>
 	</script>

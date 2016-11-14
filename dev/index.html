@@ -62,6 +62,9 @@
 			<span class="subtitle">база с которой мы работаем</span>
 			</h1>
 			<button class="actions" id="actionButton">Действия<i class="icon-arrow-down"></i></button>
+			<button class="actions" id="nextButton" data-offset=0><i class="icon-arrow-right" ></i></button>
+			<button class="actions" style=" display: none; " id="prevButton" data-offset=0><i class="icon-arrow-left"></i></button>
+			
 			<ul class="action-menu" id="actionMenu">
 				<input type="file" id="fileInput" style="display: none;" />
 				<li class="item" id="importUpload">Импорт базы csv</li>
@@ -95,8 +98,8 @@
 
 	<script id="tpl-call-line" type="text/template">
 		<td class="created"><%= created %></td>
-		<td class="src"><%= src %></td>
-		<td class="dst"><%= dst %></td>
+		<td class="src" date-phone="<%= src %>" id="phoneId-<%= id %>"><%= src %></td>
+		<td class="dst" date-phone="<%= dst %>"><%= dst %></td>
 		<td class="state"><%= state %></td>
 		<td class="audio-player">
 		<% if (monitor.length) { %>
@@ -108,7 +111,7 @@
 
 	<script id="tpl-contact-line" type="text/template">
 		<td class="name"><%= name %></td>
-		<td class="phone"><%= phone %></td>
+		<td class="phone"date-phone="<%= phone %>"><%= phone %></td>
 		<td class="family"><%= family %></td>
 		<td class="comment"><%= comment %></td>
 	</script>
