@@ -103,8 +103,7 @@
 		<td class="billsec"><%= billsec %></td>
 		<td class="audio-player">
 		<% if (billsec > 0) { %>
-			<audio src="/storage/calls/<%= accountcode %>.wav" id="player-<%= uniqueid %>" preload="auto" />
-			<button class="control" id="playPause"><i class="icon-control-play"></i></button>
+ 			<audio src="/storage/calls/<%= userfield %>.wav" />
 		<% } %>	
 		</td>
 	</script>

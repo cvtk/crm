@@ -321,9 +321,7 @@ var CallViewList = Backbone.View.extend({
         this.$el.html( tpl( this.model.toJSON() ) );
         return this;
     },
-    events: { 'click #playPause' : 'playPause',
-              'click td[data-phone]': 'addphone'
-    },
+    events: { 'click td[data-phone]': 'addphone' },
     
     addphone: function(that) {
         var phone = $(that.target).data('phone');
@@ -332,14 +330,6 @@ var CallViewList = Backbone.View.extend({
         $('#callerWidget .phonenumber').val(phone);
     },
 
-    playPause: function(that) {
-        var audio = document.getElementById('player-'+this.model.uniqueid);
-        audio.onended = function() {
-            $(that.target).toggleClass('icon-control-pause');
-        }
-        $(that.target).toggleClass('icon-control-pause');
-        return audio.paused ? audio.play() : audio.pause();
-    }
 });
 var CallsViewList = Backbone.View.extend({
     tagName: 'table',
