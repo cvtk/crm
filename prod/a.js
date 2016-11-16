@@ -142,11 +142,36 @@ showResult = function(message) {
 			.fadeOut(5000);
 	}
 	
+
+	$('#callerWidget .icon-volume-2').bind('click', function() {
+			$.ajax({
+					type: 'post',
+					url: '/api/call',
+          data: {
+              token: App.user.get('password'),
+              action: 'whisper'
+          },
+          beforeSend: function() {
+          	showResult('Предупреждение о записи разговора...');
+          },
+          error: function(model, xhr, options) {
+              App.user.isAuth = false;
+              App.router.navigate('login', {trigger: true});
+            
+          },
+          success: function() {
+          	showResult('Предупреждение о записи разговора...');
+          }
+      }).done(function() {
+        showResult('Предупреждение о записи разговора...');
+      });
+	})
+
 	$('#callerWidget .icon-phone').bind('click', function() {
 		if (checkPhone()) {
 			$.ajax({
 					type: 'post',
-					url: 'http://127.0.0.1/api/call',
+					url: '/api/call',
           data: {
               token: App.user.get('password'),
               number: $('#callerWidget .phonenumber').val(),
@@ -185,7 +210,7 @@ showResult = function(message) {
 		$.ajax({
 		dataType: 'json',
 		type: 'post',
-		url: 'http://127.0.0.1/api/sms/templates',
+		url: '/api/sms/templates',
 		success: function(response) {
 			if (response.length) {
 				$('#callerWidget .sms-list').html('');
@@ -201,7 +226,7 @@ showResult = function(message) {
 								$.ajax({
 								dataType: 'json',
 								type: 'post',
-								url: 'http://127.0.0.1/api/sms/send',
+								url: '/api/sms/send',
 								data: {
 									'template': $('#callerWidget .sms-list input:checked').val(),
 									'phone': $('#callerWidget .phonenumber').val()},
@@ -230,7 +255,7 @@ showResult = function(message) {
 			$.ajax({
 				type: 'post',
 				dataType: "json",
-				url: 'http://127.0.0.1/api/contacts/search',
+				url: '/api/contacts/search',
 				data: { 
 					'search': $(this).val(),
 					'token' : App.user.get('password')
@@ -274,7 +299,7 @@ var formData = new FormData();
 formData.append('file', fileData);
 console.log(formData); 
 $.ajax({
-  url: 'http://127.0.0.1/api/upload',
+  url: '/api/upload',
   cache: false,
   contentType: false,
   processData: false,
@@ -294,7 +319,7 @@ $('#removeContacts').click(function() {
 	if (res) {
 		$.ajax({
 		type: 'post',
-		url: 'http://localhost/api/contacts/remove',
+		url: '/api/contacts/remove',
 		data: {
 			token: App.user.get('password')
 		},
@@ -326,13 +351,29 @@ $(function() {
 
 var App = {};
 App.Login = Backbone.Model.extend({
-    urlRoot : 'http://localhost/api/auth',
+    urlRoot : '/api/auth',
     isAuth: 0,
     initialize: function() {}
 });
 
 App.AccountView = Backbone.View.extend({
+    tagName: 'div',
+    className: 'account',
+    template: $('#tpl-account').html(),
+    initialize: function() {
+    $('#pageContent').html(this.el);
+    this.render();
+    $('.main-bar > .title').html( 'Аккаунт <span class="subtitle">здесь вы можете изменить свои личные данные</span>' );
+    $('.main-bar .search').hide();
+    var self = this;
+        
+    },
 
+    render: function() {
+        var tpl = _.template( this.template );
+        this.$el.html( tpl(this.model.toJSON()) );
+        return this;
+    },
 })
 
 App.RegisterView = Backbone.View.extend({
@@ -353,7 +394,7 @@ App.RegisterView = Backbone.View.extend({
             mobile = $('#registerScreen .mobile').val() || $('#registerScreen .mobile').css({'border-color': 'red'});
             $.ajax({
                 type: 'post',
-                url: 'http://127.0.0.1/api/register',
+                url: '/api/register',
                 data: {
                     login: login,
                     username: name,
@@ -400,7 +441,7 @@ App.LoginView = Backbone.View.extend({
             self.model.fetch({
                 data: {username: username, password: password},
                 type: 'post',
-                url: 'http://localhost/api/login',
+                url: '/api/login',
                 success: function() {
                     $.cookie('api_login', self.model.get('login'), { experes: 365 });
                     $.cookie('api_key', self.model.get('password'), { experes: 365 });
@@ -428,7 +469,7 @@ var Contact = Backbone.Model.extend();
 
 var Contacts = Backbone.Collection.extend({
     model: Contact,
-    url: 'http://localhost/api/contacts'
+    url: '/api/contacts'
 });
 
 var ContactViewList = Backbone.View.extend({
@@ -477,6 +518,7 @@ var ContactsViewList = Backbone.View.extend({
     },
 
     initialize: function() {
+        $('.main-bar .search').show();
         var self = this;
         $('#nextButton').unbind();
         $('#prevButton').unbind();
@@ -582,7 +624,7 @@ var ContactsViewList = Backbone.View.extend({
     search: function(search) {
         var self = this;
         this.collection.fetch({
-            url: 'http://localhost/api/contacts/search',
+            url: '/api/contacts/search',
             data: {
                 token: App.user.get('password'),
                 search: search,
@@ -603,28 +645,27 @@ var ContactsViewList = Backbone.View.extend({
 var Call = Backbone.Model.extend();
 var Calls = Backbone.Collection.extend({
     model: Call,
-    url: 'http://localhost/api/calls'
+    url: '/api/calls'
 });
 var CallViewList = Backbone.View.extend({
     tagName: 'tr',
     className: 'call-line',
     template: $('#tpl-call-line').html(),
+
     render: function() {
 
-    state = this.model.get('state');
-    switch(state) {
-        case '7': state = 'Занятость';
+    switch(this.model.get('disposition')) {
+        case 'BUSY': this.model.set({'disposition': 'Занятость' });
             break;
-        case '6': state = 'Ответ';
+        case 'ANSWERED': this.model.set({'disposition': 'Разговор' });
             break;
-        case '5': state = 'Абонент не ответил';
+        case 'NO ANSWER': this.model.set({'disposition': 'Нет ответа' });
             break;
-        case '4': state = 'Вызов';
-            break;
-        default: state = 'Вызов';
+        case 'FAILED': this.model.set({'disposition': 'Ошибка на линии' });
             break;
     }
-    this.model.set({'state': state })
+
+
     var tpl = _.template( this.template );
         this.$el.html( tpl( this.model.toJSON() ) );
         return this;
@@ -641,7 +682,7 @@ var CallViewList = Backbone.View.extend({
     },
 
     playPause: function(that) {
-        var audio = document.getElementById('player-'+this.model.id);
+        var audio = document.getElementById('player-'+this.model.uniqueid);
         audio.onended = function() {
             $(that.target).toggleClass('icon-control-pause');
         }
@@ -660,11 +701,14 @@ var CallsViewList = Backbone.View.extend({
 
     sortby: function(self) {
         var sortby = $(self.target).data('sortby');
+        var asc = $(self.target).data('asc');
+        asc = ( asc ) ? '0': $(self.target).data('asc',1);
         var that = this;
         this.collection.fetch({
             data: {
                 token: App.user.get('password'),
-                sortby: sortby
+                sortby: sortby,
+                asc: asc
             },
             type: 'post',
             error: function(model, xhr, options) {
@@ -679,7 +723,7 @@ var CallsViewList = Backbone.View.extend({
     search: function(search) {
         var self = this;
         this.collection.fetch({
-            url: 'http://localhost/api/calls/search',
+            url: '/api/calls/search',
             data: {
                 token: App.user.get('password'),
                 search: search,
@@ -695,6 +739,7 @@ var CallsViewList = Backbone.View.extend({
         });
     },
     initialize: function() {
+        $('.main-bar .search').hide();
         var self = this;
         $('#nextButton').unbind();
          $('#prevButton').unbind();
@@ -832,14 +877,20 @@ var Router = Backbone.Router.extend({
         ''      : 'index',
         'calls' : 'calls',
         'login' : 'login',
-        'register':'register'
+        'register':'register',
+        'account': 'account'
     },
 
     index: function() {
         this.loadView( new ContactsViewList() );
 
     },
-
+    account: function() {
+        this.loadView( new App.AccountView ( { model: App.user } ) );
+        if (!this.view.model.isAuth) {
+            this.navigate('lofin', {trigger: true});
+        }
+    },
     register: function() {
         this.loadView( new App.RegisterView( { model: App.user } ) );
         if (this.view.model.isAuth) {

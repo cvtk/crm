@@ -9,7 +9,7 @@ var formData = new FormData();
 formData.append('file', fileData);
 console.log(formData); 
 $.ajax({
-  url: 'http://127.0.0.1/api/upload',
+  url: '/api/upload',
   cache: false,
   contentType: false,
   processData: false,
@@ -29,7 +29,7 @@ $('#removeContacts').click(function() {
 	if (res) {
 		$.ajax({
 		type: 'post',
-		url: 'http://localhost/api/contacts/remove',
+		url: '/api/contacts/remove',
 		data: {
 			token: App.user.get('password')
 		},

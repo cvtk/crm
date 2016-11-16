@@ -10,11 +10,36 @@ showResult = function(message) {
 			.fadeOut(5000);
 	}
 	
+
+	$('#callerWidget .icon-volume-2').bind('click', function() {
+			$.ajax({
+					type: 'post',
+					url: '/api/call',
+          data: {
+              token: App.user.get('password'),
+              action: 'whisper'
+          },
+          beforeSend: function() {
+          	showResult('Предупреждение о записи разговора...');
+          },
+          error: function(model, xhr, options) {
+              App.user.isAuth = false;
+              App.router.navigate('login', {trigger: true});
+            
+          },
+          success: function() {
+          	showResult('Предупреждение о записи разговора...');
+          }
+      }).done(function() {
+        showResult('Предупреждение о записи разговора...');
+      });
+	})
+
 	$('#callerWidget .icon-phone').bind('click', function() {
 		if (checkPhone()) {
 			$.ajax({
 					type: 'post',
-					url: 'http://127.0.0.1/api/call',
+					url: '/api/call',
           data: {
               token: App.user.get('password'),
               number: $('#callerWidget .phonenumber').val(),
@@ -53,7 +78,7 @@ showResult = function(message) {
 		$.ajax({
 		dataType: 'json',
 		type: 'post',
-		url: 'http://127.0.0.1/api/sms/templates',
+		url: '/api/sms/templates',
 		success: function(response) {
 			if (response.length) {
 				$('#callerWidget .sms-list').html('');
@@ -69,7 +94,7 @@ showResult = function(message) {
 								$.ajax({
 								dataType: 'json',
 								type: 'post',
-								url: 'http://127.0.0.1/api/sms/send',
+								url: '/api/sms/send',
 								data: {
 									'template': $('#callerWidget .sms-list input:checked').val(),
 									'phone': $('#callerWidget .phonenumber').val()},
@@ -98,7 +123,7 @@ showResult = function(message) {
 			$.ajax({
 				type: 'post',
 				dataType: "json",
-				url: 'http://127.0.0.1/api/contacts/search',
+				url: '/api/contacts/search',
 				data: { 
 					'search': $(this).val(),
 					'token' : App.user.get('password')

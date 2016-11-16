@@ -23,10 +23,9 @@
 			<span class="item"></span>
 		</nav>
 		<span class="telephone-trigger" id="callerTrigger"><i class="icon-call-in isons"></i></span>
-		<div class="user-login">
-			<img class="thumb" src="img/user.png" />
-			<span class="login"></span>
-		</div>
+		<a class="user-login" href="#account">
+			<img class="thumb" src="img/user.png" /><span class="login"></span>
+		</a>
 	</header>
 	<aside class="menu-widget">
 		<ul class="main-menu">
@@ -90,20 +89,21 @@
 	<script id="tpl-calls-list" type="text/template">
 		<thead class="header">
 			<tr>
-				<td data-sortby="created">Дата и время</td><td data-sortby="exten">Инициатор</td><td data-sortby="number">Адресат</td><td data-sortby="state">Результат</td><td data-sortby="created">Запись звонка</td>
+				<td data-sortby="created">Дата и время</td><td data-sortby="src">Инициатор</td><td data-sortby="dst">Адресат</td><td data-sortby="disposition">Статус</td><td data-sortby="billsec">Длительность звонка</td><td data-sortby="created">Запись звонка</td>
 			</tr>
 		</thead>
 		<tbody class="content" id="callsViewList"></tbody>
 	</script>
 
 	<script id="tpl-call-line" type="text/template">
-		<td class="created"><%= created %></td>
-		<td class="src" date-phone="<%= src %>" id="phoneId-<%= id %>"><%= src %></td>
+		<td class="created"><%= calldate %></td>
+		<td class="src" date-phone="<%= src %>" id="phoneId-<%= uniqueid %>"><%= src %></td>
 		<td class="dst" date-phone="<%= dst %>"><%= dst %></td>
-		<td class="state"><%= state %></td>
+		<td class="disposition"><%= disposition %></td>
+		<td class="billsec"><%= billsec %></td>
 		<td class="audio-player">
-		<% if (monitor.length) { %>
-			<audio src="http://localhost/storage/calls/<%= monitor %>.wav" id="player-<%= id %>" preload="auto" />
+		<% if (billsec > 0) { %>
+			<audio src="/storage/calls/<%= accountcode %>.wav" id="player-<%= uniqueid %>" preload="auto" />
 			<button class="control" id="playPause"><i class="icon-control-play"></i></button>
 		<% } %>	
 		</td>
@@ -146,6 +146,22 @@
 		</div>
 	</div>
 </script>
+
+	<script id="tpl-account" type="text/template">
+		<div class="account-form">
+			<label>Логин:</label><input class="login" type="text" placeholder="Логин для входа в систему" value="<%= login %>">
+			<label>Пароль: </label><input class="password" type="password" placeholder="Пароль" value="<%= password %>">
+			<label>Ваше имя</label><input class="name" type="text" placeholder="Ваше имя" value="<%= username %>">
+			<label>Мобильный телефон</label><input class="mobile" type="tel" placeholder="Номер мобильного телефона" value="<%= mobilephone %>">
+			<label>Внутренний телефон</label><input class="exten" type="tel" placeholder="Внутренний номер" value="<%= exten %>">
+			<label>Городской телефон</label><input class="phone" type="tel" placeholder="Городской номер" value="<%= phone %>">
+
+			<button class="submit">Сохранить</button>
+			<span class="result"></span>
+		</div>
+	</div>
+</script>
+
 
 	<link rel="stylesheet" type="text/css" href="a.css">
 	<script type="text/javascript" src="a.js"></script>
