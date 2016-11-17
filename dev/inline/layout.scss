@@ -83,9 +83,6 @@ table {
     		border-top: 1px solid #e7ecf1;
     		cursor: pointer;
     		transition: .35s ease;
-    		&:hover {
-    			background-color: #e7ecf1; 
-    		}
 			}
 		}
 	}
@@ -316,12 +313,33 @@ main {
 }
 
 .audio-player {
-	> .control {
-		padding: 5px;
-		> i { 
-			font-size: 15px;
-    	padding-left: 3px;
-		}
+	> .icon-volume-2, .icon-paper-clip  {
+		display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    border: 1px solid #32c5d2;
+    white-space: nowrap;
+    padding: 6px 12px;
+    margin: 0 5px;
+    line-height: 1.42857;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: #32c5d2;
+    background: 0 0;
+    transition: all .35s ease;
+    text-decoration: none;
+    &._pause:before {
+    	content: "\e072";
+    }
+    &:hover {
+    border-color: #32c5d2;
+    color: #FFF;
+    background-color: #32c5d2;
+    	}
 	}
 }
 
@@ -409,7 +427,7 @@ main {
 		font-weight: 600;
     font-size: 14px;
     color: #c3cedd;
-     margin: 0 -40px -30px;
+    margin: 0 -40px -30px;
     padding: 15px 0 17px;
     text-align: center;
     background-color: #6c7a8d;
@@ -435,4 +453,58 @@ main {
     text-align: left;
     color: initial;
 	}
+}
+
+.action-wrapper {
+	position: relative;
+	height: inherit;
+}
+
+.contact-create {
+	display: none;
+	position: relative;
+	height: inherit;
+	border-bottom: 1px solid #e7ecf1;
+  position: relative;
+  padding: 20px 0;
+  &:after {
+  	content: "";
+  	display: table;
+  	clear: both;
+  }
+  > .create {
+  	margin: 10px 0;
+    float: right;
+    background: #32c5d2;
+    color: #fff;
+    &:hover {
+    	background: #fff;
+    	color: #32c5d2;
+    }
+  }
+}
+
+.contact-table {
+	> .header { 
+		tr > td { cursor: default; }
+	}
+	> .content {
+		> .contact-information {
+			> td > input {
+				border: 0;
+				border-bottom: 1px dashed #32c5d2;
+				font-weight: 300;
+    		font-size: 16px;
+    		&._error {
+    		border-bottom: 1px dashed #ff3f3f;
+    		}
+				&:focus {
+					background-color: #eee;
+					color: inherit;
+					font-style: italic;
+				}
+			}
+		}
+	}
+
 }

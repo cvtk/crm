@@ -2,7 +2,7 @@
 
 var App = {};
 App.Login = Backbone.Model.extend({
-    urlRoot : '/api/auth',
+    urlRoot : 'http://localhost/api/auth',
     isAuth: 0,
     initialize: function() {}
 });
@@ -120,8 +120,85 @@ var Contact = Backbone.Model.extend();
 
 var Contacts = Backbone.Collection.extend({
     model: Contact,
-    url: '/api/contacts'
+    url: 'http://localhost/api/contacts'
 });
+
+App.ContactViewCreate = Backbone.View.extend({
+    tagName: 'div',
+    className: 'contact-create',
+    template: $('#tpl-contacts-create').html(),
+
+    render: function() {
+        var tpl = _.template( this.template );
+        this.$el.html( tpl() );
+        return this;
+    },
+
+    initialize: function() {
+        var self = this;
+        $('#newContact').click(function(){
+            $(this).toggleClass('_toggled');
+            self.$el.slideToggle();
+        })
+        $('#actionsWrapper').html(this.el);
+        
+        this.render();
+    },
+
+    events: {
+        'click #saveContact': 'saveContact',
+        'keypress': 'saveContact'
+
+    },
+
+    saveContact: function(e) {
+        if(e.which == 13 || $(e.target).attr('id') == 'saveContact') {
+            var name = $('#actionsWrapper input[name=name]').val(),
+                phone = $('#actionsWrapper input[name=phone]').val(),
+                family = $('#actionsWrapper input[name=phone]').val(),
+                comment = $('#actionsWrapper input[name=phone]').val();
+            if ( name.length == 0 ) {
+                $('#actionsWrapper input[name=name]').addClass('_error')
+            } else {
+                $('#actionsWrapper input[name=name]').removeClass('_error');
+                if ( phone.length == 0 ) {
+                    $('#actionsWrapper input[name=phone]').addClass('_error');
+                } else {
+                    $('#actionsWrapper input[name=phone]').removeClass('_error');
+                    $.ajax({
+                        data: {
+                            name: name,
+                            phone: phone,
+                            family: family,
+                            comment: comment,
+                            token: App.user.get('password')
+                        },
+                        type: 'post',
+                        
+                        url: 'http://localhost/api/contacts/add',
+
+                        error: function() {
+                            App.user.isAuth = false;
+                            App.router.navigate('login', {trigger: true});
+                        },
+
+                        succeful: function(response) {
+                        }
+                    }).done(function(response) {
+                        App.contactsViewList.collection.add(response);
+                        $('#actionsWrapper input').each(function() {
+                            $(this).val('');
+                        }).first().focus();
+                    })
+                }
+            }
+
+            
+        }
+        
+    }
+})
+
 
 var ContactViewList = Backbone.View.extend({
     tagName: 'tr',
@@ -304,30 +381,44 @@ var CallViewList = Backbone.View.extend({
     template: $('#tpl-call-line').html(),
 
     render: function() {
-
-    switch(this.model.get('disposition')) {
-        case 'BUSY': this.model.set({'disposition': 'Занятость' });
-            break;
-        case 'ANSWERED': this.model.set({'disposition': 'Разговор' });
-            break;
-        case 'NO ANSWER': this.model.set({'disposition': 'Нет ответа' });
-            break;
-        case 'FAILED': this.model.set({'disposition': 'Ошибка на линии' });
-            break;
-    }
-
-
-    var tpl = _.template( this.template );
-        this.$el.html( tpl( this.model.toJSON() ) );
-        return this;
-    },
-    events: { 'click td[data-phone]': 'addphone' },
+        switch(this.model.get('disposition')) {
+            case 'BUSY': this.model.set({'disposition': 'Занятость' });
+                break;
+            case 'ANSWERED': this.model.set({'disposition': 'Разговор' });
+                break;
+            case 'NO ANSWER': this.model.set({'disposition': 'Нет ответа' });
+                break;
+            case 'FAILED': this.model.set({'disposition': 'Ошибка на линии' });
+                break;
+        }
+        var tpl = _.template( this.template );
+            this.$el.html( tpl( this.model.toJSON() ) );
+            return this;
+        },
+        events: { 
+            'click td[data-phone]': 'addphone',
+            'click #play': 'playcall'
+        },
     
+    playcall: function(self) {
+        var id = $(self.target).data('id');
+        var audio = document.getElementById(id);
+        audio.addEventListener("ended", function(){
+            audio.currentTime = 0;
+                $(self.target).removeClass('_pause');
+            });
+        if ( audio.paused == false) {
+            audio.pause();
+            $(self.target).removeClass('_pause');
+        } else {
+            audio.play();
+            $(self.target).addClass('_pause');
+        }
+    },
+
     addphone: function(that) {
         var phone = $(that.target).data('phone');
         console.log(phone)
-        $('body').addClass('_hideCaller');
-        $('#callerWidget .phonenumber').val(phone);
     },
 
 });
@@ -523,13 +614,13 @@ var Router = Backbone.Router.extend({
     },
 
     index: function() {
-        this.loadView( new ContactsViewList() );
+        this.loadView( App.contactsViewList = new ContactsViewList() );
 
     },
     account: function() {
         this.loadView( new App.AccountView ( { model: App.user } ) );
         if (!this.view.model.isAuth) {
-            this.navigate('lofin', {trigger: true});
+            this.navigate('login', {trigger: true});
         }
     },
     register: function() {
@@ -556,13 +647,13 @@ var Router = Backbone.Router.extend({
     }
 });
 
-Backbone.history.start()
-App.router = new Router();
 App.user = new App.Login();
 
-App.router.navigate('', {trigger: true});
-
-if ( $.cookie('api_login') || $.cookie('api_key') || $.cookie('exten') || $.cookie('username') ) {
+// var url = window.location.hash;
+// console.log(url);
+// App.router.navigate('#calls', {trigger: true});
+new App.ContactViewCreate;
+if ( $.cookie('api_login') || $.cookie('api_key') ) {
     App.user.fetch({
         type: 'post',
         data: { 
@@ -571,22 +662,29 @@ if ( $.cookie('api_login') || $.cookie('api_key') || $.cookie('exten') || $.cook
         },
         error: function(model, xhr, options) {
             App.user.isAuth = false;
-            App.router.navigate('login', {trigger: true});
             
         },
         success: function() {
-            $('.user-login > .login').html(App.user.get('username') || App.user.get('login'));
             App.user.isAuth = true;
         }
     }).done(function() {
+        App.router = new Router();
+        Backbone.history.start();
+
         if (App.user.isAuth) {
-            App.router.view = new ContactsViewList();
-            App.router.navigate('#', {trigger: true});
+            App.router.navigate(location.hash, true)
+            $('.user-login > .login').html(App.user.get('username') || App.user.get('login'));
+            // var url = window.location.hash;
+            // App.router.navigate(url, {trigger: true});
+            // App.router.view = new ContactsViewList();
+            // App.router.navigate('', {trigger: true});
             } else {
                 App.router.navigate('login', {trigger: true});
             }
         })
 } else {
+    App.router = new Router();
+    Backbone.history.start();
     App.router.navigate('login', {trigger: true});
 }
 
