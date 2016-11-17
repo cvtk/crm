@@ -169,6 +169,10 @@ footer, header, hgroup, menu, nav, section {
 
 body {
   line-height: 1; }
+  body:after {
+    content: "";
+    display: table;
+    clear: both; }
 
 ol, ul {
   list-style: none; }
@@ -298,7 +302,7 @@ html, body {
     display: none; }
 
 header {
-  position: fixed;
+  position: relative;
   width: 100%;
   z-index: 2;
   background-color: #2b3643;
@@ -324,7 +328,6 @@ header {
 
 aside {
   min-height: 100%;
-  margin-top: 50px;
   position: relative;
   background-color: #364150;
   -webkit-transition: .35s ease-in-out;
@@ -336,12 +339,14 @@ aside {
     clear: both; }
 
 main {
+  overflow-y: scroll;
+  height: inherit;
   min-height: 100%;
   position: relative;
   margin-left: 235px;
   margin-right: 235px;
   background-color: #eef1f5;
-  padding: 50px 20px 10px;
+  padding: 0 20px 10px;
   -webkit-transition: .35s ease-in-out;
           transition: .35s ease-in-out; }
 
@@ -544,8 +549,7 @@ main {
   color: initial; }
 
 .action-wrapper {
-  position: relative;
-  height: inherit; }
+  position: relative; }
 
 .contact-create {
   display: none;
@@ -580,6 +584,23 @@ main {
     background-color: #eee;
     color: inherit;
     font-style: italic; }
+
+.calls-table > .header > tr > .userfield:hover {
+  background: inherit;
+  color: inherit;
+  cursor: default; }
+.calls-table > .header > tr > td > .icon:before {
+  font-family: "simple-line-icons";
+  content: "\e604";
+  font-size: 10px;
+  padding-left: 5px; }
+.calls-table > .header > tr > td._active {
+  background: #c6cfda; }
+.calls-table > .header > tr > td._asc > .icon:before {
+  content: "\e607"; }
+.calls-table > .header > tr > td:hover {
+  background: #c6cfda;
+  cursor: pointer; }
 
 @font-face {
   font-family: "simple-line-icons";
@@ -1169,9 +1190,8 @@ main {
 .main-bar {
   border-bottom: 1px solid #e7ecf1;
   position: relative;
-  padding: 0 20px;
-  margin: 25px -20px;
-  height: 55px; }
+  padding: 25px 20px;
+  margin: 0 -20px; }
   .main-bar > .menu-wrapper {
     height: inherit; }
     .main-bar > .menu-wrapper:after {
@@ -1216,7 +1236,6 @@ main {
       float: right;
       margin-right: 20px; }
     .main-bar > .menu-wrapper > .actions {
-      display: none;
       float: right; }
     .main-bar > .menu-wrapper:after {
       content: " ";
@@ -1353,7 +1372,12 @@ main {
 	<script id="tpl-calls-list" type="text/template">
 		<thead class="header">
 			<tr>
-				<td data-sortby="created">Дата и время</td><td data-sortby="src">Инициатор</td><td data-sortby="dst">Адресат</td><td data-sortby="disposition">Статус</td><td data-sortby="billsec">Длительность звонка</td><td data-sortby="created">Запись звонка</td>
+				<td data-sortby="created">Дата и время <span class="icon"></span></td>
+				<td data-sortby="src">Инициатор<span class="icon"></span></td>
+				<td data-sortby="dst">Адресат<span class="icon"></span></td>
+				<td data-sortby="disposition">Статус<span class="icon"></span></td>
+				<td data-sortby="billsec">Длительность звонка<span class="icon"></span></td>
+				<td class="userfield">Запись звонка</td>
 			</tr>
 		</thead>
 		<tbody class="content" id="callsViewList"></tbody>
@@ -1369,9 +1393,9 @@ main {
 		<td class="billsec"><%= billsec %></td>
 		<td class="audio-player">
 		<% if (billsec > 0) { %>
- 			<audio id="<%= uniqueid %>" src="/storage/calls/<%= userfield %>.wav" />
+ 			<audio id="<%= uniqueid %>" src="http://localhost/storage/calls/<%= userfield %>.wav" />
  			<span id="play" data-id="<%= uniqueid %>" class="icon-volume-2"></span>
- 			<a class="icon-paper-clip" href="/storage/calls/<%= userfield %>.wav"></a>
+ 			<a class="icon-paper-clip" href="http://localhost/storage/calls/<%= userfield %>.wav"></a>
 
 		<% } %>	
 		</td>

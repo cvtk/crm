@@ -111,7 +111,12 @@
 	<script id="tpl-calls-list" type="text/template">
 		<thead class="header">
 			<tr>
-				<td data-sortby="created">Дата и время</td><td data-sortby="src">Инициатор</td><td data-sortby="dst">Адресат</td><td data-sortby="disposition">Статус</td><td data-sortby="billsec">Длительность звонка</td><td data-sortby="created">Запись звонка</td>
+				<td data-sortby="created">Дата и время <span class="icon"></span></td>
+				<td data-sortby="src">Инициатор<span class="icon"></span></td>
+				<td data-sortby="dst">Адресат<span class="icon"></span></td>
+				<td data-sortby="disposition">Статус<span class="icon"></span></td>
+				<td data-sortby="billsec">Длительность звонка<span class="icon"></span></td>
+				<td class="userfield">Запись звонка</td>
 			</tr>
 		</thead>
 		<tbody class="content" id="callsViewList"></tbody>
@@ -127,9 +132,9 @@
 		<td class="billsec"><%= billsec %></td>
 		<td class="audio-player">
 		<% if (billsec > 0) { %>
- 			<audio id="<%= uniqueid %>" src="/storage/calls/<%= userfield %>.wav" />
+ 			<audio id="<%= uniqueid %>" src="http://localhost/storage/calls/<%= userfield %>.wav" />
  			<span id="play" data-id="<%= uniqueid %>" class="icon-volume-2"></span>
- 			<a class="icon-paper-clip" href="/storage/calls/<%= userfield %>.wav"></a>
+ 			<a class="icon-paper-clip" href="http://localhost/storage/calls/<%= userfield %>.wav"></a>
 
 		<% } %>	
 		</td>
