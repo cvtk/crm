@@ -2,7 +2,7 @@
 
 var App = {};
 App.Login = Backbone.Model.extend({
-    urlRoot : 'http://localhost/api/auth',
+    urlRoot : '/api/auth',
     isAuth: 0,
     initialize: function() {}
 });
@@ -120,7 +120,7 @@ var Contact = Backbone.Model.extend();
 
 var Contacts = Backbone.Collection.extend({
     model: Contact,
-    url: 'http://localhost/api/contacts'
+    url: '/api/contacts'
 });
 
 App.ContactViewCreate = Backbone.View.extend({
@@ -175,7 +175,7 @@ App.ContactViewCreate = Backbone.View.extend({
                         },
                         type: 'post',
                         
-                        url: 'http://localhost/api/contacts/add',
+                        url: '/api/contacts/add',
 
                         error: function() {
                             App.user.isAuth = false;
