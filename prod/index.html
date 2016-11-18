@@ -39,8 +39,7 @@
         padding-bottom: 5px;
         text-align: left;
         white-space: pre;
-        -webkit-transition: .35s ease;
-                transition: .35s ease; }
+        transition: .35s ease; }
         .caller-widget > .widget-layer > .sms-list > .item:hover {
           color: #79869a; }
     .caller-widget > .widget-layer > .sms-message {
@@ -80,8 +79,7 @@
       border-radius: 30px;
       cursor: pointer;
       margin: 20px 5px;
-      -webkit-transition: .35s ease;
-              transition: .35s ease; }
+      transition: .35s ease; }
       .caller-widget > .widget-layer > .icon:hover {
         border-color: #32c5d2;
         background-color: #32c5d2;
@@ -117,8 +115,7 @@
 
 .contacts-table > .content > tr > .phone {
   cursor: pointer;
-  -webkit-transition: color .35s ease-in-out;
-          transition: color .35s ease-in-out; }
+  transition: color .35s ease-in-out; }
   .contacts-table > .content > tr > .phone:hover {
     color: #32c5d2; }
 .contacts-table > .content > tr > td > .actions {
@@ -199,8 +196,12 @@ table {
     vertical-align: middle;
     border-top: 1px solid #e7ecf1;
     cursor: pointer;
-    -webkit-transition: .35s ease;
-            transition: .35s ease; }
+    transition: .35s ease; }
+  table > tbody > tr > td > span[data-phone] {
+    cursor: pointer;
+    transition: color .35s ease; }
+    table > tbody > tr > td > span[data-phone]:hover {
+      color: #32c5d2; }
   table > tbody > tr > td {
     text-align: center;
     max-width: 50px;
@@ -216,8 +217,7 @@ button {
   font-weight: 300;
   text-align: center;
   vertical-align: middle;
-  -ms-touch-action: manipulation;
-      touch-action: manipulation;
+  touch-action: manipulation;
   cursor: pointer;
   border: 1px solid #32c5d2;
   white-space: nowrap;
@@ -230,8 +230,7 @@ button {
   user-select: none;
   color: #32c5d2;
   background: 0 0;
-  -webkit-transition: all .35s ease;
-          transition: all .35s ease;
+  transition: all .35s ease;
   outline: 0; }
   button:hover {
     border-color: #32c5d2;
@@ -252,8 +251,7 @@ input {
   color: #32c5d2;
   border: 1px solid #32c5d2;
   outline: none;
-  -webkit-transition: all .35s ease;
-          transition: all .35s ease; }
+  transition: all .35s ease; }
   input::-webkit-input-placeholder {
     color: #32c5d2; }
   input::-moz-placeholder {
@@ -330,8 +328,7 @@ aside {
   min-height: 100%;
   position: relative;
   background-color: #364150;
-  -webkit-transition: .35s ease-in-out;
-          transition: .35s ease-in-out;
+  transition: .35s ease-in-out;
   z-index: 1; }
   aside:after {
     content: " ";
@@ -347,8 +344,7 @@ main {
   margin-right: 235px;
   background-color: #eef1f5;
   padding: 0 20px 10px;
-  -webkit-transition: .35s ease-in-out;
-          transition: .35s ease-in-out; }
+  transition: .35s ease-in-out; }
 
 .ajax-loader {
   position: absolute;
@@ -364,8 +360,7 @@ main {
   color: #fff;
   text-decoration: none;
   text-align: center;
-  -webkit-transition: .35s ease-in-out;
-          transition: .35s ease-in-out;
+  transition: .35s ease-in-out;
   overflow: hidden; }
   .logo > ._h {
     color: #ff3f3f; }
@@ -373,8 +368,7 @@ main {
 .user-login {
   text-align: center;
   cursor: pointer;
-  -webkit-transition: background .35s ease-in-out;
-          transition: background .35s ease-in-out; }
+  transition: background .35s ease-in-out; }
   .user-login:hover {
     background: #3f4f62; }
   .user-login > .thumb {
@@ -392,8 +386,7 @@ main {
 
 .telephone-trigger {
   font-size: 18px;
-  -webkit-transition: background .35s ease-in-out;
-          transition: background .35s ease-in-out;
+  transition: background .35s ease-in-out;
   color: #79869a;
   cursor: pointer;
   text-align: center;
@@ -423,15 +416,13 @@ main {
       .menu-widget > .main-menu > .item > .link:hover {
         background: #2C3542; }
       .menu-widget > .main-menu > .item > .link > i {
-        -webkit-transition: .35s ease-in-out;
-                transition: .35s ease-in-out; }
+        transition: .35s ease-in-out; }
 
 .audio-player > .icon-volume-2, .audio-player .icon-paper-clip {
   display: inline-block;
   text-align: center;
   vertical-align: middle;
-  -ms-touch-action: manipulation;
-      touch-action: manipulation;
+  touch-action: manipulation;
   cursor: pointer;
   border: 1px solid #32c5d2;
   white-space: nowrap;
@@ -444,8 +435,7 @@ main {
   user-select: none;
   color: #32c5d2;
   background: 0 0;
-  -webkit-transition: all .35s ease;
-          transition: all .35s ease;
+  transition: all .35s ease;
   text-decoration: none; }
   .audio-player > .icon-volume-2._pause:before, .audio-player .icon-paper-clip._pause:before {
     content: "\e072"; }
@@ -495,8 +485,7 @@ main {
       margin-bottom: 15px;
       text-align: left;
       padding: 6px 12px;
-      -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-              transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+      transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
       font-size: 14px;
       line-height: 1.42857; }
     .login-screen > .login-form > .phone, .login-screen > .login-form .exten {
@@ -508,8 +497,7 @@ main {
       margin-bottom: 15px;
       text-align: left;
       padding: 6px 12px;
-      -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-              transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+      transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
       font-size: 14px;
       line-height: 1.42857; }
     .login-screen > .login-form > .exten {
@@ -532,8 +520,7 @@ main {
       background-color: #6c7a8d;
       text-decoration: none;
       text-transform: uppercase;
-      -webkit-transition: .35s ease;
-              transition: .35s ease; }
+      transition: .35s ease; }
       .login-screen > .login-form > .create:hover {
         color: #fff; }
 
@@ -563,7 +550,7 @@ main {
     display: table;
     clear: both; }
   .contact-create > .create {
-    margin: 10px 0;
+    margin: 10px 0 10px 15px;
     float: right;
     background: #32c5d2;
     color: #fff; }
@@ -601,6 +588,43 @@ main {
 .calls-table > .header > tr > td:hover {
   background: #c6cfda;
   cursor: pointer; }
+.calls-table > .content > tr > td > .addtocontacts {
+  transition: color .35s ease;
+  cursor: pointer; }
+  .calls-table > .content > tr > td > .addtocontacts:hover {
+    color: #32c5d2; }
+  .calls-table > .content > tr > td > .addtocontacts:before {
+    content: "\e060";
+    font-family: "simple-line-icons";
+    font-size: 14px;
+    padding-left: 5px; }
+
+.contacts-table > .header > tr > .comments:hover {
+  background: inherit;
+  color: inherit;
+  cursor: default; }
+.contacts-table > .header > tr > td > .icon:before {
+  font-family: "simple-line-icons";
+  content: "\e604";
+  font-size: 10px;
+  padding-left: 5px; }
+.contacts-table > .header > tr > td._active {
+  background: #c6cfda; }
+.contacts-table > .header > tr > td._asc > .icon:before {
+  content: "\e607"; }
+.contacts-table > .header > tr > td:hover {
+  background: #c6cfda;
+  cursor: pointer; }
+.contacts-table > .content > tr > td > .addtocontacts {
+  transition: color .35s ease;
+  cursor: pointer; }
+  .contacts-table > .content > tr > td > .addtocontacts:hover {
+    color: #32c5d2; }
+  .contacts-table > .content > tr > td > .addtocontacts:before {
+    content: "\e060";
+    font-family: "simple-line-icons";
+    font-size: 14px;
+    padding-left: 5px; }
 
 @font-face {
   font-family: "simple-line-icons";
@@ -1198,6 +1222,20 @@ main {
       content: "";
       display: table;
       clear: both; }
+    .main-bar > .menu-wrapper > .save {
+      float: right; }
+      .main-bar > .menu-wrapper > .save > .icon:before {
+        font-family: "simple-line-icons";
+        content: "\e05f";
+        font-size: 14px;
+        padding-left: 5px; }
+    .main-bar > .menu-wrapper > .logout {
+      float: right; }
+      .main-bar > .menu-wrapper > .logout > .icon:before {
+        font-family: "simple-line-icons";
+        content: "\e065";
+        font-size: 14px;
+        padding-left: 5px; }
     .main-bar > .menu-wrapper > .newcontact {
       float: right; }
       .main-bar > .menu-wrapper > .newcontact > .icon:before {
@@ -1215,8 +1253,7 @@ main {
       border: 1px solid #32c5d2; }
       .main-bar > .menu-wrapper > .action-menu > .item {
         color: #32c5d2;
-        -webkit-transition: .35s ease;
-                transition: .35s ease;
+        transition: .35s ease;
         cursor: pointer;
         padding: 10px 20px; }
         .main-bar > .menu-wrapper > .action-menu > .item:hover {
@@ -1227,7 +1264,7 @@ main {
       letter-spacing: -1px;
       font-weight: 400;
       float: left;
-      width: 45%; }
+      width: 55%; }
       .main-bar > .menu-wrapper > .title > .subtitle {
         font-size: 14px;
         letter-spacing: 0;
@@ -1245,8 +1282,7 @@ main {
 .menu-trigger {
   position: relative;
   cursor: pointer;
-  -webkit-transition: opacity .35s ease-in-out;
-          transition: opacity .35s ease-in-out; }
+  transition: opacity .35s ease-in-out; }
   .menu-trigger:hover {
     opacity: .7; }
   .menu-trigger > .item, .menu-trigger .item:before, .menu-trigger .item:after {
@@ -1267,6 +1303,8 @@ main {
     top: -6px;
     left: 0;
     content: ''; }
+
+/*# sourceMappingURL=inline.css.map */
 
 	</style>
 	<!--[if lt IE 9]>
@@ -1357,13 +1395,18 @@ main {
 				</tr>
 			</tbody>
 		</table>
+		<button class="create" id="closeContact">Закрыть</button>
 		<button class="create" id="saveContact">Сохранить</button>
 	</script>
 
 	<script id="tpl-contacts-list" type="text/template">
 			<thead class="header">
 				<tr>
-					<td>Должник</td><td>Телефон</td><td>Дополнительный контакт</td><td>Комментарий</td>
+					<td data-sortby="id">ИН должника<span class="icon"></span></td>
+					<td data-sortby="name">Должник<span class="icon"></span></td>
+					<td data-sortby="phone">Телефон<span class="icon"></span></td>
+					<td data-sortby="family">Дополнительный контакт<span class="icon"></span></td>
+					<td class="comments">Комментарий</td>
 				</tr>
 			</thead>
 			<tbody class="content" id="contactsViewList"></tbody>
@@ -1385,10 +1428,14 @@ main {
 
 	<script id="tpl-call-line" type="text/template">
 		<td class="created"><%= calldate %></td>
-		<td class="src" date-phone="<%= src %>" id="phoneId-<%= uniqueid %>">
-			<%= srcname.length > 0  ? srcname: src %>
+		<td class="src">
+			<span data-phone="<%= src %>"><%= srcname.length > 0  ? srcname: src %></span>
+			<%= srcname.length > 0  ? '' : '<span class="addtocontacts" id="addToContacts" title="Добавить контакт"></span>' %>
 		</td>
-		<td class="dst" date-phone="<%= dst %>"><%= dstname.length > 0  ? dstname: dst %></td>
+		<td class="dst">
+			<span data-phone="<%= dst %>"><%= dstname.length > 0  ? dstname: dst %></span>
+			<%= dstname.length > 0  ? '' : '<span class="addtocontacts" id="addToContacts" title="Добавить контакт"></span>' %>
+		</td>
 		<td class="disposition"><%= disposition %></td>
 		<td class="billsec"><%= billsec %></td>
 		<td class="audio-player">
@@ -1402,8 +1449,9 @@ main {
 	</script>
 
 	<script id="tpl-contact-line" type="text/template">
+		<td class="id"><%= id %></td>
 		<td class="name"><%= name %></td>
-		<td class="phone"date-phone="<%= phone %>"><%= phone %></td>
+		<td class="phone"data-phone="<%= phone %>"><%= phone %></td>
 		<td class="family"><%= family %></td>
 		<td class="comment"><%= comment %></td>
 	</script>
@@ -1441,14 +1489,12 @@ main {
 
 	<script id="tpl-account" type="text/template">
 		<div class="account-form">
-			<label>Логин:</label><input class="login" type="text" placeholder="Логин для входа в систему" value="<%= login %>">
-			<label>Пароль: </label><input class="password" type="password" placeholder="Пароль" value="<%= password %>">
+			<label>Логин:</label><input class="login" disabled type="text" placeholder="Логин для входа в систему" value="<%= login %>">
+			<label>Пароль: </label><input class="password" disabled type="password" placeholder="Пароль" value="<%= password %>">
 			<label>Ваше имя</label><input class="name" type="text" placeholder="Ваше имя" value="<%= username %>">
 			<label>Мобильный телефон</label><input class="mobile" type="tel" placeholder="Номер мобильного телефона" value="<%= mobilephone %>">
 			<label>Внутренний телефон</label><input class="exten" type="tel" placeholder="Внутренний номер" value="<%= exten %>">
 			<label>Городской телефон</label><input class="phone" type="tel" placeholder="Городской номер" value="<%= phone %>">
-
-			<button class="submit">Сохранить</button>
 			<span class="result"></span>
 		</div>
 	</div>

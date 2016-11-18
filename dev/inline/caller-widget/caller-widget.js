@@ -1,6 +1,6 @@
 var checkPhone = function() {
 		var phone = $('#callerWidget .phonenumber').val();
-		return (!isNaN(phone.substr(phone.length - 10)) && (phone.length > 5));
+		return (phone.length > 5);
 	}
 
 showResult = function(message) {
@@ -14,7 +14,7 @@ showResult = function(message) {
 	$('#callerWidget .icon-volume-2').bind('click', function() {
 			$.ajax({
 					type: 'post',
-					url: '/api/call',
+					url: 'http://localhost/api/call',
           data: {
               token: App.user.get('password'),
               action: 'whisper'
@@ -39,7 +39,7 @@ showResult = function(message) {
 		if (checkPhone()) {
 			$.ajax({
 					type: 'post',
-					url: '/api/call',
+					url: 'http://localhost/api/call',
           data: {
               token: App.user.get('password'),
               number: $('#callerWidget .phonenumber').val(),
@@ -78,7 +78,7 @@ showResult = function(message) {
 		$.ajax({
 		dataType: 'json',
 		type: 'post',
-		url: '/api/sms/templates',
+		url: 'http://localhost/api/sms/templates',
 		success: function(response) {
 			if (response.length) {
 				$('#callerWidget .sms-list').html('');
@@ -94,12 +94,12 @@ showResult = function(message) {
 								$.ajax({
 								dataType: 'json',
 								type: 'post',
-								url: '/api/sms/send',
+								url: 'http://localhost/api/sms/send',
 								data: {
 									'template': $('#callerWidget .sms-list input:checked').val(),
 									'phone': $('#callerWidget .phonenumber').val()},
 								success: function(response) {
-									if(response.substring(0,3) == '100') {
+									if(response.substring(0,2) == 'OK') {
 										$('#callerWidget .icon-bubble').trigger('toggleMenu');
 										showResult('Сообщение успешно отправлено');
 									} else {
@@ -118,12 +118,43 @@ showResult = function(message) {
 	})
 
 	$('#callerWidget .phonenumber')
-	.keyup(function() {
+	.keyup(function(e) {
+		if(e.keyCode == 13)
+    {
+      if (checkPhone()) {
+				$.ajax({
+						type: 'post',
+						url: 'http://localhost/api/call',
+	          data: {
+	              token: App.user.get('password'),
+	              number: $('#callerWidget .phonenumber').val(),
+	              action: 'originate'
+	          },
+	          beforeSend: function() {
+	          	showResult('Набор внутреннего номера...');
+	          },
+	          error: function(model, xhr, options) {
+	              App.user.isAuth = false;
+	              App.router.navigate('login', {trigger: true});
+	            
+	          },
+	          success: function() {
+	          	showResult('Набор внутреннего номера...');
+	          }
+	      }).done(function() {
+	        showResult('Соединение...');
+	      });
+			}
+    }
+    if(e.keyCode == 27) {
+    	$('body').toggleClass('_hideCaller');
+    }
+
 		if ($(this).val().length > 1)  {
 			$.ajax({
 				type: 'post',
 				dataType: "json",
-				url: '/api/contacts/search',
+				url: 'http://localhost/api/contacts/search',
 				data: { 
 					'search': $(this).val(),
 					'token' : App.user.get('password')
