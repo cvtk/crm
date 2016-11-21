@@ -2,7 +2,7 @@
 
 var App = {};
 App.Login = Backbone.Model.extend({
-    url : 'http://localhost/api/auth',
+    url : '/api/auth',
     isAuth: false,
     api_login: '',
     api_key: '',
@@ -61,7 +61,7 @@ App.AccountView = Backbone.View.extend({
     $('.main-bar > .menu-wrapper').append('<button class="save" title="Сохранить изменения">Сохранить<span class="icon"></span></button>');
     $('.main-bar > .menu-wrapper > .save').click(function() {
         $.ajax({
-            url: 'http://localhost/api/account/change',
+            url: '/api/account/change',
             type: 'post',
             data: {
                 login: App.user.get('login'),
@@ -69,11 +69,14 @@ App.AccountView = Backbone.View.extend({
                 username: self.$el.find('.name').val(),
                 exten: self.$el.find('.exten').val(),
                 phone: self.$el.find('.phone').val(),
-                mobilephone: self.$el.find('.mobilephone').val()
+                mobilephone: self.$el.find('.mobile').val()
             },
             success: function() {
-                console.log('ok');
                 App.router.navigate('', {trigger: true});
+                self.model.fetch().done(function() {
+                    $('.user-login > .login').html(App.user.get('username') || App.user.get('login'));
+                });
+                
             },
             error: function(opt, xhr) {
                 console.loq('errr');
@@ -117,7 +120,7 @@ App.RegisterView = Backbone.View.extend({
             mobile = $('#registerScreen .mobile').val() || $('#registerScreen .mobile').css({'border-color': 'red'});
             $.ajax({
                 type: 'post',
-                url: 'http://localhost/api/register',
+                url: '/api/register',
                 data: {
                     login: login,
                     username: name,
@@ -168,7 +171,7 @@ App.LoginView = Backbone.View.extend({
             self.model.fetch({
                 data: {username: username, password: password},
                 type: 'post',
-                url: 'http://localhost/api/login',
+                url: '/api/login',
                 success: function() {
                     $.cookie('api_login', self.model.get('login'), { experes: 365 });
                     $.cookie('api_key', self.model.get('password'), { experes: 365 });
@@ -251,7 +254,7 @@ App.ContactViewCreate = Backbone.View.extend({
                         },
                         type: 'post',
                         
-                        url: 'http://localhost/api/contacts/add',
+                        url: '/api/contacts/add',
 
                         error: function() {
                             App.user.isAuth = false;
@@ -277,7 +280,7 @@ App.ContactViewCreate = Backbone.View.extend({
 
 var Contacts = Backbone.Collection.extend({
     model: Contact,
-    url: 'http://localhost/api/contacts',
+    url: '/api/contacts',
     offset: 0,
     sortby: 'id',
     asc: 0,
@@ -427,7 +430,7 @@ var ContactsViewList = Backbone.View.extend({
 var Call = Backbone.Model.extend();
 var Calls = Backbone.Collection.extend({
     model: Call,
-    url: 'http://localhost/api/calls',
+    url: '/api/calls',
     offset: 0,
     sortby: 'created',
     asc: 0,

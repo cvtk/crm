@@ -14,7 +14,7 @@ showResult = function(message) {
 	$('#callerWidget .icon-volume-2').bind('click', function() {
 			$.ajax({
 					type: 'post',
-					url: 'http://localhost/api/call',
+					url: '/api/call',
           data: {
               token: App.user.get('password'),
               action: 'whisper'
@@ -39,7 +39,7 @@ showResult = function(message) {
 		if (checkPhone()) {
 			$.ajax({
 					type: 'post',
-					url: 'http://localhost/api/call',
+					url: '/api/call',
           data: {
               token: App.user.get('password'),
               number: $('#callerWidget .phonenumber').val(),
@@ -78,7 +78,7 @@ showResult = function(message) {
 		$.ajax({
 		dataType: 'json',
 		type: 'post',
-		url: 'http://localhost/api/sms/templates',
+		url: '/api/sms/templates',
 		success: function(response) {
 			if (response.length) {
 				$('#callerWidget .sms-list').html('');
@@ -94,7 +94,7 @@ showResult = function(message) {
 								$.ajax({
 								dataType: 'json',
 								type: 'post',
-								url: 'http://localhost/api/sms/send',
+								url: '/api/sms/send',
 								data: {
 									'template': $('#callerWidget .sms-list input:checked').val(),
 									'phone': $('#callerWidget .phonenumber').val()},
@@ -124,7 +124,7 @@ showResult = function(message) {
       if (checkPhone()) {
 				$.ajax({
 						type: 'post',
-						url: 'http://localhost/api/call',
+						url: '/api/call',
 	          data: {
 	              token: App.user.get('password'),
 	              number: $('#callerWidget .phonenumber').val(),
@@ -154,7 +154,7 @@ showResult = function(message) {
 			$.ajax({
 				type: 'post',
 				dataType: "json",
-				url: 'http://localhost/api/contacts/search',
+				url: '/api/contacts/search',
 				data: { 
 					'search': $(this).val(),
 					'token' : App.user.get('password')

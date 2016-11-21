@@ -1460,10 +1460,10 @@ main {
 		<td class="disposition"><%= disposition %></td>
 		<td class="billsec"><%= billsec %></td>
 		<td class="audio-player">
-		<% if (billsec > 0) { %>
- 			<audio id="<%= uniqueid %>" src="http://localhost/storage/calls/<%= userfield %>.wav" />
+		<% if (disposition == 'Разговор') { %>
+ 			<audio id="<%= uniqueid %>" src="/storage/calls/<%= userfield %>.wav" />
  			<span id="play" data-id="<%= uniqueid %>" class="icon-volume-2"></span>
- 			<a class="icon-paper-clip" href="http://localhost/storage/calls/<%= userfield %>.wav"></a>
+ 			<a class="icon-paper-clip" href="/storage/calls/<%= userfield %>.wav"></a>
 
 		<% } %>	
 		</td>
